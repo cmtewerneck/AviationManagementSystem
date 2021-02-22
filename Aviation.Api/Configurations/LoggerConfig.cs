@@ -1,12 +1,12 @@
-﻿using System;
-using Elmah.Io.AspNetCore;
+﻿using Elmah.Io.AspNetCore;
 using Elmah.Io.AspNetCore.HealthChecks;
 using Elmah.Io.Extensions.Logging;
+using HealthChecks.SqlServer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using HealthChecks.SqlServer;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace AviationManagementApi.Api.Configuration
 {
@@ -31,7 +31,7 @@ namespace AviationManagementApi.Api.Configuration
                 builder.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
             });
 
-            // ERRO NA MIGRAÇÃO
+            // ERRO NA MIGRAÇÃO!!! SqlServerHealthCheck dando erro
             services.AddHealthChecks()
                 .AddElmahIoPublisher(options =>
                 {
@@ -39,7 +39,7 @@ namespace AviationManagementApi.Api.Configuration
                     options.LogId = new Guid("ea02a15a-2559-42ac-905b-7c6a2ba712fb");
                     options.HeartbeatId = "Aviation Management System - API";
                 })
-                //.AddCheck("Produtos", new SqlServerHealthCheck(configuration.GetConnectionString("DefaultConnection")))
+                .AddCheck("Produtos", new SqlServerHealthCheck(configuration.GetConnectionString("DefaultConnection")))
                 .AddSqlServer(configuration.GetConnectionString("DefaultConnection"), name: "BancoSQL");
 
             return services;
