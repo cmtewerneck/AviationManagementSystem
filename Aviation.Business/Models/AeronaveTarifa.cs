@@ -11,7 +11,7 @@ namespace AviationManagementApi.Business.Models
         public string Numeracao { get; set; } // OBRIGATÓRIO (1,30)
         public OrgaoEmissorTarifaEnum OrgaoEmissorTarifa { get; set; }
 
-        public Aeronave Aeronave { get; set; } // OBRIGATÓRIO
-        public Guid AeronaveId { get; set; }
+        public Aeronave Aeronave { get; set; } 
+        public Guid AeronaveId { get; set; } // OBRIGATÓRIO
     }
 }

@@ -8,7 +8,7 @@ namespace AviationManagementApi.Business.Models
         public int Quantidade { get; set; } // OBRIGATÓRIO > 0
         public TipoMovimentacaoEnum TipoMovimentacaoEnum { get; set; } // OBRIGATÓRIO
 
-        public Suprimento Item { get; set; } // OBRIGATÓRIO
-        public Guid ItemId { get; set; }
+        public Suprimento Item { get; set; } 
+        public Guid ItemId { get; set; } // OBRIGATÓRIO
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "araAJwK10PMvUo6a49LztURAthq+Gr+6rqSYzf/Txsk0Zl4N60ei+i35cRIDJpn6LM6qsUgh3C2q9wJZ2xnW8Q==",
+  "dgSpecHash": "7uFLU0olZwwr7OVO3IBYYA1zbF/gdYWGkOIc+QyubJPeV8eNrKeSTRetY8j5V2FUzdZGAavIhv7vDj6sPqz4TA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Thiago Werneck\\Desktop\\Aviation\\Aviation.Api\\AviationManagementSystem.Api.csproj",
+  "projectFilePath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Api\\AviationManagementSystem.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\aspnetcore.healthchecks.sqlserver\\5.0.2\\aspnetcore.healthchecks.sqlserver.5.0.2.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\aspnetcore.healthchecks.ui\\5.0.1\\aspnetcore.healthchecks.ui.5.0.1.nupkg.sha512",
@@ -37,6 +37,7 @@
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.aspnetcore.identity\\2.2.0\\microsoft.aspnetcore.identity.2.2.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\5.0.3\\microsoft.aspnetcore.identity.entityframeworkcore.5.0.3.nupkg.sha512",
+    "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\5.0.3\\microsoft.aspnetcore.identity.ui.5.0.3.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\2.2.0\\microsoft.aspnetcore.jsonpatch.2.2.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.aspnetcore.mvc.core\\2.2.0\\microsoft.aspnetcore.mvc.core.2.2.0.nupkg.sha512",
@@ -75,6 +76,7 @@
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks\\5.0.1\\microsoft.extensions.diagnostics.healthchecks.5.0.1.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks.abstractions\\5.0.1\\microsoft.extensions.diagnostics.healthchecks.abstractions.5.0.1.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\5.0.0\\microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\5.0.3\\microsoft.extensions.fileproviders.embedded.5.0.3.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\2.1.0\\microsoft.extensions.fileproviders.physical.2.1.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\2.1.0\\microsoft.extensions.filesystemglobbing.2.1.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.extensions.hosting\\2.1.0\\microsoft.extensions.hosting.2.1.0.nupkg.sha512",

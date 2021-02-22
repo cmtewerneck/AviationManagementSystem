@@ -7,9 +7,9 @@ namespace AviationManagementApi.Business.Models
         public decimal? Custo { get; set; } // OPCIONAL >= 0
         public ItemOrdemServicoStatusEnum Status { get; set; } // OBRIGATÓRIO
 
-        public OrdemServico OrdemServico { get; set; } // OBRIGATÓRIO
-        public Guid OrdemServicoId { get; set; }
-        public Servico Servico { get; set; } // OBRIGATÓRIO
-        public Guid ServicoId { get; set; }
+        public OrdemServico OrdemServico { get; set; } 
+        public Guid OrdemServicoId { get; set; } // OBRIGATÓRIO
+        public Servico Servico { get; set; } 
+        public Guid ServicoId { get; set; } // OBRIGATÓRIO
     }
 }

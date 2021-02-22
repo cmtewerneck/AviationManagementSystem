@@ -29,7 +29,7 @@ namespace AviationManagementApi.Business.Models
         
         public string Imagem { get; set; } // OPCIONAL
 
-        /* EF Relations */
+        // RELATIONSHIP
         public IEnumerable<AeronaveAbastecimento> AeronavesAbastecimentos { get; set; }
         public IEnumerable<AeronaveTarifa> AeronaveTarifas { get; set; }
         public IEnumerable<VooAgendado> VoosAgendados { get; set; }

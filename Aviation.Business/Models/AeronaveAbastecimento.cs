@@ -16,7 +16,7 @@ namespace AviationManagementApi.Business.Models
 
         public string Comprovante { get; set; } // OPCIONAL
 
-        public Aeronave Aeronave { get; set; } // OBRIGATÓRIO
-        public Guid AeronaveId { get; set; }
+        public Aeronave Aeronave { get; set; } 
+        public Guid AeronaveId { get; set; } // OBRIGATÓRIO
     }
 }

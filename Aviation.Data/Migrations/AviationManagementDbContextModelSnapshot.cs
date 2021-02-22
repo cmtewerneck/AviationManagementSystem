@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Aviation.Data.Migrations
+namespace AviationManagementSystem.Data.Migrations
 {
     [DbContext(typeof(AviationManagementDbContext))]
     partial class AviationManagementDbContextModelSnapshot : ModelSnapshot
@@ -45,7 +45,7 @@ namespace Aviation.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Imagem")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Matricula")
                         .IsRequired()
@@ -121,7 +121,7 @@ namespace Aviation.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comprovante")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Cupom")
                         .IsRequired()
@@ -485,7 +485,7 @@ namespace Aviation.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Arquivo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<DateTime?>("DataEmenda")
                         .HasColumnType("datetime2");
@@ -516,7 +516,7 @@ namespace Aviation.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Arquivo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("DataRevisao")
                         .HasColumnType("datetime2");
@@ -549,7 +549,7 @@ namespace Aviation.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Arquivo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("ModeloAeronave")
                         .IsRequired()
@@ -571,7 +571,7 @@ namespace Aviation.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Arquivo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Assunto")
                         .IsRequired()
@@ -612,7 +612,7 @@ namespace Aviation.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Arquivo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Assunto")
                         .IsRequired()
@@ -736,7 +736,7 @@ namespace Aviation.Data.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("Imagem")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -845,7 +845,7 @@ namespace Aviation.Data.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("Imagem")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Localizacao")
                         .HasMaxLength(30)
@@ -939,7 +939,7 @@ namespace Aviation.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Imagem")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<int?>("KmAtual")
                         .HasColumnType("int");

@@ -21,8 +21,8 @@ namespace AviationManagementApi.Business.Models
         public string InspecionadoPorAnac { get; set; } // OPCIONAL (6)
         public DateTime? DataInspecao { get; set; } // OPCIONAL
 
-        public Aeronave Aeronave { get; set; } // OBRIGATÓRIO
-        public Guid AeronaveId { get; set; }
+        public Aeronave Aeronave { get; set; } 
+        public Guid AeronaveId { get; set; } // OBRIGATÓRIO
         public IEnumerable<ItemOrdemServico> Itens { get; set; }
     }
 }

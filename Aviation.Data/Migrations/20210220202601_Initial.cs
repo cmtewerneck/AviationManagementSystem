@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Aviation.Data.Migrations
+namespace AviationManagementSystem.Data.Migrations
 {
     public partial class Initial : Migration
     {
@@ -33,7 +33,7 @@ namespace Aviation.Data.Migrations
                     Motor = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true),
                     ModeloMotor = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true),
                     NumeroSerieMotor = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true),
-                    Imagem = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Imagem = table.Column<string>(type: "varchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -79,7 +79,7 @@ namespace Aviation.Data.Migrations
                     Numero = table.Column<int>(type: "int", nullable: false),
                     Emenda = table.Column<int>(type: "int", nullable: true),
                     DataEmenda = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Arquivo = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Arquivo = table.Column<string>(type: "varchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -96,7 +96,7 @@ namespace Aviation.Data.Migrations
                     RevisaoAtual = table.Column<int>(type: "int", nullable: false),
                     DataRevisao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RevisaoAnalise = table.Column<int>(type: "int", nullable: true),
-                    Arquivo = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Arquivo = table.Column<string>(type: "varchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -110,7 +110,7 @@ namespace Aviation.Data.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ModeloAeronave = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
                     UltimaRevisao = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Arquivo = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Arquivo = table.Column<string>(type: "varchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -128,7 +128,7 @@ namespace Aviation.Data.Migrations
                     Responsavel = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true),
                     Destinatario = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
                     Assunto = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
-                    Arquivo = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Arquivo = table.Column<string>(type: "varchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -144,7 +144,7 @@ namespace Aviation.Data.Migrations
                     Numeracao = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
                     Assunto = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     Remetente = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
-                    Arquivo = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Arquivo = table.Column<string>(type: "varchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -164,7 +164,7 @@ namespace Aviation.Data.Migrations
                     Ativo = table.Column<bool>(type: "bit", nullable: false),
                     Telefone = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true),
                     Email = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
-                    Imagem = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Imagem = table.Column<string>(type: "varchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -200,7 +200,7 @@ namespace Aviation.Data.Migrations
                     Capitulo = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true),
                     SerialNumber = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true),
                     Doc = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true),
-                    Imagem = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Imagem = table.Column<string>(type: "varchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -220,7 +220,7 @@ namespace Aviation.Data.Migrations
                     Modelo = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
                     Renavam = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
                     TipoCombustivel = table.Column<int>(type: "int", nullable: false),
-                    Imagem = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Imagem = table.Column<string>(type: "varchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -241,7 +241,7 @@ namespace Aviation.Data.Migrations
                     Responsavel = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
                     Valor = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     Observacoes = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
-                    Comprovante = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Comprovante = table.Column<string>(type: "varchar(100)", nullable: true),
                     AeronaveId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>

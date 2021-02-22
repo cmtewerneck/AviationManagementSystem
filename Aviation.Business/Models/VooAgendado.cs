@@ -13,7 +13,7 @@ namespace AviationManagementApi.Business.Models
         public string BackgroundColor { get; set; } // OBRIGATÓRIO (1,20)
         public string TextColor { get; set; } // OBRIGATÓRIO (1,20)
 
-        public Aeronave Aeronave { get; set; } // OBRIGATÓRIO
-        public Guid AeronaveId { get; set; }
+        public Aeronave Aeronave { get; set; } 
+        public Guid AeronaveId { get; set; } // OBRIGATÓRIO
     }
 }

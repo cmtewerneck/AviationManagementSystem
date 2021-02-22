@@ -9,8 +9,8 @@ namespace AviationManagementApi.Business.Models
         public DateTime DataInicio { get; set; } // OBRIGATÓRIO
         public DateTime? DataTermino { get; set; } // OPCIONAL
 
-        public Curso Curso { get; set; } // OBRIGATÓRIO
-        public Guid CursoId { get; set; }
+        public Curso Curso { get; set; } 
+        public Guid CursoId { get; set; } // OBRIGATÓRIO
         public IEnumerable<AlunoTurma> AlunosTurmas { get; set; }
     }
 }

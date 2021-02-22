@@ -83,7 +83,7 @@ namespace AviationManagementApi.Api.Configuration
         {
             var info = new OpenApiInfo()
             {
-                Title = "API - Aviation Management",
+                Title = "API - Aviation Management System",
                 Version = description.ApiVersion.ToString(),
                 Description = "API desenvolvida para a gestão de empresas aéreas.",
                 Contact = new OpenApiContact() { Name = "Thiago Werneck", Email = "contato@aviationmanagement.com.br" },

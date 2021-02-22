@@ -11,7 +11,7 @@ namespace AviationManagementApi.Business.Models
         
         public string Imagem { get; set; } // OBRIGATÓRIO
 
-        public Fornecedor Fornecedor { get; set; } // OBRIGATÓRIO
-        public Guid FornecedorId { get; set; }
+        public Fornecedor Fornecedor { get; set; } 
+        public Guid FornecedorId { get; set; } // OBRIGATÓRIO
     }
 }

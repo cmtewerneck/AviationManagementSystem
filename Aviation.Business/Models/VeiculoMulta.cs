@@ -12,7 +12,7 @@ namespace AviationManagementApi.Business.Models
         public bool Situacao { get; set; } // OBRIGATÓRIO
         public decimal? Valor { get; set; } // OPCIONAL > 0
 
-        public Veiculo Veiculo { get; set; } // OBRIGATÓRIO
-        public Guid VeiculoId { get; set; }
+        public Veiculo Veiculo { get; set; } 
+        public Guid VeiculoId { get; set; } // OBRIGATÓRIO
     }
 }

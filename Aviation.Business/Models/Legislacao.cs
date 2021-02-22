@@ -6,7 +6,7 @@ namespace AviationManagementApi.Business.Models
     {
         public string Titulo { get; set; } // OBRIGATÓRIO (1,50)
         public TipoLegislacaoEnum TipoLegislacao { get; set; } // OBRIGATÓRIO
-        public int Numero { get; set; } // OBRIGATÓRIO (1,20)
+        public int Numero { get; set; } // OBRIGATÓRIO
         public int? Emenda { get; set; } // OPCIONAL
         public DateTime? DataEmenda { get; set; } // OPCIONAL
 

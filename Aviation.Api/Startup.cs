@@ -36,24 +36,9 @@ namespace AviationManagementApi.Api
             services.ResolveDependencies();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApiVersionDescriptionProvider provider)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseCors("Development");
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                //app.UseCors("Production");
-                app.UseCors("Development");
-                app.UseHsts();
-            }
-
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
-            app.UseAuthentication();
-            app.UseMiddleware<ExceptionMiddleware>();
-            app.UseMvcConfiguration();
+            app.UseApiConfig(env);
             app.UseSwaggerConfig(provider);
             app.UseLoggingConfiguration();
         }
