@@ -30,7 +30,8 @@ namespace AviationManagementApi.Data.Repository
 
         public virtual async Task<TEntity> ObterPorId(Guid id)
         {
-            return await DbSet.FindAsync(id);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+            //return await DbSet.FindAsync(id).AsNoTracking();
         }
 
         public virtual async Task<List<TEntity>> ObterTodos()

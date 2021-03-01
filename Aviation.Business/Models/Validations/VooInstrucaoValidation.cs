@@ -13,7 +13,7 @@ namespace AviationManagementApi.Business.Models.Validations
                 .GreaterThan(0).WithMessage("O campo {PropertyName} precisa ser preenchido e maior que {ComparisonValue}");
 
             RuleFor(c => c.Observacoes)
-                .Length(1, 200).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
+                .Length(1, 200).When(c => c.Observacoes != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
         }
     }
 }

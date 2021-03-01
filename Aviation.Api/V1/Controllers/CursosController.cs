@@ -104,6 +104,7 @@ namespace AviationManagementApi.Api.V1.Controllers
         private async Task<CursoViewModel> ObterCurso(Guid id)
         {
             return _mapper.Map<CursoViewModel>(await _cursosRepository.ObterPorId(id));
+            //return _mapper.Map<CursoViewModel>(await _cursosRepository.ObterCursoPorId(id));
         }
         #endregion
     }

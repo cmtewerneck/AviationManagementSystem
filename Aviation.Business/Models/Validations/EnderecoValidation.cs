@@ -15,7 +15,7 @@ namespace AviationManagementApi.Business.Models.Validations
                 .Length(1, 20).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
 
             RuleFor(c => c.Complemento)
-                .Length(1, 20).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
+                .Length(1, 20).When(c => c.Complemento != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
 
             RuleFor(c => c.Cep)
                 .NotEmpty().WithMessage("O campo {PropertyName} precisa ser fornecido")

@@ -5,7 +5,7 @@ namespace AviationManagementApi.Business.Models
     public class VooInstrucao : Entity
     {
         public DateTime Data { get; set; } // OBRIGATÓRIO
-        public double TempoVoo { get; set; } // OBRIGATÓRIO > 0 EX: 1.5
+        public decimal TempoVoo { get; set; } // OBRIGATÓRIO > 0 EX: 1.5
         public bool Avaliacao { get; set; } // OBRIGATÓRIO
         public string Observacoes { get; set; } // OPCIONAL (1,200)
 

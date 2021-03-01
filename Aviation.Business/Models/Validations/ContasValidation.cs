@@ -11,10 +11,10 @@ namespace AviationManagementApi.Business.Models.Validations
                 .Length(1, 50).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(c => c.CodigoBarras)
-                .Length(1, 50).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+                .Length(1, 50).When(c => c.CodigoBarras != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(c => c.FormaPagamento)
-                .Length(1, 30).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+                .Length(1, 30).When(c => c.FormaPagamento != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
         }
     }
 }

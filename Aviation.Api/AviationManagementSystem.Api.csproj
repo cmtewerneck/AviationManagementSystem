@@ -43,4 +43,8 @@
     <ProjectReference Include="..\Aviation.Data\AviationManagementSystem.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\files\" />
+  </ItemGroup>
+
 </Project>

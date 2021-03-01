@@ -21,7 +21,7 @@ namespace AviationManagementApi.Business.Models.Validations
                 .Length(1, 20).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(f => f.NotaFiscal)
-               .Length(1, 20).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+               .Length(1, 20).When(c => c.NotaFiscal != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(f => f.Fornecedora)
                .NotEmpty().WithMessage("O campo {PropertyName} precisa ser preenchido.")
@@ -35,7 +35,7 @@ namespace AviationManagementApi.Business.Models.Validations
                 .GreaterThan(0).WithMessage("O campo {PropertyName} precisa ser maior que {ComparisonValue}");
 
             RuleFor(f => f.Observacoes)
-               .Length(1, 100).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+               .Length(1, 100).When(c => c.Observacoes != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
         }
     }
 }

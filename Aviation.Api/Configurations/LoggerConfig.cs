@@ -32,15 +32,15 @@ namespace AviationManagementApi.Api.Configuration
             });
 
             // ERRO NA MIGRAÇÃO!!! SqlServerHealthCheck dando erro
-            services.AddHealthChecks()
-                .AddElmahIoPublisher(options =>
-                {
-                    options.ApiKey = "775b1a6b41e44168aa4f1d7ded0c4a29";
-                    options.LogId = new Guid("ea02a15a-2559-42ac-905b-7c6a2ba712fb");
-                    options.HeartbeatId = "Aviation Management System - API";
-                })
-                .AddCheck("Produtos", new SqlServerHealthCheck(configuration.GetConnectionString("DefaultConnection")))
-                .AddSqlServer(configuration.GetConnectionString("DefaultConnection"), name: "BancoSQL");
+            //services.AddHealthChecks()
+            //    .AddElmahIoPublisher(options =>
+            //    {
+            //        options.ApiKey = "775b1a6b41e44168aa4f1d7ded0c4a29";
+            //        options.LogId = new Guid("ea02a15a-2559-42ac-905b-7c6a2ba712fb");
+            //        options.HeartbeatId = "Aviation Management System - API";
+            //    })
+            //    //.AddCheck("Produtos", new SqlServerHealthCheck(configuration.GetConnectionString("DefaultConnection")))
+            //    .AddSqlServer(configuration.GetConnectionString("DefaultConnection"), name: "BancoSQL");
 
             return services;
         }

@@ -13,7 +13,11 @@ namespace AviationManagementApi.Api.Configurations
     {
         public static IServiceCollection WebApiConfig(this IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                 .AddJsonOptions(options =>
+                 {
+                     options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+                 });
 
             services.AddApiVersioning(options =>
             {
@@ -40,8 +44,8 @@ namespace AviationManagementApi.Api.Configurations
                         builder
                         .AllowAnyOrigin()
                         .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials());
+                        .AllowAnyHeader());
+                        //.AllowCredentials())
 
 
                 // options.AddPolicy("Production",
@@ -54,7 +58,7 @@ namespace AviationManagementApi.Api.Configurations
                 //             .AllowAnyHeader());
             });
 
-            services.AddHealthChecksUI();
+            //services.AddHealthChecksUI();
 
             return services;
         }
@@ -89,20 +93,20 @@ namespace AviationManagementApi.Api.Configurations
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHealthChecks("/api/hc", new HealthCheckOptions()
-                {
-                    Predicate = _ => true,
-                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-                });
-                endpoints.MapHealthChecksUI(options =>
-                {
-                    options.UIPath = "/api/hc-ui";
-                    options.ResourcesPath = "/api/hc-ui-resources";
+                //endpoints.MapHealthChecks("/api/hc", new HealthCheckOptions()
+                //{
+                //    Predicate = _ => true,
+                //    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                //});
+                //endpoints.MapHealthChecksUI(options =>
+                //{
+                //    options.UIPath = "/api/hc-ui";
+                //    options.ResourcesPath = "/api/hc-ui-resources";
 
-                    options.UseRelativeApiPath = false;
-                    options.UseRelativeResourcesPath = false;
-                    options.UseRelativeWebhookPath = false;
-                });
+                //    options.UseRelativeApiPath = false;
+                //    options.UseRelativeResourcesPath = false;
+                //    options.UseRelativeWebhookPath = false;
+                //});
 
             });
 

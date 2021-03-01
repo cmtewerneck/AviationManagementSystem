@@ -14,7 +14,7 @@ namespace AviationManagementApi.App.Controllers
 {
     [Authorize]
     [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/materiais/movimentacoes")]
+    [Route("api/v{version:apiVersion}/suprimentos/movimentacoes")]
     public class SuprimentosMovimentacoesController : MainController
     {
         private readonly ISuprimentoMovimentacaoRepository _suprimentoMovimentacaoRepository;

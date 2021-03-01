@@ -23,7 +23,7 @@ namespace AviationManagementApi.Business.Models.Validations
                 .Length(1, 30).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
 
             RuleFor(c => c.NumeroSerie)
-                .Length(1, 20).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
+                .Length(1, 20).When(c => c.NumeroSerie != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
 
             RuleFor(c => c.PesoVazio)
                 .GreaterThan(0).WithMessage("O campo {PropertyName} precisa ser maior que {ComparisonValue}");
@@ -35,13 +35,13 @@ namespace AviationManagementApi.Business.Models.Validations
                 .GreaterThanOrEqualTo(0).WithMessage("O campo {PropertyName} precisa ser maior ou igual a {ComparisonValue}");
 
             RuleFor(c => c.Motor)
-                .Length(1, 30).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
+                .Length(1, 30).When(c => c.Motor != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
 
             RuleFor(c => c.ModeloMotor)
-                .Length(1, 30).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
+                .Length(1, 30).When(c => c.ModeloMotor != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
 
             RuleFor(c => c.NumeroSerieMotor)
-                .Length(1, 30).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
+                .Length(1, 30).When(c => c.NumeroSerieMotor != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
         }
     }
 }

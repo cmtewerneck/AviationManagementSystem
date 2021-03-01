@@ -21,6 +21,8 @@ namespace AviationManagementApi.Business.Models
         [Description("TREINAMENTO")]
         TN = 8,
         [Description("TRANSLADO")]
-        TR = 9
+        TR = 9,
+        [Description("FRETAMENTO")]
+        FR = 10
     }
 }

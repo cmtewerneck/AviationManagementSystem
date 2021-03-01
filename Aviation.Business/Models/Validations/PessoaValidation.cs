@@ -12,13 +12,14 @@ namespace AviationManagementApi.Business.Models.Validations
                 .Length(1, 100).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(f => f.EstadoCivil)
-               .Length(1, 20).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+               .Length(1, 20).When(c => c.EstadoCivil != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(f => f.Telefone)
-               .Length(1, 20).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+               .Length(1, 20).When(c => c.Telefone != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(f => f.Email)
-               .Length(1, 50).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+               .Length(1, 50).When(c => c.Email != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.")
+               .EmailAddress().When(c => c.Email != "").WithMessage("Formato de e-mail inválido.");
 
             When(f => f.TipoPessoa == TipoPessoaEnum.Fisica, () => 
             {

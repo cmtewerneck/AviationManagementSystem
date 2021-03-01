@@ -14,10 +14,10 @@ namespace AviationManagementApi.Business.Models.Validations
                 .Length(1, 30).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(f => f.Responsavel)
-                .Length(1, 30).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+                .Length(1, 30).When(c => c.Responsavel != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(f => f.Classificacao)
-                .Length(1, 30).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+                .Length(1, 30).When(c => c.Classificacao != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(f => f.Descricao)
                 .NotEmpty().WithMessage("O campo {PropertyName} precisa ser preenchido.")

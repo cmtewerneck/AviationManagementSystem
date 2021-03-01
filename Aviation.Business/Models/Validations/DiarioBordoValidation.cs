@@ -10,7 +10,7 @@ namespace AviationManagementApi.Business.Models.Validations
                 .NotEmpty().WithMessage("O campo {PropertyName} precisa ser fornecido");
 
             RuleFor(c => c.Base)
-                .Length(1, 20).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+                .Length(1, 20).When(c => c.Base != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(c => c.De)
                 .NotEmpty().WithMessage("O campo {PropertyName} precisa ser fornecido")
@@ -53,13 +53,13 @@ namespace AviationManagementApi.Business.Models.Validations
                 .Length(1, 20).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(c => c.Observacoes)
-                .Length(1, 300).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+                .Length(1, 300).When(c => c.Observacoes != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(c => c.Discrepancias)
-                .Length(1, 300).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+                .Length(1, 300).When(c => c.Discrepancias != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(c => c.AcoesCorretivas)
-                .Length(1, 300).WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
+                .Length(1, 300).When(c => c.AcoesCorretivas != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres.");
         }
     }
 }
