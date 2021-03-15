@@ -12,9 +12,10 @@ namespace AviationManagementApi.Data.Repository
     {
         public TurmaRepository(AviationManagementDbContext context) : base(context) { }
 
-        public async Task<IEnumerable<Turma>> ObterTurmasAlunos()
+        public async Task<IEnumerable<Turma>> ObterTurmasCursos()
         {
             return await Db.Turmas.AsNoTracking()
+                .Include(p => p.Curso)
                 .OrderBy(p => p.Codigo)
                 .ToListAsync();
         }

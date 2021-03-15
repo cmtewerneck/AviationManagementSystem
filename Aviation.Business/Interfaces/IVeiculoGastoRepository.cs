@@ -8,5 +8,7 @@ namespace AviationManagementApi.Business.Interfaces
     public interface IVeiculoGastoRepository : IRepository<VeiculoGasto>
     {
         Task<IEnumerable<VeiculoGasto>> ObterGastosPorVeiculo(Guid veiculoId);
+
+        Task<IEnumerable<VeiculoGasto>> ObterGastosVeiculos();
     }
 }

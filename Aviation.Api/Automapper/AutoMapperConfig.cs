@@ -41,10 +41,10 @@ namespace AviationManagementApi.Api.AutoMapper
             CreateMap<VooAgendado, VooAgendadoViewModel>().ReverseMap();
             CreateMap<VooInstrucao, VooInstrucaoViewModel>().ReverseMap();
             
-            CreateMap<AeronaveAbastecimento, AeronaveAbastecimentoViewModel>()
+            CreateMap<AeronaveTarifa, AeronaveTarifaViewModel>()
                 .ForMember(dest => dest.MatriculaAeronave, opt => opt.MapFrom(src => src.Aeronave.Matricula));
 
-            CreateMap<AeronaveTarifa, AeronaveTarifaViewModel>()
+            CreateMap<AeronaveAbastecimento, AeronaveAbastecimentoViewModel>()
                 .ForMember(dest => dest.MatriculaAeronave, opt => opt.MapFrom(src => src.Aeronave.Matricula));
 
             CreateMap<AlunoTurma, AlunoTurmaViewModel>()
@@ -85,6 +85,9 @@ namespace AviationManagementApi.Api.AutoMapper
 
             CreateMap<Turma, TurmaViewModel>()
                 .ForMember(dest => dest.CodigoCurso, opt => opt.MapFrom(src => src.Curso.Codigo));
+
+            CreateMap<Turma, TurmaViewModel>()
+                .ForMember(dest => dest.DescricaoCurso, opt => opt.MapFrom(src => src.Curso.Descricao));
 
             CreateMap<VeiculoGasto, VeiculoGastoViewModel>()
                 .ForMember(dest => dest.PlacaVeiculo, opt => opt.MapFrom(src => src.Veiculo.Placa));

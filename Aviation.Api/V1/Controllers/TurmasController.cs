@@ -91,7 +91,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet]
         public async Task<IEnumerable<TurmaViewModel>> ObterTodos()
         {
-            return _mapper.Map<IEnumerable<TurmaViewModel>>(await _turmaRepository.ObterTodos());
+            return _mapper.Map<IEnumerable<TurmaViewModel>>(await _turmaRepository.ObterTurmasCursos());
         }
 
         [ClaimsAuthorize("Turma", "Consultar")]

@@ -137,11 +137,12 @@ namespace AviationManagementApi.App.Controllers
 
         #region METHODS
         [AllowAnonymous]
-        [HttpGet]
-        public async Task<IEnumerable<ColaboradorViewModel>> ObterTodos()
+        [HttpGet("{tipoColaborador:int}")]
+        public async Task<IEnumerable<ColaboradorViewModel>> ObterTodos(TipoColaboradorEnum tipoColaborador)
         {
-            return _mapper.Map<IEnumerable<ColaboradorViewModel>>(await _colaboradorRepository.ObterTodos());
+            return _mapper.Map<IEnumerable<ColaboradorViewModel>>(await _colaboradorRepository.ObterColaboradoresPorTipo(tipoColaborador));
         }
+
 
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<ColaboradorViewModel>> ObterColaboradorPorId(Guid id)
@@ -176,10 +177,10 @@ namespace AviationManagementApi.App.Controllers
             return true;
         }
 
-        [HttpGet("quantidade")]
-        public async Task<int> ObterQuantidadeColaboradoresCadastrados()
+        [HttpGet("quantidade/{tipoColaborador:int}")]
+        public async Task<int> ObterQuantidadeColaboradoresCadastrados(TipoColaboradorEnum tipoColaborador)
         {
-            return _mapper.Map<int>(await _colaboradorRepository.ObterTotalRegistros());
+            return _mapper.Map<int>(await _colaboradorRepository.ObterQuantidadeColaboradoresCadastrados(tipoColaborador));
         }
 
         private async Task<ColaboradorViewModel> ObterColaborador(Guid id)

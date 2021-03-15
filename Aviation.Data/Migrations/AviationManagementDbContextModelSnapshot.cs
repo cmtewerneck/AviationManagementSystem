@@ -1124,8 +1124,8 @@ namespace AviationManagementSystem.Data.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("varchar(200)");
 
-                    b.Property<double>("TempoVoo")
-                        .HasColumnType("float");
+                    b.Property<decimal>("TempoVoo")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

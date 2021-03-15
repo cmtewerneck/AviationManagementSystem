@@ -8,5 +8,7 @@ namespace AviationManagementApi.Business.Interfaces
     public interface IVeiculoMultaRepository : IRepository<VeiculoMulta>
     {
         Task<IEnumerable<VeiculoMulta>> ObterMultasPorVeiculo(Guid veiculoId);
+
+        Task<IEnumerable<VeiculoMulta>> ObterMultasVeiculos();
     }
 }

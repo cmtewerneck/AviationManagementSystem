@@ -47,6 +47,12 @@ namespace AviationManagementApi.Business.Services
 
         public async Task<bool> Remover(Guid id)
         {
+            if (_servicoRepository.ObterServicoOrdensServico(id).Result.Itens.Any())
+            {
+                Notificar("O serviço possui ordens de serviço cadastradas! Excluir ordens ou mudar status do serviço como INATIVO!");
+                return false;
+            }
+
             await _servicoRepository.Remover(id);
             return true;
         }

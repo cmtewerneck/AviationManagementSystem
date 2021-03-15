@@ -8,5 +8,6 @@ namespace AviationManagementApi.Business.Interfaces
     public interface ICursoRepository : IRepository<Curso>
     {
         Task<IEnumerable<Curso>> ObterCursosTurmas();
+        Task<Curso> ObterCursoTurmas(Guid id);
     }
 }

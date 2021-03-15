@@ -20,5 +20,13 @@ namespace AviationManagementApi.Data.Repository
                 .OrderBy(p => p.Codigo)
                 .ToListAsync();
         }
+
+        public async Task<Curso> ObterCursoTurmas(Guid id)
+        {
+            return await Db.Cursos
+                .Include(c => c.Turmas)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.Id == id);
+        }
     }
 }

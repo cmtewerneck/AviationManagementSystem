@@ -63,7 +63,7 @@ namespace AviationManagementApi.App.Controllers
 
         [ClaimsAuthorize("Aluno", "Atualizar")]
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> Atualizar(Guid id, AlunoViewModel alunoViewModel)
+        public async Task<ActionResult<AlunoViewModel>> Atualizar(Guid id, AlunoViewModel alunoViewModel)
         {
             if (id != alunoViewModel.Id)
             {

@@ -26,5 +26,13 @@ namespace AviationManagementApi.Data.Repository
                 .OrderBy(p => p.Codigo)
                 .ToListAsync();
         }
+
+        public async Task<Suprimento> ObterSuprimentoMovimentacoes(Guid id)
+        {
+            return await Db.Suprimentos
+                .Include(c => c.SuprimentosMovimentacoes)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.Id == id);
+        }
     }
 }

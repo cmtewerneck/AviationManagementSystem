@@ -100,7 +100,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet]
         public async Task<IEnumerable<VeiculoMultaViewModel>> ObterTodos()
         {
-            return _mapper.Map<IEnumerable<VeiculoMultaViewModel>>(await _multaRepository.ObterTodos());
+            return _mapper.Map<IEnumerable<VeiculoMultaViewModel>>(await _multaRepository.ObterMultasVeiculos());
         }
 
         [ClaimsAuthorize("Veiculo", "Consultar")]

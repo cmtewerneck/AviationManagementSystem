@@ -97,7 +97,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet]
         public async Task<IEnumerable<AeronaveTarifaViewModel>> ObterTodos()
         {
-            return _mapper.Map<IEnumerable<AeronaveTarifaViewModel>>(await _tarifaRepository.ObterTodos());
+            return _mapper.Map<IEnumerable<AeronaveTarifaViewModel>>(await _tarifaRepository.ObterTarifasAeronaves());
         }
 
         [HttpGet("{id:guid}")]

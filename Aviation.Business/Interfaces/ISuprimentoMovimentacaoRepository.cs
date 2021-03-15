@@ -8,5 +8,7 @@ namespace AviationManagementApi.Business.Interfaces
     public interface ISuprimentoMovimentacaoRepository : IRepository<SuprimentoMovimentacao>
     {
         Task<IEnumerable<SuprimentoMovimentacao>> ObterMovimentacoesPorSuprimento(Guid suprimentoId);
+
+        Task<IEnumerable<SuprimentoMovimentacao>> ObterMovimentacoesSuprimentos();
     }
 }

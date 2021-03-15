@@ -20,5 +20,12 @@ namespace AviationManagementApi.Data.Repository
                 .AsNoTracking()
                 .ToListAsync();
         }
+
+        public async Task<int> ObterQuantidadeColaboradoresCadastrados(TipoColaboradorEnum tipoColaborador)
+        {
+            return await Db.Colaboradores
+                .Where(p => p.TipoColaborador == tipoColaborador)
+                .CountAsync();
+        }
     }
 }

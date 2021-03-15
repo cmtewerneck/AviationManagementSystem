@@ -47,6 +47,12 @@ namespace AviationManagementApi.Business.Services
 
         public async Task<bool> Remover(Guid id)
         {
+            if (_cursoRepository.ObterCursoTurmas(id).Result.Turmas.Any())
+            {
+                Notificar("O curso está cadastrado em turmas. Exclua as turmas ou mude o status do curso para INATIVO!");
+                return false;
+            }
+
             await _cursoRepository.Remover(id);
             return true;
         }

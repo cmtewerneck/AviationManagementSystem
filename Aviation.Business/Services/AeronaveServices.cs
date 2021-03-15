@@ -47,6 +47,18 @@ namespace AviationManagementApi.Business.Services
 
         public async Task<bool> Remover(Guid id)
         {
+            if (_aeronaveRepository.ObterAeronaveAbastecimentos(id).Result.AeronavesAbastecimentos.Any())
+            {
+                Notificar("A aeronave possui abastecimentos cadastrados! \n Favor excluir ou mudar o status da aeronave para INATIVA.");
+                return false;
+            }
+
+            if (_aeronaveRepository.ObterAeronaveTarifas(id).Result.AeronaveTarifas.Any())
+            {
+                Notificar("A aeronave possui tarifas cadastradas! \n Favor excluir ou mudar o status da aeronave para INATIVA.");
+                return false;
+            }
+
             await _aeronaveRepository.Remover(id);
             return true;
         }

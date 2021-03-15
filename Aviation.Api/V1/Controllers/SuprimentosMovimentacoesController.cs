@@ -96,7 +96,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet]
         public async Task<IEnumerable<SuprimentoMovimentacaoViewModel>> ObterTodos()
         {
-            return _mapper.Map<IEnumerable<SuprimentoMovimentacaoViewModel>>(await _suprimentoMovimentacaoRepository.ObterTodos());
+            return _mapper.Map<IEnumerable<SuprimentoMovimentacaoViewModel>>(await _suprimentoMovimentacaoRepository.ObterMovimentacoesSuprimentos());
         }
 
         [ClaimsAuthorize("Suprimento", "Adicionar")]

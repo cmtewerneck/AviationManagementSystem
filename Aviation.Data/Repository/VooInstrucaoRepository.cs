@@ -21,6 +21,16 @@ namespace AviationManagementApi.Data.Repository
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<VooInstrucao>> ObterVoosInstrucaoInstrutoresAlunosAeronaves()
+        {
+            return await Db.VoosInstrucoes.AsNoTracking()
+                .Include(p => p.Instrutor)
+                .Include(p => p.Aluno)
+                .Include(p => p.Aeronave)
+                .OrderBy(p => p.Data)
+                .ToListAsync();
+        }
+
         public async Task<IEnumerable<VooInstrucao>> ObterVoosInstrucaoAlunos()
         {
             return await Db.VoosInstrucoes.AsNoTracking()

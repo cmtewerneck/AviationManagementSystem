@@ -16,5 +16,8 @@ namespace AviationManagementApi.Api.ViewModels
 
         [ScaffoldColumn(false)]
         public string CodigoCurso { get; set; }
+
+        [ScaffoldColumn(false)]
+        public string DescricaoCurso { get; set; }
     }
 }

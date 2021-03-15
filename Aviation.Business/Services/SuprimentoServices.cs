@@ -47,6 +47,12 @@ namespace AviationManagementApi.Business.Services
 
         public async Task<bool> Remover(Guid id)
         {
+            if (_suprimentoRepository.ObterSuprimentoMovimentacoes(id).Result.SuprimentosMovimentacoes.Any())
+            {
+                Notificar("O item possui movimentações cadastradas. Exclua as movimentações primeiro ou mude o status do item para INATIVO!");
+                return false;
+            }
+
             await _suprimentoRepository.Remover(id);
             return true;
         }

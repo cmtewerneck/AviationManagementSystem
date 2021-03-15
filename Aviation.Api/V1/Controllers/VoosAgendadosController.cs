@@ -96,6 +96,13 @@ namespace AviationManagementApi.Api.V1.Controllers
             return _mapper.Map<IEnumerable<VooAgendadoViewModel>>(await _vooAgendadoRepository.ObterTodos());
         }
 
+        //[ClaimsAuthorize("Agendamento", "Consultar")]
+        //[HttpGet]
+        //public async Task<IEnumerable<VooAgendadoViewModel>> ObterTodos()
+        //{
+        //    return _mapper.Map<IEnumerable<VooAgendadoViewModel>>(await _vooAgendadoRepository.ObterTodos());
+        //}
+
         [ClaimsAuthorize("Agendamento", "Consultar")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<VooAgendadoViewModel>> ObterPorId(Guid id)

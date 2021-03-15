@@ -89,7 +89,7 @@ namespace AviationManagementApi.Api.V1.Controllers
         [HttpGet]
         public async Task<IEnumerable<VooInstrucaoViewModel>> ObterTodos()
         {
-            return _mapper.Map<IEnumerable<VooInstrucaoViewModel>>(await _vooInstrucaoRepository.ObterTodos());
+            return _mapper.Map<IEnumerable<VooInstrucaoViewModel>>(await _vooInstrucaoRepository.ObterVoosInstrucaoInstrutoresAlunosAeronaves());
         }
 
         [ClaimsAuthorize("Instrucao", "Consultar")]

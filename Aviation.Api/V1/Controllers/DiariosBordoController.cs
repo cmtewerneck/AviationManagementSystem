@@ -109,7 +109,7 @@ namespace AviationManagementApi.Api.V1.Controllers
         [HttpGet]
         public async Task<IEnumerable<DiarioBordoViewModel>> ObterTodos()
         {
-            return _mapper.Map<IEnumerable<DiarioBordoViewModel>>(await _diarioBordoRepository.ObterTodos());
+            return _mapper.Map<IEnumerable<DiarioBordoViewModel>>(await _diarioBordoRepository.ObterDiariosAeronavesColaboradores());
         }
 
         [ClaimsAuthorize("Diario", "Consultar")]

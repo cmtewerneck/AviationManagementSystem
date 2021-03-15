@@ -7,7 +7,7 @@ namespace AviationManagementApi.Api.ViewModels
     {
         public Guid Id { get; set; }
         public DateTime Data { get; set; }
-        public double TempoVoo { get; set; }
+        public decimal TempoVoo { get; set; }
         public bool Avaliacao { get; set; } 
         public string Observacoes { get; set; } 
 

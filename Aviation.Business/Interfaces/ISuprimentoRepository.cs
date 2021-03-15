@@ -10,5 +10,7 @@ namespace AviationManagementApi.Business.Interfaces
         Task<Suprimento> ObterSuprimentoMovimentacao(Guid id);
 
         Task<IEnumerable<Suprimento>> ObterSuprimentosMovimentacoes();
+
+        Task<Suprimento> ObterSuprimentoMovimentacoes(Guid id);
     }
 }

@@ -97,7 +97,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet]
         public async Task<IEnumerable<VeiculoGastoViewModel>> ObterTodos()
         {
-            return _mapper.Map<IEnumerable<VeiculoGastoViewModel>>(await _gastosVeiculoRepository.ObterTodos());
+            return _mapper.Map<IEnumerable<VeiculoGastoViewModel>>(await _gastosVeiculoRepository.ObterGastosVeiculos());
         }
 
         [ClaimsAuthorize("Veiculo", "Consultar")]
