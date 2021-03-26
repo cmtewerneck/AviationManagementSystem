@@ -13,6 +13,6 @@ namespace AviationManagementApi.Api.ViewModels
         public DateTime? ValidadeCMA { get; set; }
 
         public IEnumerable<VooInstrucaoViewModel> VoosInstrucao { get; set; }
-        public IEnumerable<AlunoTurmaViewModel> AlunosTurmas { get; set; }
+        public IEnumerable<TurmaViewModel> Turmas { get; set; }
     }
 }

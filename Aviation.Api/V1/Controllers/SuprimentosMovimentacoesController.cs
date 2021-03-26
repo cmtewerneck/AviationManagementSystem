@@ -50,7 +50,7 @@ namespace AviationManagementApi.App.Controllers
 
         [ClaimsAuthorize("Suprimento", "Atualizar")]
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult<SuprimentoMovimentacaoViewModel>> Atualizar(Guid id, SuprimentoMovimentacaoViewModel suprimentoMovimentacaoViewModel)
+        public async Task<IActionResult> Atualizar(Guid id, SuprimentoMovimentacaoViewModel suprimentoMovimentacaoViewModel)
         {
             if (id != suprimentoMovimentacaoViewModel.Id)
             {
@@ -103,7 +103,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<SuprimentoMovimentacaoViewModel>> ObterSuprimentoMovimentacaoPorId(Guid id)
         {
-            var suprimentoMovimentacaoMovimentacao = _mapper.Map<SuprimentoMovimentacaoViewModel>(await _suprimentoMovimentacaoRepository.ObterPorId(id));
+            var suprimentoMovimentacaoMovimentacao = _mapper.Map<SuprimentoMovimentacaoViewModel>(await _suprimentoMovimentacaoRepository.ObterSuprimentoMovimentacao(id));
 
             if (suprimentoMovimentacaoMovimentacao == null) return NotFound();
 

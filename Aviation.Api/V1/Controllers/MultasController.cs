@@ -107,7 +107,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<VeiculoMultaViewModel>> ObterVeiculoMultaPorId(Guid id)
         {
-            var veiculoMulta = _mapper.Map<VeiculoMultaViewModel>(await _multaRepository.ObterPorId(id));
+            var veiculoMulta = _mapper.Map<VeiculoMultaViewModel>(await _multaRepository.ObterMultaVeiculo(id));
 
             if (veiculoMulta == null) return NotFound();
 

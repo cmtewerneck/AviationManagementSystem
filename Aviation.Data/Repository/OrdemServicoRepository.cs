@@ -35,5 +35,13 @@ namespace AviationManagementApi.Data.Repository
                 .AsNoTracking()
                 .ToListAsync();
         }
+
+        public async Task<OrdemServico> ObterOrdemServicoAeronave(Guid id)
+        {
+            return await Db.OrdensServico
+                .AsNoTracking()
+                .Include(f => f.Aeronave)
+                .FirstOrDefaultAsync(p => p.Id == id);
+        }
     }
 }

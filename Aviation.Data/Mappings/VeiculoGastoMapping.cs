@@ -15,7 +15,7 @@ namespace AviationManagementApi.Data.Mappings
 
             // RELATIONSHIP
             builder.HasOne(x => x.Veiculo)
-                .WithMany(x => x.VeiculosGastos)
+                .WithMany(x => x.VeiculoGastos)
                 .HasForeignKey(x => x.VeiculoId)
                 .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();

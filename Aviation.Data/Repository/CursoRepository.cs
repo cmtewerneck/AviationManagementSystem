@@ -25,6 +25,7 @@ namespace AviationManagementApi.Data.Repository
         {
             return await Db.Cursos
                 .Include(c => c.Turmas)
+                .OrderBy(p => p.Codigo)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(c => c.Id == id);
         }

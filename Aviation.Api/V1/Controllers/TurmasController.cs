@@ -18,18 +18,24 @@ namespace AviationManagementApi.App.Controllers
     public class TurmasController : MainController
     {
         private readonly ITurmaRepository _turmaRepository;
+        private readonly IAlunoTurmaRepository _alunoTurmaRepository;
         private readonly ITurmaServices _turmaService;
+        private readonly IAlunoTurmaServices _alunoTurmaService;
         private readonly IMapper _mapper;
 
         #region CONSTRUCTOR
         public TurmasController(ITurmaRepository turmaRepository,
-                                  IMapper mapper,
-                                  ITurmaServices turmaService,
-                                  INotificador notificador, IUser user) : base(notificador, user)
+                                IAlunoTurmaRepository alunoTurmaRepository,
+                                IMapper mapper,
+                                ITurmaServices turmaService,
+                                IAlunoTurmaServices alunoTurmaService,
+                                INotificador notificador, IUser user) : base(notificador, user)
         {
             _turmaRepository = turmaRepository;
+            _alunoTurmaRepository = alunoTurmaRepository;
             _mapper = mapper;
             _turmaService = turmaService;
+            _alunoTurmaService = alunoTurmaService;
         }
         #endregion
 
@@ -84,6 +90,44 @@ namespace AviationManagementApi.App.Controllers
 
             return CustomResponse(turmaViewModel);
         }
+
+        // ALUNO TURMA
+        [ClaimsAuthorize("Turma", "Adicionar")]
+        [HttpPost("alunos")]
+        public async Task<ActionResult<TurmaViewModel>> AdicionarAlunoTurma(AlunoTurmaViewModel alunoTurmaViewModel)
+        {
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            alunoTurmaViewModel.DataInscricao = DateTime.Now;
+
+            await _alunoTurmaService.Adicionar(_mapper.Map<AlunoTurma>(alunoTurmaViewModel));
+
+            return CustomResponse(alunoTurmaViewModel);
+        }
+
+        [ClaimsAuthorize("Turma", "Atualizar")]
+        [HttpPut("encerrar/{id:guid}")]
+        public async Task<ActionResult<TurmaViewModel>> EncerrarTurma(Guid id, TurmaViewModel turmaViewModel)
+        {
+            if (id != turmaViewModel.Id)
+            {
+                NotificarErro("O id informado é diferente do id da requisição.");
+                return CustomResponse();
+            }
+
+            var turmaAtualizacao = await ObterTurma(id);
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            turmaAtualizacao.Codigo = turmaViewModel.Codigo;
+            turmaAtualizacao.DataInicio = turmaViewModel.DataInicio;
+
+            turmaAtualizacao.DataTermino = DateTime.Now;
+
+            await _turmaService.Atualizar(_mapper.Map<Turma>(turmaAtualizacao));
+
+            return CustomResponse(turmaViewModel);
+        }
         #endregion
 
         #region METHODS
@@ -98,7 +142,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<TurmaViewModel>> ObterTurmaPorId(Guid id)
         {
-            var turma = _mapper.Map<TurmaViewModel>(await _turmaRepository.ObterPorId(id));
+            var turma = _mapper.Map<TurmaViewModel>(await _turmaRepository.ObterTurmaCurso(id));
 
             if (turma == null) return NotFound();
 

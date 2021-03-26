@@ -100,6 +100,7 @@ namespace AviationManagementApi.App.Controllers
             colaboradorAtualizacao.DataNascimento = colaboradorViewModel.DataNascimento;
             colaboradorAtualizacao.DataAdmissao = colaboradorViewModel.DataAdmissao;
             colaboradorAtualizacao.DataDemissao = colaboradorViewModel.DataDemissao;
+            colaboradorAtualizacao.ValidadeCMA = colaboradorViewModel.ValidadeCMA;
             colaboradorAtualizacao.TipoColaborador = colaboradorViewModel.TipoColaborador;
             colaboradorAtualizacao.Cargo = colaboradorViewModel.Cargo;
             colaboradorAtualizacao.CANAC = colaboradorViewModel.CANAC;

@@ -125,6 +125,104 @@ namespace AviationManagementApi.App.Controllers
 
             return CustomResponse(aluno);
         }
+
+        [ClaimsAuthorize("Aluno", "Atualizar")]
+        [HttpPut("adicionar-saldo/{id:guid}")]
+        public async Task<ActionResult<AlunoViewModel>> AdicionarSaldo(Guid id, AlunoViewModel alunoViewModel)
+        {
+            if (id != alunoViewModel.Id)
+            {
+                NotificarErro("O id informado é diferente do id da requisição.");
+                return CustomResponse();
+            }
+
+            var alunoAtualizacao = await ObterAluno(id);
+
+            if (string.IsNullOrEmpty(alunoViewModel.Imagem))
+                alunoViewModel.Imagem = alunoAtualizacao.Imagem;
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            if (alunoViewModel.ImagemUpload != null)
+            {
+                var imagemNome = Guid.NewGuid() + "_" + alunoViewModel.Imagem;
+                if (!UploadArquivo(alunoViewModel.ImagemUpload, imagemNome))
+                {
+                    return CustomResponse(ModelState);
+                }
+
+                alunoAtualizacao.Imagem = imagemNome;
+            }
+
+            alunoAtualizacao.Nome = alunoViewModel.Nome;
+            alunoAtualizacao.TipoPessoa = alunoViewModel.TipoPessoa;
+            alunoAtualizacao.Documento = alunoViewModel.Documento;
+            alunoAtualizacao.Sexo = alunoViewModel.Sexo;
+            alunoAtualizacao.EstadoCivil = alunoViewModel.EstadoCivil;
+            alunoAtualizacao.Ativo = alunoViewModel.Ativo;
+            alunoAtualizacao.Telefone = alunoViewModel.Telefone;
+            alunoAtualizacao.Email = alunoViewModel.Email;
+            alunoAtualizacao.RG = alunoViewModel.RG;
+            alunoAtualizacao.CANAC = alunoViewModel.CANAC;
+            alunoAtualizacao.TotalVoado = alunoViewModel.TotalVoado;
+            alunoAtualizacao.DataNascimento = alunoViewModel.DataNascimento;
+            alunoAtualizacao.ValidadeCMA = alunoViewModel.ValidadeCMA;
+            
+            alunoAtualizacao.Saldo += alunoViewModel.Saldo;
+
+            await _alunoService.Atualizar(_mapper.Map<Aluno>(alunoAtualizacao));
+
+            return CustomResponse(alunoViewModel);
+        }
+
+        [ClaimsAuthorize("Aluno", "Atualizar")]
+        [HttpPut("remover-saldo/{id:guid}")]
+        public async Task<ActionResult<AlunoViewModel>> RemoverSaldo(Guid id, AlunoViewModel alunoViewModel)
+        {
+            if (id != alunoViewModel.Id)
+            {
+                NotificarErro("O id informado é diferente do id da requisição.");
+                return CustomResponse();
+            }
+
+            var alunoAtualizacao = await ObterAluno(id);
+
+            if (string.IsNullOrEmpty(alunoViewModel.Imagem))
+                alunoViewModel.Imagem = alunoAtualizacao.Imagem;
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            if (alunoViewModel.ImagemUpload != null)
+            {
+                var imagemNome = Guid.NewGuid() + "_" + alunoViewModel.Imagem;
+                if (!UploadArquivo(alunoViewModel.ImagemUpload, imagemNome))
+                {
+                    return CustomResponse(ModelState);
+                }
+
+                alunoAtualizacao.Imagem = imagemNome;
+            }
+
+            alunoAtualizacao.Nome = alunoViewModel.Nome;
+            alunoAtualizacao.TipoPessoa = alunoViewModel.TipoPessoa;
+            alunoAtualizacao.Documento = alunoViewModel.Documento;
+            alunoAtualizacao.Sexo = alunoViewModel.Sexo;
+            alunoAtualizacao.EstadoCivil = alunoViewModel.EstadoCivil;
+            alunoAtualizacao.Ativo = alunoViewModel.Ativo;
+            alunoAtualizacao.Telefone = alunoViewModel.Telefone;
+            alunoAtualizacao.Email = alunoViewModel.Email;
+            alunoAtualizacao.RG = alunoViewModel.RG;
+            alunoAtualizacao.CANAC = alunoViewModel.CANAC;
+            alunoAtualizacao.TotalVoado = alunoViewModel.TotalVoado;
+            alunoAtualizacao.DataNascimento = alunoViewModel.DataNascimento;
+            alunoAtualizacao.ValidadeCMA = alunoViewModel.ValidadeCMA;
+
+            alunoAtualizacao.Saldo -= alunoViewModel.Saldo;
+
+            await _alunoService.Atualizar(_mapper.Map<Aluno>(alunoAtualizacao));
+
+            return CustomResponse(alunoViewModel);
+        }
         #endregion
 
         #region METHODS

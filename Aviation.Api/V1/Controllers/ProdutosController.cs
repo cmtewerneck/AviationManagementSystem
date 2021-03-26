@@ -122,11 +122,11 @@ namespace AviationManagementApi.Api.V1.Controllers
             return _mapper.Map<IEnumerable<ProdutoViewModel>>(await _produtoRepository.ObterProdutosFornecedores());
         }
 
-        [ClaimsAuthorize("Produto", "Adicionar")]
+        [ClaimsAuthorize("Produto", "Consultar")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<ProdutoViewModel>> ObterPorId(Guid id)
         {
-            var produtoViewModel = await ObterProduto(id);
+            var produtoViewModel = _mapper.Map<ProdutoViewModel>(await _produtoRepository.ObterProdutoFornecedor(id));
 
             if (produtoViewModel == null) return NotFound();
 

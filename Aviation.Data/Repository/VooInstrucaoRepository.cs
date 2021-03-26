@@ -61,5 +61,13 @@ namespace AviationManagementApi.Data.Repository
         {
             return await Buscar(p => p.InstrutorId == instrutorId);
         }
+
+        public async Task<VooInstrucao> ObterVooInstrucaoAeronave(Guid id)
+        {
+            return await Db.VoosInstrucoes
+                .Include(f => f.Aeronave)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.Id == id);
+        }
     }
 }

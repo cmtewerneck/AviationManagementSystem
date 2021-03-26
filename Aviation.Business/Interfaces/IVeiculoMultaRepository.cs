@@ -10,5 +10,7 @@ namespace AviationManagementApi.Business.Interfaces
         Task<IEnumerable<VeiculoMulta>> ObterMultasPorVeiculo(Guid veiculoId);
 
         Task<IEnumerable<VeiculoMulta>> ObterMultasVeiculos();
+
+        Task<VeiculoMulta> ObterMultaVeiculo(Guid id);
     }
 }

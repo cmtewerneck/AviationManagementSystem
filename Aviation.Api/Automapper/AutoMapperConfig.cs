@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AviationManagementApi.Api.ViewModels;
 using AviationManagementApi.Business.Models;
+using System.Linq;
 
 namespace AviationManagementApi.Api.AutoMapper
 {
@@ -59,11 +60,11 @@ namespace AviationManagementApi.Api.AutoMapper
             CreateMap<DiarioBordo, DiarioBordoViewModel>()
                 .ForMember(dest => dest.NomeComandante, opt => opt.MapFrom(src => src.Comandante.Nome));
 
-            //CreateMap<DiarioBordo, DiarioBordoViewModel>()
-            //    .ForMember(dest => dest.NomeCopiloto, opt => opt.MapFrom(src => src.Copiloto.Nome));
+            CreateMap<DiarioBordo, DiarioBordoViewModel>()
+                .ForMember(dest => dest.NomeCopiloto, opt => opt.MapFrom(src => src.Copiloto.Nome));
 
-            //CreateMap<DiarioBordo, DiarioBordoViewModel>()
-            //    .ForMember(dest => dest.NomeMecanico, opt => opt.MapFrom(src => src.MecanicoResponsavel.Nome));
+            CreateMap<DiarioBordo, DiarioBordoViewModel>()
+                .ForMember(dest => dest.NomeMecanico, opt => opt.MapFrom(src => src.MecanicoResponsavel.Nome));
 
             CreateMap<Endereco, EnderecoViewModel>()
                 .ForMember(dest => dest.NomeFornecedor, opt => opt.MapFrom(src => src.Fornecedor.Nome));
@@ -82,6 +83,9 @@ namespace AviationManagementApi.Api.AutoMapper
 
             CreateMap<SuprimentoMovimentacao, SuprimentoMovimentacaoViewModel>()
                 .ForMember(dest => dest.CodigoItem, opt => opt.MapFrom(src => src.Item.Codigo));
+
+            CreateMap<SuprimentoMovimentacao, SuprimentoMovimentacaoViewModel>()
+                .ForMember(dest => dest.NomenclaturaItem, opt => opt.MapFrom(src => src.Item.Nomenclatura));
 
             CreateMap<Turma, TurmaViewModel>()
                 .ForMember(dest => dest.CodigoCurso, opt => opt.MapFrom(src => src.Curso.Codigo));
@@ -109,6 +113,12 @@ namespace AviationManagementApi.Api.AutoMapper
 
             CreateMap<VooInstrucao, VooInstrucaoViewModel>()
                 .ForMember(dest => dest.MatriculaAeronave, opt => opt.MapFrom(src => src.Aeronave.Matricula));
+
+            CreateMap<Aluno, AlunoViewModel>()
+                .ForMember(dest => dest.Turmas, opt => opt.MapFrom(src => src.AlunosTurmas.Select(x => x.Turma).ToList()));
+
+            CreateMap<Turma, TurmaViewModel>()
+                .ForMember(dest => dest.Alunos, opt => opt.MapFrom(src => src.AlunosTurmas.Select(x => x.Aluno).ToList()));
         }
     }
 }

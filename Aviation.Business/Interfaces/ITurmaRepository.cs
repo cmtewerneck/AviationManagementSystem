@@ -8,5 +8,11 @@ namespace AviationManagementApi.Business.Interfaces
     public interface ITurmaRepository : IRepository<Turma>
     {
         Task<IEnumerable<Turma>> ObterTurmasCursos();
+
+        Task<IEnumerable<Turma>> ObterTurmasCursoAlunos();
+
+        Task<Turma> ObterTurmaCurso(Guid id);
+
+        Task<Turma> ObterTurmaCursoAlunos(Guid id);
     }
 }

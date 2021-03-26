@@ -103,7 +103,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet]
         public async Task<IEnumerable<OrdemServicoViewModel>> ObterTodos()
         {
-            return _mapper.Map<IEnumerable<OrdemServicoViewModel>>(await _ordemServicoRepository.ObterTodos());
+            return _mapper.Map<IEnumerable<OrdemServicoViewModel>>(await _ordemServicoRepository.ObterOrdensServicosAeronaves());
         }
 
         [AllowAnonymous]
@@ -117,7 +117,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<OrdemServicoViewModel>> ObterOrdemServicoPorId(Guid id)
         {
-            var ordemServico = _mapper.Map<OrdemServicoViewModel>(await _ordemServicoRepository.ObterPorId(id));
+            var ordemServico = _mapper.Map<OrdemServicoViewModel>(await _ordemServicoRepository.ObterOrdemServicoAeronave(id));
 
             if (ordemServico == null) return NotFound();
 

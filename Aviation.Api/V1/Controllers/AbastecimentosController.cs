@@ -136,7 +136,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<AeronaveAbastecimentoViewModel>> ObterAbastecimentoPorId(Guid id)
         {
-            var abastecimento = _mapper.Map<AeronaveAbastecimentoViewModel>(await _abastecimentoRepository.ObterPorId(id));
+            var abastecimento = _mapper.Map<AeronaveAbastecimentoViewModel>(await _abastecimentoRepository.ObterAbastecimentoAeronave(id));
 
             if (abastecimento == null) return NotFound();
 

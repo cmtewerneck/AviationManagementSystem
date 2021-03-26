@@ -39,7 +39,7 @@ namespace AviationManagementApi.Data.Context
         public DbSet<SuprimentoMovimentacao> SuprimentosMovimentacoes { get; set; }
         public DbSet<Turma> Turmas { get; set; }
         public DbSet<Veiculo> Veiculos { get; set; }
-        public DbSet<VeiculoGasto> VeiculosGastos { get; set; }
+        public DbSet<VeiculoGasto> VeiculoGastos { get; set; }
         public DbSet<VeiculoMulta> VeiculoMultas { get; set; }
         public DbSet<VooAgendado> VoosAgendados { get; set; }
         public DbSet<VooInstrucao> VoosInstrucoes { get; set; }

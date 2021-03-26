@@ -29,13 +29,13 @@ namespace AviationManagementApi.Business.Models
         public string Discrepancias { get; set; } // OPCIONAL (1,300)
         public string AcoesCorretivas { get; set; } // OPCIONAL (1,300)
 
-        public Aeronave Aeronave { get; set; } // OBRIGATÓRIO
-        public Guid AeronaveId { get; set; }
-        public Colaborador Comandante { get; set; } // OBRIGATÓRIO
-        public Guid ComandanteId { get; set; }
-        public Colaborador Copiloto { get; set; } // OPCIONAL
-        public Guid? CopilotoId { get; set; }
-        public Colaborador MecanicoResponsavel { get; set; } // OBRIGATÓRIO
-        public Guid? MecanicoResponsavelId { get; set; }
+        public Aeronave Aeronave { get; set; } 
+        public Guid AeronaveId { get; set; } // OBRIGATÓRIO
+        public Colaborador Comandante { get; set; } 
+        public Guid ComandanteId { get; set; } // OBRIGATÓRIO
+        public Colaborador Copiloto { get; set; } 
+        public Guid CopilotoId { get; set; } // OPCIONAL
+        public Colaborador MecanicoResponsavel { get; set; } 
+        public Guid MecanicoResponsavelId { get; set; } // OBRIGATÓRIO
     }
 }

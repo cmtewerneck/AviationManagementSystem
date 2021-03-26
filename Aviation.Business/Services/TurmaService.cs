@@ -50,7 +50,7 @@ namespace AviationManagementApi.Business.Services
             await _turmaRepository.Remover(id);
             return true;
         }
-        
+
         public void Dispose()
         {
             _turmaRepository?.Dispose();

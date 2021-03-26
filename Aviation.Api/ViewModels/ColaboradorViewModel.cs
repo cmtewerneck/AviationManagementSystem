@@ -8,6 +8,7 @@ namespace AviationManagementApi.Api.ViewModels
         public DateTime? DataNascimento { get; set; }
         public DateTime DataAdmissao { get; set; }
         public DateTime? DataDemissao { get; set; }
+        public DateTime? ValidadeCMA { get; set; }
         public int TipoColaborador { get; set; }
         public string Cargo { get; set; }
         public string CANAC { get; set; }

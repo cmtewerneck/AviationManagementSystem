@@ -149,6 +149,7 @@ namespace AviationManagementApi.App.Controllers
         {
             return _mapper.Map<VeiculoViewModel>(await _veiculoRepository.ObterPorId(id));
         }
+
         [ClaimsAuthorize("Veiculo", "Consultar")]
         [HttpGet]
         public async Task<IEnumerable<VeiculoViewModel>> ObterTodos()

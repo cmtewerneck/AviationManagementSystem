@@ -107,7 +107,7 @@ namespace AviationManagementApi.Api.V1.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<VooAgendadoViewModel>> ObterPorId(Guid id)
         {
-            var vooAgendadoViewModel = await ObterVooAgendado(id);
+            var vooAgendadoViewModel = _mapper.Map<VooAgendadoViewModel>(await _vooAgendadoRepository.ObterVooAgendadoAeronave(id));
 
             if (vooAgendadoViewModel == null) return NotFound();
 

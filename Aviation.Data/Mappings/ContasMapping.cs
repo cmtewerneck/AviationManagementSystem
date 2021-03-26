@@ -17,8 +17,6 @@ namespace AviationManagementApi.Data.Mappings
                 .HasMaxLength(50)
                 .HasColumnType("varchar(50)");
 
-            builder.HasIndex(p => p.CodigoBarras).IsUnique();
-
             builder.Property(p => p.FormaPagamento)
                .HasMaxLength(30)
                .HasColumnType("varchar(30)");

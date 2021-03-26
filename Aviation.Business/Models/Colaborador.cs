@@ -8,6 +8,7 @@ namespace AviationManagementApi.Business.Models
         public DateTime? DataNascimento { get; set; } // OPCIONAL
         public DateTime DataAdmissao { get; set; } // OBRIGATÓRIO
         public DateTime? DataDemissao { get; set; } // OPCIONAL
+        public DateTime? ValidadeCMA { get; set; } // OPCIONAL
         public TipoColaboradorEnum TipoColaborador { get; set; } // OBRIGATÓRIO
         public string Cargo { get; set; } // OPCIONAL (1,30). AUTO PREENCHIDO CASO SEJA TRIP, MEC, INST
         public string CANAC { get; set; } // OPCIONAL (6). OBRIGATÓRIO SOMENTE SE FOR TRIP, MEC, INST

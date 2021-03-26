@@ -2,7 +2,6 @@
 using AviationManagementApi.Business.Models;
 using AviationManagementApi.Business.Models.Validations;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace AviationManagementApi.Business.Services

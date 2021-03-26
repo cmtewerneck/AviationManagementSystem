@@ -10,5 +10,7 @@ namespace AviationManagementApi.Business.Interfaces
         Task<IEnumerable<VeiculoGasto>> ObterGastosPorVeiculo(Guid veiculoId);
 
         Task<IEnumerable<VeiculoGasto>> ObterGastosVeiculos();
+
+        Task<VeiculoGasto> ObterGastoVeiculo(Guid id);
     }
 }

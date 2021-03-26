@@ -104,7 +104,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<VeiculoGastoViewModel>> ObterVeiculoGastoPorId(Guid id)
         {
-            var veiculoGasto = _mapper.Map<VeiculoGastoViewModel>(await _gastosVeiculoRepository.ObterPorId(id));
+            var veiculoGasto = _mapper.Map<VeiculoGastoViewModel>(await _gastosVeiculoRepository.ObterGastoVeiculo(id));
 
             if (veiculoGasto == null) return NotFound();
 

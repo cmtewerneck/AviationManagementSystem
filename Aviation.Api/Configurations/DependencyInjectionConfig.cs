@@ -22,6 +22,7 @@ namespace AviationManagementApi.Api.Configurations
             services.AddScoped<IAeronaveTarifaRepository, AeronaveTarifaRepository>();
             services.AddScoped<IAeronaveAbastecimentoRepository, AeronaveAbastecimentoRepository>();
             services.AddScoped<IAlunoRepository, AlunoRepository>();
+            services.AddScoped<IAlunoTurmaRepository, AlunoTurmaRepository>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
             services.AddScoped<IContasPagarRepository, ContasPagarRepository>();
@@ -54,6 +55,7 @@ namespace AviationManagementApi.Api.Configurations
             services.AddScoped<IAeronaveTarifaServices, AeronaveTarifaService>();
             services.AddScoped<IAeronaveAbastecimentoServices, AeronaveAbastecimentoService>();
             services.AddScoped<IAlunoServices, AlunoService>();
+            services.AddScoped<IAlunoTurmaServices, AlunoTurmaService>();
             services.AddScoped<IClienteServices, ClienteService>();
             services.AddScoped<IColaboradorServices, ColaboradorService>();
             services.AddScoped<IContasPagarServices, ContasPagarService>();

@@ -19,6 +19,6 @@ namespace AviationManagementApi.Api.ViewModels
         public string ImagemUpload { get; set; }
 
         public IEnumerable<VeiculoMultaViewModel> VeiculoMultas { get; set; }
-        public IEnumerable<VeiculoGastoViewModel> VeiculosGastos { get; set; }
+        public IEnumerable<VeiculoGastoViewModel> VeiculoGastos { get; set; }
     }
 }

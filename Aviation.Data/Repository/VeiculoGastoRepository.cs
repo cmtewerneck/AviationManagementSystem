@@ -20,8 +20,19 @@ namespace AviationManagementApi.Data.Repository
 
         public async Task<IEnumerable<VeiculoGasto>> ObterGastosVeiculos()
         {
-            return await Db.VeiculosGastos.AsNoTracking().Include(f => f.Veiculo)
-                .OrderBy(p => p.Data).ToListAsync();
+            return await Db.VeiculoGastos
+                .AsNoTracking()
+                .Include(f => f.Veiculo)
+                .OrderBy(p => p.Data)
+                .ToListAsync();
+        }
+
+        public async Task<VeiculoGasto> ObterGastoVeiculo(Guid id)
+        {
+            return await Db.VeiculoGastos
+                .AsNoTracking()
+                .Include(f => f.Veiculo)
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
     }
 }

@@ -14,5 +14,8 @@ namespace AviationManagementApi.Api.ViewModels
 
         [ScaffoldColumn(false)]
         public string CodigoItem { get; set; }
+
+        [ScaffoldColumn(false)]
+        public string NomenclaturaItem { get; set; }
     }
 } 

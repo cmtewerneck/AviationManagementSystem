@@ -103,7 +103,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<AeronaveTarifaViewModel>> ObterAeronaveTarifaPorId(Guid id)
         {
-            var aeronaveTarifa = _mapper.Map<AeronaveTarifaViewModel>(await _tarifaRepository.ObterPorId(id));
+            var aeronaveTarifa = _mapper.Map<AeronaveTarifaViewModel>(await _tarifaRepository.ObterTarifaAeronave(id));
 
             if (aeronaveTarifa == null) return NotFound();
 

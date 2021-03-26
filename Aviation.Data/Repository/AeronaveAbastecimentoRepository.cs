@@ -15,7 +15,9 @@ namespace AviationManagementApi.Data.Repository
 
         public async Task<AeronaveAbastecimento> ObterAbastecimentoAeronave(Guid id)
         {
-            return await Db.AeronavesAbastecimentos.AsNoTracking().Include(f => f.Aeronave)
+            return await Db.AeronavesAbastecimentos
+                .AsNoTracking()
+                .Include(f => f.Aeronave)
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 

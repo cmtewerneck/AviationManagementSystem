@@ -47,13 +47,13 @@ namespace AviationManagementApi.Business.Services
 
         public async Task<bool> Remover(Guid id)
         {
-            if (_veiculoRepository.ObterVeiculoGastos(id).Result.VeiculosGastos.Any())
+            if (_veiculoRepository.ObterVeiculoGastos(id).Result.VeiculoGastos.Any())
             {
                 Notificar("O veículo possui gastos cadastrados. Exclua o gasto primeiro ou mude o status do veículo para INATIVO!");
                 return false;
             }
 
-            if (_veiculoRepository.ObterVeiculoMultas(id).Result.VeiculosGastos.Any())
+            if (_veiculoRepository.ObterVeiculoMultas(id).Result.VeiculoGastos.Any())
             {
                 Notificar("O veículo possui multas cadastradas. Exclua a multa primeiro ou mude o status do veículo para INATIVO!");
                 return false;

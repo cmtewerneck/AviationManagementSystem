@@ -9,9 +9,9 @@ namespace AviationManagementApi.Business.Models
         public bool Situacao { get; set; } // OBRIGATÓRIO
         public decimal Valor { get; set; } // OBRIGATÓRIO > 0
 
-        public Colaborador Motorista { get; set; } // OBRIGATÓRIO
-        public Guid MotoristaId { get; set; }
-        public Veiculo Veiculo { get; set; } // OBRIGATÓRIO
-        public Guid VeiculoId { get; set; }
+        public Colaborador Motorista { get; set; } 
+        public Guid MotoristaId { get; set; } // OBRIGATÓRIO
+        public Veiculo Veiculo { get; set; } 
+        public Guid VeiculoId { get; set; } // OBRIGATÓRIO
     }
 }

@@ -16,6 +16,6 @@ namespace AviationManagementApi.Business.Models
         public string Imagem { get; set; } // OPCIONAL
 
         public IEnumerable<VeiculoMulta> VeiculoMultas { get; set; }
-        public IEnumerable<VeiculoGasto> VeiculosGastos { get; set; }
+        public IEnumerable<VeiculoGasto> VeiculoGastos { get; set; }
     }
 }
