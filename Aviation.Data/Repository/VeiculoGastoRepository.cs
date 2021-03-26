@@ -27,11 +27,30 @@ namespace AviationManagementApi.Data.Repository
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<VeiculoGasto>> ObterGastosVeiculosMotoristas()
+        {
+            return await Db.VeiculoGastos
+                .AsNoTracking()
+                .Include(f => f.Veiculo)
+                .Include(f => f.Motorista)
+                .OrderBy(p => p.Data)
+                .ToListAsync();
+        }
+
         public async Task<VeiculoGasto> ObterGastoVeiculo(Guid id)
         {
             return await Db.VeiculoGastos
                 .AsNoTracking()
                 .Include(f => f.Veiculo)
+                .FirstOrDefaultAsync(p => p.Id == id);
+        }
+
+        public async Task<VeiculoGasto> ObterGastoVeiculoMotorista(Guid id)
+        {
+            return await Db.VeiculoGastos
+                .AsNoTracking()
+                .Include(f => f.Veiculo)
+                .Include(f => f.Motorista)
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
     }

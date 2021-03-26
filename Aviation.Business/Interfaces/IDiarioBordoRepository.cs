@@ -8,5 +8,7 @@ namespace AviationManagementApi.Business.Interfaces
     public interface IDiarioBordoRepository : IRepository<DiarioBordo>
     {
         Task<IEnumerable<DiarioBordo>> ObterDiariosAeronavesColaboradores();
+        
+        Task<IEnumerable<DiarioBordo>> ObterDiariosAeronaves();
     }
 }

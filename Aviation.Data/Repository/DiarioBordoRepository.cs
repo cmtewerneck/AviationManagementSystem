@@ -21,5 +21,13 @@ namespace AviationManagementApi.Data.Repository
                 .Include(f => f.MecanicoResponsavel)
                 .OrderBy(p => p.Data).ToListAsync();
         }
+
+        public async Task<IEnumerable<DiarioBordo>> ObterDiariosAeronaves()
+        {
+            return await Db.DiariosBordo
+                .AsNoTracking()
+                .Include(f => f.Aeronave)
+                .OrderBy(p => p.Data).ToListAsync();
+        }
     }
 }

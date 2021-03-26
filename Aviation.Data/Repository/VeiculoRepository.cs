@@ -22,7 +22,7 @@ namespace AviationManagementApi.Data.Repository
         public async Task<Veiculo> ObterVeiculoGastos(Guid id)
         {
             return await Db.Veiculos
-                .Include(c => c.VeiculosGastos)
+                .Include(c => c.VeiculoGastos)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(c => c.Id == id);
         }

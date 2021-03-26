@@ -18,18 +18,26 @@ namespace AviationManagementApi.App.Controllers
     public class OrdensServicoController : MainController
     {
         private readonly IOrdemServicoRepository _ordemServicoRepository;
+        private readonly IItemOrdemServicoRepository _itemOrdemServicoRepository;
         private readonly IOrdemServicoServices _ordemServicoService;
+        private readonly IItemOrdemServicoServices _itemOrdemServicoService;
+
         private readonly IMapper _mapper;
 
         #region CONSTRUCTOR
-        public OrdensServicoController(IOrdemServicoRepository ordemServicoRepository,
+        public OrdensServicoController(
+                                  IOrdemServicoRepository ordemServicoRepository,
+                                  IItemOrdemServicoRepository itemOrdemServicoRepository,
                                   IMapper mapper,
                                   IOrdemServicoServices ordemServicoService,
+                                  IItemOrdemServicoServices itemOrdemServicoService,
                                   INotificador notificador, IUser user) : base(notificador, user)
         {
             _ordemServicoRepository = ordemServicoRepository;
+            _itemOrdemServicoRepository = itemOrdemServicoRepository;
             _mapper = mapper;
             _ordemServicoService = ordemServicoService;
+            _itemOrdemServicoService = itemOrdemServicoService;
         }
         #endregion
 
@@ -95,6 +103,21 @@ namespace AviationManagementApi.App.Controllers
             await _ordemServicoService.Remover(id);
 
             return CustomResponse(ordemServico);
+        }
+
+        // ITEM ORDEM SERVICO
+        [ClaimsAuthorize("OrdemServico", "Adicionar")]
+        [HttpPost("servicos")]
+        public async Task<ActionResult<OrdemServicoViewModel>> AdicionarItemOrdemServico(ItemOrdemServicoViewModel itemOrdemServicoViewModel)
+        {
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            itemOrdemServicoViewModel.Custo = 10;
+            itemOrdemServicoViewModel.Status = 2; // EM EXECUÇÃO NO ENUM
+
+            await _itemOrdemServicoService.Adicionar(_mapper.Map<ItemOrdemServico>(itemOrdemServicoViewModel));
+
+            return CustomResponse(itemOrdemServicoViewModel);
         }
         #endregion
 

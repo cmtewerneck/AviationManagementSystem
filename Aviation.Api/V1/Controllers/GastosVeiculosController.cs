@@ -97,14 +97,14 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet]
         public async Task<IEnumerable<VeiculoGastoViewModel>> ObterTodos()
         {
-            return _mapper.Map<IEnumerable<VeiculoGastoViewModel>>(await _gastosVeiculoRepository.ObterGastosVeiculos());
+            return _mapper.Map<IEnumerable<VeiculoGastoViewModel>>(await _gastosVeiculoRepository.ObterGastosVeiculosMotoristas());
         }
 
         [ClaimsAuthorize("Veiculo", "Consultar")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<VeiculoGastoViewModel>> ObterVeiculoGastoPorId(Guid id)
         {
-            var veiculoGasto = _mapper.Map<VeiculoGastoViewModel>(await _gastosVeiculoRepository.ObterGastoVeiculo(id));
+            var veiculoGasto = _mapper.Map<VeiculoGastoViewModel>(await _gastosVeiculoRepository.ObterGastoVeiculoMotorista(id));
 
             if (veiculoGasto == null) return NotFound();
 

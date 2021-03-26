@@ -31,6 +31,7 @@ namespace AviationManagementApi.Api.Configurations
             services.AddScoped<IDiarioBordoRepository, DiarioBordoRepository>();
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
             services.AddScoped<IFornecedorRepository, FornecedorRepository>();
+            services.AddScoped<IItemOrdemServicoRepository, ItemOrdemServicoRepository>();
             services.AddScoped<ILegislacaoRepository, LegislacaoRepository>();
             services.AddScoped<IManualEmpresaRepository, ManualEmpresaRepository>();
             services.AddScoped<IManualVooRepository, ManualVooRepository>();
@@ -63,6 +64,7 @@ namespace AviationManagementApi.Api.Configurations
             services.AddScoped<ICursoServices, CursoService>();
             services.AddScoped<IDiarioBordoServices, DiarioBordoService>();
             services.AddScoped<IFornecedorServices, FornecedorService>();
+            services.AddScoped<IItemOrdemServicoServices, ItemOrdemServicoService>();
             services.AddScoped<ILegislacaoServices, LegislacaoService>();
             services.AddScoped<IManualEmpresaServices, ManualEmpresaService>();
             services.AddScoped<IManualVooServices, ManualVooService>();
