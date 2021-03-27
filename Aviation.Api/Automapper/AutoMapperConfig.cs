@@ -35,13 +35,12 @@ namespace AviationManagementApi.Api.AutoMapper
             CreateMap<Servico, ServicoViewModel>().ReverseMap();
             CreateMap<Suprimento, SuprimentoViewModel>().ReverseMap();
             CreateMap<SuprimentoMovimentacao, SuprimentoMovimentacaoViewModel>().ReverseMap();
-            CreateMap<Turma, TurmaViewModel>().ReverseMap();
             CreateMap<Veiculo, VeiculoViewModel>().ReverseMap();
             CreateMap<VeiculoGasto, VeiculoGastoViewModel>().ReverseMap();
             CreateMap<VeiculoMulta, VeiculoMultaViewModel>().ReverseMap();
             CreateMap<VooAgendado, VooAgendadoViewModel>().ReverseMap();
             CreateMap<VooInstrucao, VooInstrucaoViewModel>().ReverseMap();
-            
+
             CreateMap<AeronaveTarifa, AeronaveTarifaViewModel>()
                 .ForMember(dest => dest.MatriculaAeronave, opt => opt.MapFrom(src => src.Aeronave.Matricula));
 
@@ -49,30 +48,20 @@ namespace AviationManagementApi.Api.AutoMapper
                 .ForMember(dest => dest.MatriculaAeronave, opt => opt.MapFrom(src => src.Aeronave.Matricula));
 
             CreateMap<AlunoTurma, AlunoTurmaViewModel>()
-                .ForMember(dest => dest.NomeAluno, opt => opt.MapFrom(src => src.Aluno.Nome));
-
-            CreateMap<AlunoTurma, AlunoTurmaViewModel>()
+                .ForMember(dest => dest.NomeAluno, opt => opt.MapFrom(src => src.Aluno.Nome))
                 .ForMember(dest => dest.CodigoTurma, opt => opt.MapFrom(src => src.Turma.Codigo));
 
             CreateMap<DiarioBordo, DiarioBordoViewModel>()
-                .ForMember(dest => dest.MatriculaAeronave, opt => opt.MapFrom(src => src.Aeronave.Matricula));
-
-            CreateMap<DiarioBordo, DiarioBordoViewModel>()
-                .ForMember(dest => dest.NomeComandante, opt => opt.MapFrom(src => src.Comandante.Nome));
-
-            CreateMap<DiarioBordo, DiarioBordoViewModel>()
-                .ForMember(dest => dest.NomeCopiloto, opt => opt.MapFrom(src => src.Copiloto.Nome));
-
-            CreateMap<DiarioBordo, DiarioBordoViewModel>()
+                .ForMember(dest => dest.MatriculaAeronave, opt => opt.MapFrom(src => src.Aeronave.Matricula))
+                .ForMember(dest => dest.NomeComandante, opt => opt.MapFrom(src => src.Comandante.Nome))
+                .ForMember(dest => dest.NomeCopiloto, opt => opt.MapFrom(src => src.Copiloto.Nome))
                 .ForMember(dest => dest.NomeMecanico, opt => opt.MapFrom(src => src.MecanicoResponsavel.Nome));
 
             CreateMap<Endereco, EnderecoViewModel>()
                 .ForMember(dest => dest.NomeFornecedor, opt => opt.MapFrom(src => src.Fornecedor.Nome));
 
             CreateMap<ItemOrdemServico, ItemOrdemServicoViewModel>()
-                .ForMember(dest => dest.NumeroOrdem, opt => opt.MapFrom(src => src.OrdemServico.NumeroOrdem));
-
-            CreateMap<ItemOrdemServico, ItemOrdemServicoViewModel>()
+                .ForMember(dest => dest.NumeroOrdem, opt => opt.MapFrom(src => src.OrdemServico.NumeroOrdem))
                 .ForMember(dest => dest.CodigoServico, opt => opt.MapFrom(src => src.Servico.Codigo));
 
             CreateMap<OrdemServico, OrdemServicoViewModel>()
@@ -82,21 +71,11 @@ namespace AviationManagementApi.Api.AutoMapper
                 .ForMember(dest => dest.NomeFornecedor, opt => opt.MapFrom(src => src.Fornecedor.Nome));
 
             CreateMap<SuprimentoMovimentacao, SuprimentoMovimentacaoViewModel>()
-                .ForMember(dest => dest.CodigoItem, opt => opt.MapFrom(src => src.Item.Codigo));
-
-            CreateMap<SuprimentoMovimentacao, SuprimentoMovimentacaoViewModel>()
+                .ForMember(dest => dest.CodigoItem, opt => opt.MapFrom(src => src.Item.Codigo))
                 .ForMember(dest => dest.NomenclaturaItem, opt => opt.MapFrom(src => src.Item.Nomenclatura));
 
-            CreateMap<Turma, TurmaViewModel>()
-                .ForMember(dest => dest.CodigoCurso, opt => opt.MapFrom(src => src.Curso.Codigo));
-
-            CreateMap<Turma, TurmaViewModel>()
-                .ForMember(dest => dest.DescricaoCurso, opt => opt.MapFrom(src => src.Curso.Descricao));
-
             CreateMap<VeiculoGasto, VeiculoGastoViewModel>()
-                .ForMember(dest => dest.PlacaVeiculo, opt => opt.MapFrom(src => src.Veiculo.Placa));
-
-            CreateMap<VeiculoGasto, VeiculoGastoViewModel>()
+                .ForMember(dest => dest.PlacaVeiculo, opt => opt.MapFrom(src => src.Veiculo.Placa))
                 .ForMember(dest => dest.NomeMotorista, opt => opt.MapFrom(src => src.Motorista.Nome));
 
             CreateMap<VeiculoMulta, VeiculoMultaViewModel>()
@@ -106,19 +85,19 @@ namespace AviationManagementApi.Api.AutoMapper
                 .ForMember(dest => dest.MatriculaAeronave, opt => opt.MapFrom(src => src.Aeronave.Matricula));
 
             CreateMap<VooInstrucao, VooInstrucaoViewModel>()
-                .ForMember(dest => dest.NomeAluno, opt => opt.MapFrom(src => src.Aluno.Nome));
-
-            CreateMap<VooInstrucao, VooInstrucaoViewModel>()
-                .ForMember(dest => dest.NomeInstrutor, opt => opt.MapFrom(src => src.Instrutor.Nome));
-
-            CreateMap<VooInstrucao, VooInstrucaoViewModel>()
+                .ForMember(dest => dest.NomeAluno, opt => opt.MapFrom(src => src.Aluno.Nome))
+                .ForMember(dest => dest.NomeInstrutor, opt => opt.MapFrom(src => src.Instrutor.Nome))
                 .ForMember(dest => dest.MatriculaAeronave, opt => opt.MapFrom(src => src.Aeronave.Matricula));
 
             CreateMap<Aluno, AlunoViewModel>()
                 .ForMember(dest => dest.Turmas, opt => opt.MapFrom(src => src.AlunosTurmas.Select(x => x.Turma).ToList()));
 
+            CreateMap<Turma, TurmaViewModel>().ReverseMap();
+
             CreateMap<Turma, TurmaViewModel>()
-                .ForMember(dest => dest.Alunos, opt => opt.MapFrom(src => src.AlunosTurmas.Select(x => x.Aluno).ToList()));
+                .ForMember(dest => dest.CodigoCurso, opt => opt.MapFrom(src => src.Curso.Codigo))
+                .ForMember(dest => dest.DescricaoCurso, opt => opt.MapFrom(src => src.Curso.Descricao));
+                //.ForMember(dest => dest.Alunos, opt => opt.MapFrom(src => src.AlunosTurmas.Select(x => x.Aluno).ToList()));
         }
     }
 }

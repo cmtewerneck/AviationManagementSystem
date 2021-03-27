@@ -12,7 +12,8 @@ namespace AviationManagementApi.Api.ViewModels
         public DateTime? DataTermino { get; set; }
 
         public Guid CursoId { get; set; }
-        public IEnumerable<AlunoViewModel> Alunos { get; set; }
+        
+        public IEnumerable<AlunoTurmaViewModel> AlunosTurmas { get; set; }
 
         [ScaffoldColumn(false)]
         public string CodigoCurso { get; set; }

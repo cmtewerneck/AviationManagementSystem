@@ -142,7 +142,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<TurmaViewModel>> ObterTurmaPorId(Guid id)
         {
-            var turma = _mapper.Map<TurmaViewModel>(await _turmaRepository.ObterTurmaCurso(id));
+            var turma = _mapper.Map<TurmaViewModel>(await _turmaRepository.ObterTurmaCursoAlunos(id));
 
             if (turma == null) return NotFound();
 
