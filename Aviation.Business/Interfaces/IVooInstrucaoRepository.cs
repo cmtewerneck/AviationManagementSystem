@@ -22,5 +22,7 @@ namespace AviationManagementApi.Business.Interfaces
         Task<IEnumerable<VooInstrucao>> ObterVoosInstrucaoInstrutoresAlunosAeronaves();
 
         Task<VooInstrucao> ObterVooInstrucaoAeronave(Guid id);
+
+        Task<VooInstrucao> ObterVooInstrucaoAeronaveAlunoInstrutor(Guid id);
     }
 }

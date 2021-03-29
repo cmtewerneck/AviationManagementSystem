@@ -34,7 +34,7 @@ namespace AviationManagementApi.Business.Models
         public Colaborador Comandante { get; set; } 
         public Guid ComandanteId { get; set; } // OBRIGATÓRIO
         public Colaborador Copiloto { get; set; } 
-        public Guid CopilotoId { get; set; } // OPCIONAL
+        public Guid? CopilotoId { get; set; } // OPCIONAL
         public Colaborador MecanicoResponsavel { get; set; } 
         public Guid MecanicoResponsavelId { get; set; } // OBRIGATÓRIO
     }

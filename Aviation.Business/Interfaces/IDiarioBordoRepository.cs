@@ -10,5 +10,7 @@ namespace AviationManagementApi.Business.Interfaces
         Task<IEnumerable<DiarioBordo>> ObterDiariosAeronavesColaboradores();
         
         Task<IEnumerable<DiarioBordo>> ObterDiariosAeronaves();
+
+        Task<DiarioBordo> ObterDiarioAeronaveColaboradores(Guid id);
     }
 }

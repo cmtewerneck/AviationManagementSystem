@@ -69,5 +69,16 @@ namespace AviationManagementApi.Data.Repository
                 .AsNoTracking()
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
+
+        public async Task<VooInstrucao> ObterVooInstrucaoAeronaveAlunoInstrutor(Guid id)
+        {
+            return await Db.VoosInstrucoes
+                .Include(p => p.Instrutor)
+                .Include(p => p.Aluno)
+                .Include(p => p.Aeronave)
+                .OrderBy(p => p.Data)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.Id == id);
+        }
     }
 }

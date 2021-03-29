@@ -126,6 +126,45 @@ namespace AviationManagementApi.App.Controllers
             return CustomResponse(aluno);
         }
 
+        // SALDO INSTRUÇÃO
+        [ClaimsAuthorize("Aluno", "Atualizar")]
+        [HttpPut("atualizar-saldo/{id:guid}")]
+        public async Task<ActionResult<AlunoSaldoViewModel>> AtualizarQuantidade(Guid id, AlunoSaldoViewModel alunoSaldoViewModel)
+        {
+            if (id != alunoSaldoViewModel.Id)
+            {
+                NotificarErro("O id informado é diferente do id da requisição.");
+                return CustomResponse();
+            }
+
+            var alunoSaldoAtualizacao = await ObterAluno(id);
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            // MANTÉM TUDO
+            alunoSaldoAtualizacao.Nome = alunoSaldoAtualizacao.Nome;
+            alunoSaldoAtualizacao.TipoPessoa = alunoSaldoAtualizacao.TipoPessoa;
+            alunoSaldoAtualizacao.Documento = alunoSaldoAtualizacao.Documento;
+            alunoSaldoAtualizacao.Sexo = alunoSaldoAtualizacao.Sexo;
+            alunoSaldoAtualizacao.EstadoCivil = alunoSaldoAtualizacao.EstadoCivil;
+            alunoSaldoAtualizacao.Ativo = alunoSaldoAtualizacao.Ativo;
+            alunoSaldoAtualizacao.Telefone = alunoSaldoAtualizacao.Telefone;
+            alunoSaldoAtualizacao.Email = alunoSaldoAtualizacao.Email;
+            alunoSaldoAtualizacao.RG = alunoSaldoAtualizacao.RG;
+            alunoSaldoAtualizacao.CANAC = alunoSaldoAtualizacao.CANAC;
+            alunoSaldoAtualizacao.DataNascimento = alunoSaldoAtualizacao.DataNascimento;
+            alunoSaldoAtualizacao.ValidadeCMA = alunoSaldoAtualizacao.ValidadeCMA;
+            alunoSaldoAtualizacao.Imagem = alunoSaldoAtualizacao.Imagem;
+
+            // ALTERA O SALDO E O TOTAL VOADO
+            alunoSaldoAtualizacao.TotalVoado += alunoSaldoViewModel.TempoVoo;
+            alunoSaldoAtualizacao.Saldo -= alunoSaldoViewModel.TempoVoo;
+
+            await _alunoService.Atualizar(_mapper.Map<Aluno>(alunoSaldoAtualizacao));
+
+            return CustomResponse(alunoSaldoViewModel);
+        }
+
         [ClaimsAuthorize("Aluno", "Atualizar")]
         [HttpPut("adicionar-saldo/{id:guid}")]
         public async Task<ActionResult<AlunoViewModel>> AdicionarSaldo(Guid id, AlunoViewModel alunoViewModel)
@@ -167,7 +206,7 @@ namespace AviationManagementApi.App.Controllers
             alunoAtualizacao.TotalVoado = alunoViewModel.TotalVoado;
             alunoAtualizacao.DataNascimento = alunoViewModel.DataNascimento;
             alunoAtualizacao.ValidadeCMA = alunoViewModel.ValidadeCMA;
-            
+
             alunoAtualizacao.Saldo += alunoViewModel.Saldo;
 
             await _alunoService.Atualizar(_mapper.Map<Aluno>(alunoAtualizacao));

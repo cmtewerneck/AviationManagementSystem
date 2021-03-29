@@ -2,6 +2,7 @@
 using AviationManagementApi.Business.Models;
 using AviationManagementApi.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,6 +29,17 @@ namespace AviationManagementApi.Data.Repository
                 .AsNoTracking()
                 .Include(f => f.Aeronave)
                 .OrderBy(p => p.Data).ToListAsync();
+        }
+
+        public async Task<DiarioBordo> ObterDiarioAeronaveColaboradores(Guid id)
+        {
+            return await Db.DiariosBordo
+                .Include(c => c.Aeronave)
+                .Include(c => c.Comandante)
+                .Include(c => c.Copiloto)
+                .Include(c => c.MecanicoResponsavel)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.Id == id);
         }
     }
 }

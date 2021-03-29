@@ -33,7 +33,7 @@ namespace AviationManagementApi.Api.ViewModels
 
         public Guid AeronaveId { get; set; }
         public Guid ComandanteId { get; set; }
-        public Guid CopilotoId { get; set; }
+        public Guid? CopilotoId { get; set; }
         public Guid MecanicoResponsavelId { get; set; }
 
         [ScaffoldColumn(false)]

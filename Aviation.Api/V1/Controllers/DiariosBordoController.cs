@@ -109,7 +109,8 @@ namespace AviationManagementApi.Api.V1.Controllers
         [HttpGet]
         public async Task<IEnumerable<DiarioBordoViewModel>> ObterTodos()
         {
-            return _mapper.Map<IEnumerable<DiarioBordoViewModel>>(await _diarioBordoRepository.ObterDiariosAeronavesColaboradores());
+            var entidade = await _diarioBordoRepository.ObterDiariosAeronavesColaboradores();
+            return _mapper.Map<IEnumerable<DiarioBordoViewModel>>(entidade);
         }
 
         [ClaimsAuthorize("Diario", "Consultar")]
@@ -125,7 +126,7 @@ namespace AviationManagementApi.Api.V1.Controllers
 
         private async Task<DiarioBordoViewModel> ObterDiarioBordo(Guid id)
         {
-            return _mapper.Map<DiarioBordoViewModel>(await _diarioBordoRepository.ObterPorId(id));
+            return _mapper.Map<DiarioBordoViewModel>(await _diarioBordoRepository.ObterDiarioAeronaveColaboradores(id));
         }
         #endregion
     }

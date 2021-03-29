@@ -105,7 +105,7 @@ namespace AviationManagementApi.Api.V1.Controllers
 
         private async Task<VooInstrucaoViewModel> ObterVooInstrucao(Guid id)
         {
-            return _mapper.Map<VooInstrucaoViewModel>(await _vooInstrucaoRepository.ObterVooInstrucaoAeronave(id));
+            return _mapper.Map<VooInstrucaoViewModel>(await _vooInstrucaoRepository.ObterVooInstrucaoAeronaveAlunoInstrutor(id));
         }
         #endregion
     }

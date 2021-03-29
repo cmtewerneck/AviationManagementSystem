@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Api\\AviationManagementSystem.Api.csproj": {}
+    "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Api\\AviationManagementSystem.Api.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Api\\AviationManagementSystem.Api.csproj": {
+    "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Api\\AviationManagementSystem.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Api\\AviationManagementSystem.Api.csproj",
+        "projectUniqueName": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Api\\AviationManagementSystem.Api.csproj",
         "projectName": "AviationManagementSystem.Api",
-        "projectPath": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Api\\AviationManagementSystem.Api.csproj",
-        "packagesPath": "C:\\Users\\Alexandre\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Api\\obj\\",
+        "projectPath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Api\\AviationManagementSystem.Api.csproj",
+        "packagesPath": "C:\\Users\\Thiago Werneck\\.nuget\\packages\\",
+        "outputPath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Alexandre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Thiago Werneck\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -27,18 +27,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://impetoinformatica.pkgs.visualstudio.com/_packaging/impeto-framework%40Release/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj": {
-                "projectPath": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj"
+              "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj": {
+                "projectPath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj"
               },
-              "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Data\\AviationManagementSystem.Data.csproj": {
-                "projectPath": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Data\\AviationManagementSystem.Data.csproj"
+              "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Data\\AviationManagementSystem.Data.csproj": {
+                "projectPath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Data\\AviationManagementSystem.Data.csproj"
               }
             }
           }
@@ -176,25 +175,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj": {
+    "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj",
+        "projectUniqueName": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj",
         "projectName": "AviationManagementSystem.Business",
-        "projectPath": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj",
-        "packagesPath": "C:\\Users\\Alexandre\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Business\\obj\\",
+        "projectPath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj",
+        "packagesPath": "C:\\Users\\Thiago Werneck\\.nuget\\packages\\",
+        "outputPath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Alexandre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Thiago Werneck\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -203,8 +202,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://impetoinformatica.pkgs.visualstudio.com/_packaging/impeto-framework%40Release/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -337,25 +335,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Data\\AviationManagementSystem.Data.csproj": {
+    "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Data\\AviationManagementSystem.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Data\\AviationManagementSystem.Data.csproj",
+        "projectUniqueName": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Data\\AviationManagementSystem.Data.csproj",
         "projectName": "AviationManagementSystem.Data",
-        "projectPath": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Data\\AviationManagementSystem.Data.csproj",
-        "packagesPath": "C:\\Users\\Alexandre\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Data\\obj\\",
+        "projectPath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Data\\AviationManagementSystem.Data.csproj",
+        "packagesPath": "C:\\Users\\Thiago Werneck\\.nuget\\packages\\",
+        "outputPath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Alexandre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Thiago Werneck\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -364,15 +362,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://impetoinformatica.pkgs.visualstudio.com/_packaging/impeto-framework%40Release/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj": {
-                "projectPath": "C:\\Projetos\\Thiago\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj"
+              "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj": {
+                "projectPath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj"
               }
             }
           }
@@ -506,7 +503,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

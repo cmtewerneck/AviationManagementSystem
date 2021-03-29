@@ -121,6 +121,48 @@ namespace AviationManagementApi.App.Controllers
 
             return CustomResponse(suprimentoViewModel);
         }
+
+        // MOVIMENTAÇÃO
+        [ClaimsAuthorize("Suprimento", "Atualizar")]
+        [HttpPut("entrada/{id:guid}/{tipoMovimentacao:int}")]
+        public async Task<ActionResult<SuprimentoQuantidadeViewModel>> AtualizarQuantidade(Guid id, int tipoMovimentacao, SuprimentoQuantidadeViewModel suprimentoQuantidadeViewModel)
+        {
+            if (id != suprimentoQuantidadeViewModel.Id)
+            {
+                NotificarErro("O id informado é diferente do id da requisição.");
+                return CustomResponse();
+            }
+
+            var suprimentoQuantidadeAtualizacao = await ObterSuprimento(id);
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            // MANTÉM TUDO
+            suprimentoQuantidadeAtualizacao.Codigo = suprimentoQuantidadeAtualizacao.Codigo;
+            suprimentoQuantidadeAtualizacao.PartNumber = suprimentoQuantidadeAtualizacao.PartNumber;
+            suprimentoQuantidadeAtualizacao.Nomenclatura = suprimentoQuantidadeAtualizacao.Nomenclatura;
+            suprimentoQuantidadeAtualizacao.Localizacao = suprimentoQuantidadeAtualizacao.Localizacao;
+            suprimentoQuantidadeAtualizacao.PartNumberAlternativo = suprimentoQuantidadeAtualizacao.PartNumberAlternativo;
+            suprimentoQuantidadeAtualizacao.Aplicacao = suprimentoQuantidadeAtualizacao.Aplicacao;
+            suprimentoQuantidadeAtualizacao.Capitulo = suprimentoQuantidadeAtualizacao.Capitulo;
+            suprimentoQuantidadeAtualizacao.SerialNumber = suprimentoQuantidadeAtualizacao.SerialNumber;
+            suprimentoQuantidadeAtualizacao.Doc = suprimentoQuantidadeAtualizacao.Doc;
+            suprimentoQuantidadeAtualizacao.Imagem = suprimentoQuantidadeAtualizacao.Imagem;
+
+            // ALTERA A QUANTIDADE
+            if (tipoMovimentacao == 1)
+            {
+                suprimentoQuantidadeAtualizacao.Quantidade += suprimentoQuantidadeViewModel.Quantidade;
+            }
+            else if (tipoMovimentacao == 2)
+            {
+                suprimentoQuantidadeAtualizacao.Quantidade -= suprimentoQuantidadeViewModel.Quantidade;
+            }
+
+            await _suprimentoService.Atualizar(_mapper.Map<Suprimento>(suprimentoQuantidadeAtualizacao));
+
+            return CustomResponse(suprimentoQuantidadeViewModel);
+        }
         #endregion
 
         #region METHODS
