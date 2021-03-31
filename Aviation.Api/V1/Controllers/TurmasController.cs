@@ -158,9 +158,6 @@ namespace AviationManagementApi.App.Controllers
                 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            turmaAtualizacao.Codigo = turmaAtualizacao.Codigo;
-            turmaAtualizacao.DataInicio = turmaAtualizacao.DataInicio;
-
             turmaAtualizacao.DataTermino = DateTime.Now;
 
             await _turmaService.Atualizar(_mapper.Map<Turma>(turmaAtualizacao));
