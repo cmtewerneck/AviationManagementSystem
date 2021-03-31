@@ -19,6 +19,25 @@ namespace AviationManagementApi.Api.ViewModels
         [DisplayName("Confirmação de Senha")]
         [Compare("Password", ErrorMessage = "As senhas não conferem.")]
         public string ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [MaxLength(30, ErrorMessage = "O campo {0} precisa ter no máximo {1} caracteres")]
+        public string Nome { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [MaxLength(100, ErrorMessage = "O campo {0} precisa ter no máximo {1} caracteres")]
+        public string Sobrenome { get; set; }
+
+        [MaxLength(20, ErrorMessage = "O campo {0} precisa ter no máximo {1} caracteres")]
+        public string Telefone { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [MaxLength(100, ErrorMessage = "O campo {0} precisa ter no máximo {1} caracteres")]
+        public string Empresa { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [MaxLength(14, ErrorMessage = "O campo {0} precisa ter no máximo {1} caracteres")]
+        public string EmpresaCnpj { get; set; }
     }
 
     public class LoginUserViewModel

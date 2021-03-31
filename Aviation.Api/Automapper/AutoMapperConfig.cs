@@ -25,6 +25,7 @@ namespace AviationManagementApi.Api.AutoMapper
             CreateMap<Fornecedor, FornecedorViewModel>().ReverseMap();
             CreateMap<ItemOrdemServico, ItemOrdemServicoViewModel>().ReverseMap();
             CreateMap<Legislacao, LegislacaoViewModel>().ReverseMap();
+            CreateMap<LicencaHabilitacao, LicencaHabilitacaoViewModel>().ReverseMap();
             CreateMap<ManualEmpresa, ManualEmpresaViewModel>().ReverseMap();
             CreateMap<ManualVoo, ManualVooViewModel>().ReverseMap();
             CreateMap<OficioRecebido, OficioRecebidoViewModel>().ReverseMap();
@@ -97,7 +98,10 @@ namespace AviationManagementApi.Api.AutoMapper
             CreateMap<Turma, TurmaViewModel>()
                 .ForMember(dest => dest.CodigoCurso, opt => opt.MapFrom(src => src.Curso.Codigo))
                 .ForMember(dest => dest.DescricaoCurso, opt => opt.MapFrom(src => src.Curso.Descricao));
-                //.ForMember(dest => dest.Alunos, opt => opt.MapFrom(src => src.AlunosTurmas.Select(x => x.Aluno).ToList()));
+            //.ForMember(dest => dest.Alunos, opt => opt.MapFrom(src => src.AlunosTurmas.Select(x => x.Aluno).ToList()));
+
+            CreateMap<LicencaHabilitacao, LicencaHabilitacaoViewModel>()
+                .ForMember(dest => dest.NomeColaborador, opt => opt.MapFrom(src => src.Colaborador.Nome));
         }
     }
 }

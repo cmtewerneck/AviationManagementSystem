@@ -27,5 +27,14 @@ namespace AviationManagementApi.Data.Repository
                 .Where(p => p.TipoColaborador == tipoColaborador)
                 .CountAsync();
         }
+
+        public async Task<IEnumerable<Colaborador>> ObterAeronautas()
+        {
+            return await Db.Colaboradores
+                .Where(p => p.TipoColaborador == TipoColaboradorEnum.Tripulante || p.TipoColaborador == TipoColaboradorEnum.Mecanico || p.TipoColaborador == TipoColaboradorEnum.Instrutor)
+                .OrderBy(p => p.Nome)
+                .AsNoTracking()
+                .ToListAsync();
+        }
     }
 }

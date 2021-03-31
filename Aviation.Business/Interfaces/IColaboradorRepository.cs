@@ -8,6 +8,8 @@ namespace AviationManagementApi.Business.Interfaces
     {
         Task<IEnumerable<Colaborador>> ObterColaboradoresPorTipo(TipoColaboradorEnum tipoColaborador);
         
+        Task<IEnumerable<Colaborador>> ObterAeronautas();
+        
         Task<int> ObterQuantidadeColaboradoresCadastrados(TipoColaboradorEnum tipoColaborador);
     }
 }

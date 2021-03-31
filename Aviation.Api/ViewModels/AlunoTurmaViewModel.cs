@@ -8,6 +8,7 @@ namespace AviationManagementApi.Api.ViewModels
         public Guid Id { get; set; }
 
         public DateTime DataInscricao { get; set; }
+        public int SituacaoAluno { get; set; }
 
         public Guid TurmaId { get; set; }
         public Guid AlunoId { get; set; }

@@ -144,6 +144,13 @@ namespace AviationManagementApi.App.Controllers
             return _mapper.Map<IEnumerable<ColaboradorViewModel>>(await _colaboradorRepository.ObterColaboradoresPorTipo(tipoColaborador));
         }
 
+        [AllowAnonymous]
+        [HttpGet("aeronautas")]
+        public async Task<IEnumerable<ColaboradorViewModel>> ObterTodosAeronautas()
+        {
+            var entity = await _colaboradorRepository.ObterAeronautas();
+            return _mapper.Map<IEnumerable<ColaboradorViewModel>>(entity);
+        }
 
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<ColaboradorViewModel>> ObterColaboradorPorId(Guid id)

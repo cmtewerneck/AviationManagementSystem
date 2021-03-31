@@ -94,11 +94,12 @@ namespace AviationManagementApi.App.Controllers
         // ALUNO TURMA
         [ClaimsAuthorize("Turma", "Adicionar")]
         [HttpPost("alunos")]
-        public async Task<ActionResult<TurmaViewModel>> AdicionarAlunoTurma(AlunoTurmaViewModel alunoTurmaViewModel)
+        public async Task<ActionResult<AlunoTurmaViewModel>> AdicionarAlunoTurma(AlunoTurmaViewModel alunoTurmaViewModel)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             alunoTurmaViewModel.DataInscricao = DateTime.Now;
+            alunoTurmaViewModel.SituacaoAluno = 1;
 
             await _alunoTurmaService.Adicionar(_mapper.Map<AlunoTurma>(alunoTurmaViewModel));
 
@@ -106,27 +107,65 @@ namespace AviationManagementApi.App.Controllers
         }
 
         [ClaimsAuthorize("Turma", "Atualizar")]
-        [HttpPut("encerrar/{id:guid}")]
-        public async Task<ActionResult<TurmaViewModel>> EncerrarTurma(Guid id, TurmaViewModel turmaViewModel)
+        [HttpPut("alunos/aprovar/{id:guid}")]
+        public async Task<ActionResult<AlunoTurmaViewModel>> AprovarAluno(Guid id)
         {
-            if (id != turmaViewModel.Id)
-            {
-                NotificarErro("O id informado é diferente do id da requisição.");
-                return CustomResponse();
-            }
-
-            var turmaAtualizacao = await ObterTurma(id);
+            var alunoTurmaAtualizacao = await ObterAlunoTurma(id);
 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            turmaAtualizacao.Codigo = turmaViewModel.Codigo;
-            turmaAtualizacao.DataInicio = turmaViewModel.DataInicio;
+            alunoTurmaAtualizacao.AlunoId = alunoTurmaAtualizacao.AlunoId;
+            alunoTurmaAtualizacao.TurmaId = alunoTurmaAtualizacao.TurmaId;
+            alunoTurmaAtualizacao.DataInscricao = alunoTurmaAtualizacao.DataInscricao;
+            // ALTERAÇÃO PARA APROVADO!! ENUM 2
+            alunoTurmaAtualizacao.SituacaoAluno = 2;
+
+            await _alunoTurmaService.Atualizar(_mapper.Map<AlunoTurma>(alunoTurmaAtualizacao));
+
+            return CustomResponse(alunoTurmaAtualizacao);
+        }
+
+        //[ClaimsAuthorize("Turma", "Atualizar")]
+        //[HttpPut("alunos/reprovar/{id:guid}")]
+        //public async Task<ActionResult<TurmaViewModel>> ReprovarAluno(Guid id, AlunoTurmaViewModel alunoTurmaViewModel)
+        //{
+        //    if (id != turmaViewModel.Id)
+        //    {
+        //        NotificarErro("O id informado é diferente do id da requisição.");
+        //        return CustomResponse();
+        //    }
+
+        //    var alunoTurmaAtualizacao = await ObterAlunoTurma(id);
+
+        //    if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+        //    alunoTurmaAtualizacao.AlunoId = alunoTurmaViewModel.AlunoId;
+        //    alunoTurmaAtualizacao.TurmaId = alunoTurmaViewModel.TurmaId;
+        //    alunoTurmaAtualizacao.DataInscricao = alunoTurmaViewModel.DataInscricao;
+        //    // ALTERAÇÃO PARA REPROVADO!! ENUM 3
+        //    alunoTurmaAtualizacao.SituacaoAluno = 3;
+
+        //    await _alunoTurmaService.Atualizar(_mapper.Map<AlunoTurma>(alunoTurmaAtualizacao));
+
+        //    return CustomResponse(alunoTurmaViewModel);
+        //}
+
+        [ClaimsAuthorize("Turma", "Atualizar")]
+        [HttpPut("encerrar/{id:guid}")]
+        public async Task<ActionResult<TurmaViewModel>> EncerrarTurma(Guid id)
+        {
+            var turmaAtualizacao = await ObterTurma(id);
+                
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            turmaAtualizacao.Codigo = turmaAtualizacao.Codigo;
+            turmaAtualizacao.DataInicio = turmaAtualizacao.DataInicio;
 
             turmaAtualizacao.DataTermino = DateTime.Now;
 
             await _turmaService.Atualizar(_mapper.Map<Turma>(turmaAtualizacao));
 
-            return CustomResponse(turmaViewModel);
+            return CustomResponse(turmaAtualizacao);
         }
         #endregion
 
@@ -153,6 +192,11 @@ namespace AviationManagementApi.App.Controllers
         private async Task<TurmaViewModel> ObterTurma(Guid id)
         {
             return _mapper.Map<TurmaViewModel>(await _turmaRepository.ObterPorId(id));
+        }
+
+        private async Task<AlunoTurmaViewModel> ObterAlunoTurma(Guid id)
+        {
+            return _mapper.Map<AlunoTurmaViewModel>(await _alunoTurmaRepository.ObterPorId(id));
         }
         #endregion
     }

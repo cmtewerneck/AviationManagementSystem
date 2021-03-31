@@ -2,6 +2,7 @@
 using AviationManagementApi.Api.Extensions;
 using AviationManagementApi.Api.ViewModels;
 using AviationManagementApi.Business.Interfaces;
+using AviationManagementApi.Business.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -20,14 +21,14 @@ namespace AviationManagementApi.Api.V1.Controllers
     [Route("api/v{version:apiVersion}/")]
     public class AuthController : MainController
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly AppSettings _appSettings;
         private readonly ILogger _logger;
 
         public AuthController(INotificador notificador,
-                              SignInManager<IdentityUser> signInManager,
-                              UserManager<IdentityUser> userManager,
+                              SignInManager<ApplicationUser> signInManager,
+                              UserManager<ApplicationUser> userManager,
                               IOptions<AppSettings> appSettings, IUser user,
                               ILogger<AuthController> logger) : base(notificador, user)
         {
@@ -42,11 +43,16 @@ namespace AviationManagementApi.Api.V1.Controllers
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            var user = new IdentityUser
+            var user = new ApplicationUser
             {
                 UserName = registerUser.Email,
                 Email = registerUser.Email,
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                Nome = registerUser.Nome,
+                Sobrenome = registerUser.Sobrenome,
+                Telefone = registerUser.Telefone,
+                Empresa = registerUser.Empresa,
+                EmpresaCnpj = registerUser.EmpresaCnpj
             };
 
             var result = await _userManager.CreateAsync(user, registerUser.Password);

@@ -4,14 +4,16 @@ using AviationManagementApi.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AviationManagementSystem.Data.Migrations
 {
     [DbContext(typeof(AviationManagementDbContext))]
-    partial class AviationManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210329181140_AjustesInserindoSituacaoAlunoELicencaHabilitacao")]
+    partial class AjustesInserindoSituacaoAlunoELicencaHabilitacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -514,7 +516,7 @@ namespace AviationManagementSystem.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ColaboradorId")
+                    b.Property<Guid?>("InstrutorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Titulo")
@@ -522,12 +524,18 @@ namespace AviationManagementSystem.Data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("varchar(20)");
 
+                    b.Property<Guid?>("TripulanteId")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("Validade")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ColaboradorId");
+                    b.HasIndex("InstrutorId");
+
+                    b.HasIndex("TripulanteId");
 
                     b.ToTable("Licencas_Habilitacoes");
                 });
@@ -1403,13 +1411,20 @@ namespace AviationManagementSystem.Data.Migrations
 
             modelBuilder.Entity("AviationManagementApi.Business.Models.LicencaHabilitacao", b =>
                 {
-                    b.HasOne("AviationManagementApi.Business.Models.Colaborador", "Colaborador")
-                        .WithMany("LicencasHabilitacoes")
-                        .HasForeignKey("ColaboradorId")
+                    b.HasOne("AviationManagementApi.Business.Models.Colaborador", "Instrutor")
+                        .WithMany("LicencasHabilitacoesInstrutor")
+                        .HasForeignKey("InstrutorId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("AviationManagementApi.Business.Models.Colaborador", "Tripulante")
+                        .WithMany("LicencasHabilitacoesTripulante")
+                        .HasForeignKey("TripulanteId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Colaborador");
+                    b.Navigation("Instrutor");
+
+                    b.Navigation("Tripulante");
                 });
 
             modelBuilder.Entity("AviationManagementApi.Business.Models.OrdemServico", b =>
@@ -1640,7 +1655,9 @@ namespace AviationManagementSystem.Data.Migrations
 
                     b.Navigation("DiariosBordoMecanico");
 
-                    b.Navigation("LicencasHabilitacoes");
+                    b.Navigation("LicencasHabilitacoesInstrutor");
+
+                    b.Navigation("LicencasHabilitacoesTripulante");
 
                     b.Navigation("VeiculosGastos");
 

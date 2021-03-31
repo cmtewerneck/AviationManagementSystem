@@ -33,6 +33,7 @@ namespace AviationManagementApi.Api.Configurations
             services.AddScoped<IFornecedorRepository, FornecedorRepository>();
             services.AddScoped<IItemOrdemServicoRepository, ItemOrdemServicoRepository>();
             services.AddScoped<ILegislacaoRepository, LegislacaoRepository>();
+            services.AddScoped<ILicencaHabilitacaoRepository, LicencaHabilitacaoRepository>();
             services.AddScoped<IManualEmpresaRepository, ManualEmpresaRepository>();
             services.AddScoped<IManualVooRepository, ManualVooRepository>();
             services.AddScoped<IOficioEmitidoRepository, OficioEmitidoRepository>();
@@ -66,6 +67,7 @@ namespace AviationManagementApi.Api.Configurations
             services.AddScoped<IFornecedorServices, FornecedorService>();
             services.AddScoped<IItemOrdemServicoServices, ItemOrdemServicoService>();
             services.AddScoped<ILegislacaoServices, LegislacaoService>();
+            services.AddScoped<ILicencaHabilitacaoServices, LicencaHabilitacaoService>();
             services.AddScoped<IManualEmpresaServices, ManualEmpresaService>();
             services.AddScoped<IManualVooServices, ManualVooService>();
             services.AddScoped<IOficioEmitidoServices, OficioEmitidoServices>();

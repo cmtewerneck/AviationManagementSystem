@@ -27,6 +27,7 @@ namespace AviationManagementApi.Data.Context
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<ItemOrdemServico> ItensOrdensServico { get; set; }
         public DbSet<Legislacao> Legislacoes { get; set; }
+        public DbSet<LicencaHabilitacao> LicencasHabilitacoes { get; set; }
         public DbSet<ManualEmpresa> ManuaisEmpresa { get; set; }
         public DbSet<ManualVoo> ManuaisVoo { get; set; }
         public DbSet<OficioEmitido> OficiosEmitidos { get; set; }
