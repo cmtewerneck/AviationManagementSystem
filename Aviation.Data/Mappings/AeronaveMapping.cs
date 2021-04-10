@@ -46,6 +46,16 @@ namespace AviationManagementApi.Data.Mappings
                 .HasMaxLength(30)
                 .HasColumnType("varchar(30)");
 
+            builder.Property(c => c.Ativo)
+                .IsRequired();
+
+            builder.Property(c => c.Situacao)
+                .IsRequired();
+
+            // RELATIONSHIP
+            builder.HasOne(f => f.Rastreador)
+                .WithOne(e => e.Aeronave);
+
             builder.ToTable("Aeronaves");
         }
     }

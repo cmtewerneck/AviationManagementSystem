@@ -68,6 +68,9 @@ namespace AviationManagementApi.App.Controllers
             turmaAtualizacao.Codigo = turmaViewModel.Codigo;
             turmaAtualizacao.DataInicio = turmaViewModel.DataInicio;
             turmaAtualizacao.DataTermino = turmaViewModel.DataTermino;
+            turmaAtualizacao.Inscricao = turmaViewModel.Inscricao;
+            turmaAtualizacao.Mensalidade = turmaViewModel.Mensalidade;
+            turmaAtualizacao.CursoId = turmaViewModel.CursoId;
 
             await _turmaService.Atualizar(_mapper.Map<Turma>(turmaAtualizacao));
 
@@ -114,9 +117,6 @@ namespace AviationManagementApi.App.Controllers
 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            alunoTurmaAtualizacao.AlunoId = alunoTurmaAtualizacao.AlunoId;
-            alunoTurmaAtualizacao.TurmaId = alunoTurmaAtualizacao.TurmaId;
-            alunoTurmaAtualizacao.DataInscricao = alunoTurmaAtualizacao.DataInscricao;
             // ALTERAÇÃO PARA APROVADO!! ENUM 2
             alunoTurmaAtualizacao.SituacaoAluno = 2;
 
@@ -125,30 +125,21 @@ namespace AviationManagementApi.App.Controllers
             return CustomResponse(alunoTurmaAtualizacao);
         }
 
-        //[ClaimsAuthorize("Turma", "Atualizar")]
-        //[HttpPut("alunos/reprovar/{id:guid}")]
-        //public async Task<ActionResult<TurmaViewModel>> ReprovarAluno(Guid id, AlunoTurmaViewModel alunoTurmaViewModel)
-        //{
-        //    if (id != turmaViewModel.Id)
-        //    {
-        //        NotificarErro("O id informado é diferente do id da requisição.");
-        //        return CustomResponse();
-        //    }
+        [ClaimsAuthorize("Turma", "Atualizar")]
+        [HttpPut("alunos/reprovar/{id:guid}")]
+        public async Task<ActionResult<AlunoTurmaViewModel>> ReprovarAluno(Guid id)
+        {
+            var alunoTurmaAtualizacao = await ObterAlunoTurma(id);
 
-        //    var alunoTurmaAtualizacao = await ObterAlunoTurma(id);
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-        //    if (!ModelState.IsValid) return CustomResponse(ModelState);
+            // ALTERAÇÃO PARA APROVADO!! ENUM 2
+            alunoTurmaAtualizacao.SituacaoAluno = 3;
 
-        //    alunoTurmaAtualizacao.AlunoId = alunoTurmaViewModel.AlunoId;
-        //    alunoTurmaAtualizacao.TurmaId = alunoTurmaViewModel.TurmaId;
-        //    alunoTurmaAtualizacao.DataInscricao = alunoTurmaViewModel.DataInscricao;
-        //    // ALTERAÇÃO PARA REPROVADO!! ENUM 3
-        //    alunoTurmaAtualizacao.SituacaoAluno = 3;
+            await _alunoTurmaService.Atualizar(_mapper.Map<AlunoTurma>(alunoTurmaAtualizacao));
 
-        //    await _alunoTurmaService.Atualizar(_mapper.Map<AlunoTurma>(alunoTurmaAtualizacao));
-
-        //    return CustomResponse(alunoTurmaViewModel);
-        //}
+            return CustomResponse(alunoTurmaAtualizacao);
+        }
 
         [ClaimsAuthorize("Turma", "Atualizar")]
         [HttpPut("encerrar/{id:guid}")]
@@ -159,6 +150,21 @@ namespace AviationManagementApi.App.Controllers
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             turmaAtualizacao.DataTermino = DateTime.Now;
+
+            await _turmaService.Atualizar(_mapper.Map<Turma>(turmaAtualizacao));
+
+            return CustomResponse(turmaAtualizacao);
+        }
+
+        [ClaimsAuthorize("Turma", "Atualizar")]
+        [HttpPut("reabrir/{id:guid}")]
+        public async Task<ActionResult<TurmaViewModel>> ReabrirTurma(Guid id)
+        {
+            var turmaAtualizacao = await ObterTurma(id);
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            turmaAtualizacao.DataTermino = null;
 
             await _turmaService.Atualizar(_mapper.Map<Turma>(turmaAtualizacao));
 

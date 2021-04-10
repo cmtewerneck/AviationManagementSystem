@@ -87,6 +87,7 @@ namespace AviationManagementApi.Api.V1.Controllers
             produtoAtualizacao.Descricao = produtoViewModel.Descricao;
             produtoAtualizacao.Valor = produtoViewModel.Valor;
             produtoAtualizacao.Ativo = produtoViewModel.Ativo;
+            produtoAtualizacao.FornecedorId = produtoViewModel.FornecedorId;
 
             await _produtoService.Atualizar(_mapper.Map<Produto>(produtoAtualizacao));
 

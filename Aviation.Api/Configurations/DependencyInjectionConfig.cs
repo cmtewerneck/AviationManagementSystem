@@ -23,6 +23,7 @@ namespace AviationManagementApi.Api.Configurations
             services.AddScoped<IAeronaveAbastecimentoRepository, AeronaveAbastecimentoRepository>();
             services.AddScoped<IAlunoRepository, AlunoRepository>();
             services.AddScoped<IAlunoTurmaRepository, AlunoTurmaRepository>();
+            services.AddScoped<ICategoriaTreinamentoRepository, CategoriaTreinamentoRepository>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
             services.AddScoped<IContasPagarRepository, ContasPagarRepository>();
@@ -30,6 +31,7 @@ namespace AviationManagementApi.Api.Configurations
             services.AddScoped<ICursoRepository, CursoRepository>();
             services.AddScoped<IDiarioBordoRepository, DiarioBordoRepository>();
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+            services.AddScoped<IEscalaRepository, EscalaRepository>();
             services.AddScoped<IFornecedorRepository, FornecedorRepository>();
             services.AddScoped<IItemOrdemServicoRepository, ItemOrdemServicoRepository>();
             services.AddScoped<ILegislacaoRepository, LegislacaoRepository>();
@@ -41,10 +43,12 @@ namespace AviationManagementApi.Api.Configurations
             services.AddScoped<IOrdemServicoRepository, OrdemServicoRepository>();
             //services.AddScoped<IPessoaRepository, PessoaRepository>(); // ERRO
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IRastreadorRepository, RastreadorRepository>();
             services.AddScoped<IServicoRepository, ServicoRepository>();
             services.AddScoped<ISuprimentoRepository, SuprimentoRepository>();
             services.AddScoped<ISuprimentoMovimentacaoRepository, SuprimentoMovimentacaoRepository>();
             services.AddScoped<ITurmaRepository, TurmaRepository>();
+            services.AddScoped<ITreinamentoRepository, TreinamentoRepository>();
             services.AddScoped<IVeiculoRepository, VeiculoRepository>();
             services.AddScoped<IVeiculoGastoRepository, VeiculoGastoRepository>();
             services.AddScoped<IVeiculoMultaRepository, VeiculoMultaRepository>();
@@ -58,12 +62,14 @@ namespace AviationManagementApi.Api.Configurations
             services.AddScoped<IAeronaveAbastecimentoServices, AeronaveAbastecimentoService>();
             services.AddScoped<IAlunoServices, AlunoService>();
             services.AddScoped<IAlunoTurmaServices, AlunoTurmaService>();
+            services.AddScoped<ICategoriaTreinamentoService, CategoriaTreinamentoService>();
             services.AddScoped<IClienteServices, ClienteService>();
             services.AddScoped<IColaboradorServices, ColaboradorService>();
             services.AddScoped<IContasPagarServices, ContasPagarService>();
             services.AddScoped<IContasReceberServices, ContasReceberService>();
             services.AddScoped<ICursoServices, CursoService>();
             services.AddScoped<IDiarioBordoServices, DiarioBordoService>();
+            services.AddScoped<IEscalaService, EscalaService>();
             services.AddScoped<IFornecedorServices, FornecedorService>();
             services.AddScoped<IItemOrdemServicoServices, ItemOrdemServicoService>();
             services.AddScoped<ILegislacaoServices, LegislacaoService>();
@@ -75,10 +81,12 @@ namespace AviationManagementApi.Api.Configurations
             services.AddScoped<IOrdemServicoServices, OrdemServicoServices>();
             //services.AddScoped<IPessoaServices, PessoaService>(); // ERRO
             services.AddScoped<IProdutoServices, ProdutoService>();
+            services.AddScoped<IRastreadorService, RastreadorService>();
             services.AddScoped<IServicoServices, ServicoServices>();
             services.AddScoped<ISuprimentoServices, SuprimentoServices>();
             services.AddScoped<ISuprimentoMovimentacaoServices, SuprimentoMovimentacaoService>();
             services.AddScoped<ITurmaServices, TurmaServices>();
+            services.AddScoped<ITreinamentoService, TreinamentoService>();
             services.AddScoped<IVeiculoServices, VeiculoService>();
             services.AddScoped<IVeiculoGastoServices, VeiculoGastosService>();
             services.AddScoped<IVeiculoMultaServices, VeiculoMultaService>();

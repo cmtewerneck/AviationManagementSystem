@@ -27,5 +27,7 @@ namespace AviationManagementApi.Api.ViewModels
         public IEnumerable<VeiculoGastoViewModel> VeiculosGastos { get; set; }
         public IEnumerable<VooInstrucaoViewModel> VoosInstrucao { get; set; }
         public IEnumerable<LicencaHabilitacaoViewModel> LicencasHabilitacoes { get; set; }
+        public IEnumerable<TreinamentoViewModel> Treinamentos { get; set; }
+        public IEnumerable<EscalaViewModel> Escalas { get; set; }
     }
 }

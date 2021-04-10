@@ -64,6 +64,9 @@ namespace AviationManagementApi.Api.V1.Controllers
             vooInstrucaoAtualizacao.TempoVoo = vooInstrucaoViewModel.TempoVoo;
             vooInstrucaoAtualizacao.Avaliacao = vooInstrucaoViewModel.Avaliacao;
             vooInstrucaoAtualizacao.Observacoes = vooInstrucaoViewModel.Observacoes;
+            vooInstrucaoAtualizacao.AeronaveId = vooInstrucaoViewModel.AeronaveId;
+            vooInstrucaoAtualizacao.AlunoId = vooInstrucaoViewModel.AlunoId;
+            vooInstrucaoAtualizacao.InstrutorId = vooInstrucaoViewModel.InstrutorId;
 
             await _vooInstrucaoService.Atualizar(_mapper.Map<VooInstrucao>(vooInstrucaoAtualizacao));
 

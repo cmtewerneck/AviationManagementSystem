@@ -65,6 +65,7 @@ namespace AviationManagementApi.App.Controllers
             suprimentoMovimentacaoAtualizacao.Data = suprimentoMovimentacaoViewModel.Data;
             suprimentoMovimentacaoAtualizacao.Quantidade = suprimentoMovimentacaoViewModel.Quantidade;
             suprimentoMovimentacaoAtualizacao.TipoMovimentacaoEnum = suprimentoMovimentacaoViewModel.TipoMovimentacaoEnum;
+            suprimentoMovimentacaoAtualizacao.ItemId = suprimentoMovimentacaoViewModel.ItemId;
 
             await _suprimentoMovimentacaoService.Atualizar(_mapper.Map<SuprimentoMovimentacao>(suprimentoMovimentacaoAtualizacao));
 

@@ -71,6 +71,7 @@ namespace AviationManagementApi.App.Controllers
             veiculoMultaAtualizacao.Descricao = veiculoMultaViewModel.Descricao;
             veiculoMultaAtualizacao.Situacao = veiculoMultaViewModel.Situacao;
             veiculoMultaAtualizacao.Valor = veiculoMultaViewModel.Valor;
+            veiculoMultaAtualizacao.VeiculoId = veiculoMultaViewModel.VeiculoId;
 
             await _multaService.Atualizar(_mapper.Map<VeiculoMulta>(veiculoMultaAtualizacao));
 

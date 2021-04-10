@@ -26,7 +26,9 @@ namespace AviationManagementApi.Business.Models
         public string Motor { get; set; } // OPCIONAL (1,30)
         public string ModeloMotor { get; set; } // OPCIONAL (1,30)
         public string NumeroSerieMotor { get; set; } // OPCIONAL (1,30)
-        
+        public bool Ativo { get; set; } // OBRIGATÓRIO
+        public bool Situacao { get; set; } // OBRIGATÓRIO
+
         public string Imagem { get; set; } // OPCIONAL
 
         // RELATIONSHIP
@@ -36,5 +38,6 @@ namespace AviationManagementApi.Business.Models
         public IEnumerable<VooInstrucao> VoosInstrucao { get; set; }
         public IEnumerable<DiarioBordo> DiariosBordo { get; set; }
         public IEnumerable<OrdemServico> OrdensServico { get; set; }
+        public Rastreador Rastreador { get; set; }
     }
 }

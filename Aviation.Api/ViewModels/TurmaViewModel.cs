@@ -10,6 +10,8 @@ namespace AviationManagementApi.Api.ViewModels
         public string Codigo { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime? DataTermino { get; set; }
+        public decimal? Inscricao { get; set; } // OPCIONAL >= 0
+        public decimal? Mensalidade { get; set; } // OPCIONAL >= 0
 
         public Guid CursoId { get; set; }
         

@@ -27,6 +27,8 @@ namespace AviationManagementApi.Api.ViewModels
         public string Motor { get; set; }
         public string ModeloMotor { get; set; }
         public string NumeroSerieMotor { get; set; }
+        public bool Ativo { get; set; } // OBRIGATÓRIO
+        public bool Situacao { get; set; } // OBRIGATÓRIO
 
         public string ImagemUpload { get; set; }
         public string Imagem { get; set; }
@@ -37,5 +39,6 @@ namespace AviationManagementApi.Api.ViewModels
         public IEnumerable<VooInstrucaoViewModel> VoosInstrucao { get; set; }
         public IEnumerable<DiarioBordoViewModel> DiariosBordo { get; set; }
         public IEnumerable<OrdemServicoViewModel> OrdensServico { get; set; }
+        public RastreadorViewModel Rastreador { get; set; }
     }
 }

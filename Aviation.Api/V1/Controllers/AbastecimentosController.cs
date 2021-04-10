@@ -101,6 +101,7 @@ namespace AviationManagementApi.App.Controllers
             aeronaveAbastecimentoAtualizacao.Responsavel = aeronaveAbastecimentoViewModel.Responsavel;
             aeronaveAbastecimentoAtualizacao.Valor = aeronaveAbastecimentoViewModel.Valor;
             aeronaveAbastecimentoAtualizacao.Observacoes = aeronaveAbastecimentoViewModel.Observacoes;
+            aeronaveAbastecimentoAtualizacao.AeronaveId = aeronaveAbastecimentoViewModel.AeronaveId;
 
             await _abastecimentoService.Atualizar(_mapper.Map<AeronaveAbastecimento>(aeronaveAbastecimentoAtualizacao));
 

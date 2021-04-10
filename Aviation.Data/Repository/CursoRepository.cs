@@ -15,7 +15,8 @@ namespace AviationManagementApi.Data.Repository
 
         public async Task<IEnumerable<Curso>> ObterCursosTurmas()
         {
-            return await Db.Cursos.AsNoTracking()
+            return await Db.Cursos
+                .AsNoTracking()
                 .Include(f => f.Turmas)
                 .OrderBy(p => p.Codigo)
                 .ToListAsync();
@@ -24,9 +25,9 @@ namespace AviationManagementApi.Data.Repository
         public async Task<Curso> ObterCursoTurmas(Guid id)
         {
             return await Db.Cursos
+                .AsNoTracking()
                 .Include(c => c.Turmas)
                 .OrderBy(p => p.Codigo)
-                .AsNoTracking()
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
     }

@@ -1,9 +1,13 @@
 ﻿using AviationManagementApi.Business.Interfaces;
+using AviationManagementApi.Business.Models;
 using AviationManagementApi.Business.Notificacoes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace AviationManagementApi.Api.Controllers
 {

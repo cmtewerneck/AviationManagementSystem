@@ -43,5 +43,12 @@ namespace AviationManagementApi.Data.Repository
                 .Include(f => f.Aeronave)
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
+
+        public async Task<int> ObterTotalOrdensAbertas()
+        {
+            return await Db.OrdensServico
+                .Where(c => c.DataFechamento == null)
+                .CountAsync();
+        }
     }
 }

@@ -68,6 +68,7 @@ namespace AviationManagementApi.Api.V1.Controllers
             vooAgendadoAtualizacao.DurationEditable = vooAgendadoViewModel.DurationEditable;
             vooAgendadoAtualizacao.BackgroundColor = vooAgendadoViewModel.BackgroundColor;
             vooAgendadoAtualizacao.TextColor = vooAgendadoViewModel.TextColor;
+            vooAgendadoAtualizacao.AeronaveId = vooAgendadoViewModel.AeronaveId;
 
             await _vooAgendadoService.Atualizar(_mapper.Map<VooAgendado>(vooAgendadoAtualizacao));
 

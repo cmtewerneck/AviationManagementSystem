@@ -95,6 +95,15 @@
           "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "Dapper/2.0.78": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Dapper.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {}
+        }
+      },
       "Elmah.Io.AspNetCore/3.11.17": {
         "type": "package",
         "dependencies": {
@@ -2228,7 +2237,8 @@
           "Microsoft.EntityFrameworkCore.Abstractions": "5.0.3",
           "Microsoft.EntityFrameworkCore.Analyzers": "5.0.3",
           "Microsoft.EntityFrameworkCore.Relational": "5.0.3",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3",
+          "dapper": "2.0.78"
         },
         "compile": {
           "bin/placeholder/AviationManagementSystem.Data.dll": {}
@@ -2320,6 +2330,23 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "Dapper/2.0.78": {
+      "sha512": "vLPwL2HZXp/DN17Eu7sg6GMEj02alq7jcy6atn5Gv8i96b9Hu1UoxlCrhInUPfSFLQQiD8O7pdWAE1fdUEO/1Q==",
+      "type": "package",
+      "path": "dapper/2.0.78",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dapper.2.0.78.nupkg.sha512",
+        "dapper.nuspec",
+        "lib/net461/Dapper.dll",
+        "lib/net461/Dapper.xml",
+        "lib/net5.0/Dapper.dll",
+        "lib/net5.0/Dapper.xml",
+        "lib/netstandard2.0/Dapper.dll",
+        "lib/netstandard2.0/Dapper.xml"
       ]
     },
     "Elmah.Io.AspNetCore/3.11.17": {
@@ -6782,7 +6809,8 @@
       "Microsoft.EntityFrameworkCore.Relational >= 5.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.3",
-      "Swashbuckle.AspNetCore >= 6.0.7"
+      "Swashbuckle.AspNetCore >= 6.0.7",
+      "dapper >= 2.0.78"
     ]
   },
   "packageFolders": {
@@ -6941,6 +6969,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.0.7, )"
+          },
+          "dapper": {
+            "target": "Package",
+            "version": "[2.0.78, )"
           }
         },
         "imports": [

@@ -14,6 +14,7 @@ namespace AviationManagementApi.Api.AutoMapper
             CreateMap<AeronaveTarifa, AeronaveTarifaViewModel>().ReverseMap();
             CreateMap<Aluno, AlunoViewModel>().ReverseMap();
             CreateMap<AlunoTurma, AlunoTurmaViewModel>().ReverseMap();
+            CreateMap<CategoriaTreinamento, CategoriaTreinamentoViewModel>().ReverseMap();
             CreateMap<Cliente, ClienteViewModel>().ReverseMap();
             CreateMap<Colaborador, ColaboradorViewModel>().ReverseMap();
             CreateMap<Contas, ContasViewModel>().ReverseMap();
@@ -22,6 +23,7 @@ namespace AviationManagementApi.Api.AutoMapper
             CreateMap<Curso, CursoViewModel>().ReverseMap();
             CreateMap<DiarioBordo, DiarioBordoViewModel>().ReverseMap();
             CreateMap<Endereco, EnderecoViewModel>().ReverseMap();
+            CreateMap<Escala, EscalaViewModel>().ReverseMap();
             CreateMap<Fornecedor, FornecedorViewModel>().ReverseMap();
             CreateMap<ItemOrdemServico, ItemOrdemServicoViewModel>().ReverseMap();
             CreateMap<Legislacao, LegislacaoViewModel>().ReverseMap();
@@ -33,9 +35,11 @@ namespace AviationManagementApi.Api.AutoMapper
             CreateMap<OrdemServico, OrdemServicoViewModel>().ReverseMap();
             CreateMap<Pessoa, PessoaViewModel>().ReverseMap();
             CreateMap<Produto, ProdutoViewModel>().ReverseMap();
+            CreateMap<Rastreador, RastreadorViewModel>().ReverseMap();
             CreateMap<Servico, ServicoViewModel>().ReverseMap();
             CreateMap<Suprimento, SuprimentoViewModel>().ReverseMap();
             CreateMap<SuprimentoMovimentacao, SuprimentoMovimentacaoViewModel>().ReverseMap();
+            CreateMap<Treinamento, TreinamentoViewModel>().ReverseMap();
             CreateMap<Veiculo, VeiculoViewModel>().ReverseMap();
             CreateMap<VeiculoGasto, VeiculoGastoViewModel>().ReverseMap();
             CreateMap<VeiculoMulta, VeiculoMultaViewModel>().ReverseMap();
@@ -60,6 +64,9 @@ namespace AviationManagementApi.Api.AutoMapper
 
             CreateMap<Endereco, EnderecoViewModel>()
                 .ForMember(dest => dest.NomeFornecedor, opt => opt.MapFrom(src => src.Fornecedor.Nome));
+
+            CreateMap<Escala, EscalaViewModel>()
+                .ForMember(dest => dest.NomeTripulante, opt => opt.MapFrom(src => src.Tripulante.Nome));
 
             CreateMap<ItemOrdemServico, ItemOrdemServicoViewModel>()
                 .ForMember(dest => dest.NumeroOrdem, opt => opt.MapFrom(src => src.OrdemServico.NumeroOrdem))
@@ -102,6 +109,13 @@ namespace AviationManagementApi.Api.AutoMapper
 
             CreateMap<LicencaHabilitacao, LicencaHabilitacaoViewModel>()
                 .ForMember(dest => dest.NomeColaborador, opt => opt.MapFrom(src => src.Colaborador.Nome));
+
+            CreateMap<Rastreador, RastreadorViewModel>()
+                .ForMember(dest => dest.MatriculaAeronave, opt => opt.MapFrom(src => src.Aeronave.Matricula));
+
+            CreateMap<Treinamento, TreinamentoViewModel>()
+                .ForMember(dest => dest.NomeTripulante, opt => opt.MapFrom(src => src.Tripulante.Nome))
+                .ForMember(dest => dest.DescricaoCategoria, opt => opt.MapFrom(src => src.Categoria.Descricao));
         }
     }
 }

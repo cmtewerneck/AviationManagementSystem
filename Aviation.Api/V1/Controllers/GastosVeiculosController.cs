@@ -68,6 +68,8 @@ namespace AviationManagementApi.App.Controllers
             veiculoGastoAtualizacao.Descricao = veiculoGastoViewModel.Descricao;
             veiculoGastoAtualizacao.Situacao = veiculoGastoViewModel.Situacao;
             veiculoGastoAtualizacao.Valor = veiculoGastoViewModel.Valor;
+            veiculoGastoAtualizacao.MotoristaId = veiculoGastoViewModel.MotoristaId;
+            veiculoGastoAtualizacao.VeiculoId = veiculoGastoViewModel.VeiculoId;
 
             await _gastosVeiculoService.Atualizar(_mapper.Map<VeiculoGasto>(veiculoGastoAtualizacao));
 

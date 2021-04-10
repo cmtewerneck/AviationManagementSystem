@@ -28,6 +28,9 @@ namespace AviationManagementSystem.Data.Migrations
                     b.Property<int?>("Ano")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Categoria")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -81,6 +84,9 @@ namespace AviationManagementSystem.Data.Migrations
 
                     b.Property<DateTime?>("ProximaPesagem")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Situacao")
+                        .HasColumnType("bit");
 
                     b.Property<int>("TipoAeronave")
                         .HasColumnType("int");
@@ -228,6 +234,27 @@ namespace AviationManagementSystem.Data.Migrations
                     b.HasIndex("TurmaId");
 
                     b.ToTable("Alunos_Turmas");
+                });
+
+            modelBuilder.Entity("AviationManagementApi.Business.Models.CategoriaTreinamento", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Codigo")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categorias_Treinamentos");
                 });
 
             modelBuilder.Entity("AviationManagementApi.Business.Models.Contas", b =>
@@ -448,6 +475,28 @@ namespace AviationManagementSystem.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("Enderecos");
+                });
+
+            modelBuilder.Entity("AviationManagementApi.Business.Models.Escala", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("TripulanteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TripulanteId");
+
+                    b.ToTable("Escalas");
                 });
 
             modelBuilder.Entity("AviationManagementApi.Business.Models.ItemOrdemServico", b =>
@@ -818,6 +867,35 @@ namespace AviationManagementSystem.Data.Migrations
                     b.ToTable("Produtos");
                 });
 
+            modelBuilder.Entity("AviationManagementApi.Business.Models.Rastreador", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AeronaveId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Codigo")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("Modelo")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AeronaveId")
+                        .IsUnique();
+
+                    b.HasIndex("Codigo")
+                        .IsUnique();
+
+                    b.ToTable("Rastreadores");
+                });
+
             modelBuilder.Entity("AviationManagementApi.Business.Models.Servico", b =>
                 {
                     b.Property<Guid>("Id")
@@ -925,6 +1003,60 @@ namespace AviationManagementSystem.Data.Migrations
                     b.ToTable("Suprimento_Movimentacoes");
                 });
 
+            modelBuilder.Entity("AviationManagementApi.Business.Models.Treinamento", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("CargaHoraria")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid>("CategoriaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ClassificacaoTreinamento")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DataInicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DataTermino")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Instrutor")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("ModeloAeronave")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("Numero")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int>("TipoClasse")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoTreinamento")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("TripulanteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoriaId");
+
+                    b.HasIndex("TripulanteId");
+
+                    b.ToTable("Treinamentos");
+                });
+
             modelBuilder.Entity("AviationManagementApi.Business.Models.Turma", b =>
                 {
                     b.Property<Guid>("Id")
@@ -944,6 +1076,12 @@ namespace AviationManagementSystem.Data.Migrations
 
                     b.Property<DateTime?>("DataTermino")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal?>("Inscricao")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("Mensalidade")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -1382,6 +1520,17 @@ namespace AviationManagementSystem.Data.Migrations
                     b.Navigation("Fornecedor");
                 });
 
+            modelBuilder.Entity("AviationManagementApi.Business.Models.Escala", b =>
+                {
+                    b.HasOne("AviationManagementApi.Business.Models.Colaborador", "Tripulante")
+                        .WithMany("Escalas")
+                        .HasForeignKey("TripulanteId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Tripulante");
+                });
+
             modelBuilder.Entity("AviationManagementApi.Business.Models.ItemOrdemServico", b =>
                 {
                     b.HasOne("AviationManagementApi.Business.Models.OrdemServico", "OrdemServico")
@@ -1434,6 +1583,17 @@ namespace AviationManagementSystem.Data.Migrations
                     b.Navigation("Fornecedor");
                 });
 
+            modelBuilder.Entity("AviationManagementApi.Business.Models.Rastreador", b =>
+                {
+                    b.HasOne("AviationManagementApi.Business.Models.Aeronave", "Aeronave")
+                        .WithOne("Rastreador")
+                        .HasForeignKey("AviationManagementApi.Business.Models.Rastreador", "AeronaveId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Aeronave");
+                });
+
             modelBuilder.Entity("AviationManagementApi.Business.Models.SuprimentoMovimentacao", b =>
                 {
                     b.HasOne("AviationManagementApi.Business.Models.Suprimento", "Item")
@@ -1443,6 +1603,25 @@ namespace AviationManagementSystem.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Item");
+                });
+
+            modelBuilder.Entity("AviationManagementApi.Business.Models.Treinamento", b =>
+                {
+                    b.HasOne("AviationManagementApi.Business.Models.CategoriaTreinamento", "Categoria")
+                        .WithMany("Treinamentos")
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("AviationManagementApi.Business.Models.Colaborador", "Tripulante")
+                        .WithMany("Treinamentos")
+                        .HasForeignKey("TripulanteId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Categoria");
+
+                    b.Navigation("Tripulante");
                 });
 
             modelBuilder.Entity("AviationManagementApi.Business.Models.Turma", b =>
@@ -1588,9 +1767,16 @@ namespace AviationManagementSystem.Data.Migrations
 
                     b.Navigation("OrdensServico");
 
+                    b.Navigation("Rastreador");
+
                     b.Navigation("VoosAgendados");
 
                     b.Navigation("VoosInstrucao");
+                });
+
+            modelBuilder.Entity("AviationManagementApi.Business.Models.CategoriaTreinamento", b =>
+                {
+                    b.Navigation("Treinamentos");
                 });
 
             modelBuilder.Entity("AviationManagementApi.Business.Models.Curso", b =>
@@ -1640,7 +1826,11 @@ namespace AviationManagementSystem.Data.Migrations
 
                     b.Navigation("DiariosBordoMecanico");
 
+                    b.Navigation("Escalas");
+
                     b.Navigation("LicencasHabilitacoes");
+
+                    b.Navigation("Treinamentos");
 
                     b.Navigation("VeiculosGastos");
 

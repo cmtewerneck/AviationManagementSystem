@@ -110,6 +110,8 @@ namespace AviationManagementApi.App.Controllers
             aeronaveAtualizacao.Motor = aeronaveViewModel.Motor;
             aeronaveAtualizacao.ModeloMotor = aeronaveViewModel.ModeloMotor;
             aeronaveAtualizacao.NumeroSerieMotor = aeronaveViewModel.NumeroSerieMotor;
+            aeronaveAtualizacao.Situacao = aeronaveViewModel.Situacao;
+            aeronaveAtualizacao.Ativo = aeronaveViewModel.Ativo;
 
             await _aeronaveService.Atualizar(_mapper.Map<Aeronave>(aeronaveAtualizacao));
 
@@ -131,6 +133,38 @@ namespace AviationManagementApi.App.Controllers
             await _aeronaveService.Remover(id);
 
             return CustomResponse(aeronaveViewModel);
+        }
+
+        [ClaimsAuthorize("Aeronave", "Atualizar")]
+        [HttpPut("liberar/{id:guid}")]
+        public async Task<ActionResult<AeronaveViewModel>> LiberarAeronave(Guid id)
+        {
+            var aeronaveAtualizacao = await ObterAeronave(id);
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            // ALTERAÇÃO PARA OPERACIONAL!! TRUE
+            aeronaveAtualizacao.Situacao = true;
+
+            await _aeronaveService.Atualizar(_mapper.Map<Aeronave>(aeronaveAtualizacao));
+
+            return CustomResponse(aeronaveAtualizacao);
+        }
+
+        [ClaimsAuthorize("Aeronave", "Atualizar")]
+        [HttpPut("parar/{id:guid}")]
+        public async Task<ActionResult<AeronaveViewModel>> PararAeronave(Guid id)
+        {
+            var aeronaveAtualizacao = await ObterAeronave(id);
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            // ALTERAÇÃO PARA APROVADO!! FALSE
+            aeronaveAtualizacao.Situacao = false;
+
+            await _aeronaveService.Atualizar(_mapper.Map<Aeronave>(aeronaveAtualizacao));
+
+            return CustomResponse(aeronaveAtualizacao);
         }
         #endregion
 

@@ -118,9 +118,9 @@ namespace AviationManagementApi.App.Controllers
         #region METHODS
         [ClaimsAuthorize("Oficio", "Consultar")]
         [HttpGet]
-        public async Task<IEnumerable<OficioEmitidoViewModel>> ObterTodos()
+        public async Task<PagedResult<OficioEmitidoViewModel>> ObterTodos([FromQuery] int ps = 8, [FromQuery] int page = 1, [FromQuery] string q = null) 
         {
-            return _mapper.Map<IEnumerable<OficioEmitidoViewModel>>(await _oficioEmitidoRepository.ObterTodos());
+            return _mapper.Map<PagedResult<OficioEmitidoViewModel>>(await _oficioEmitidoRepository.ObterTodos(ps,page,q));
         }
 
         [ClaimsAuthorize("Oficio", "Consultar")]

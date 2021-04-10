@@ -14,5 +14,7 @@ namespace AviationManagementApi.Business.Interfaces
         Task<IEnumerable<OrdemServico>> ObterOrdensServicosItens();
 
         Task<OrdemServico> ObterOrdemServicoAeronave(Guid id);
+        
+        Task<int> ObterTotalOrdensAbertas();
     }
 }

@@ -82,6 +82,7 @@ namespace AviationManagementApi.App.Controllers
             ordemServicooAtualizacao.InspecionadoPor = ordemServicoViewModel.InspecionadoPor;
             ordemServicooAtualizacao.InspecionadoPorAnac = ordemServicoViewModel.InspecionadoPorAnac;
             ordemServicooAtualizacao.DataInspecao = ordemServicoViewModel.DataInspecao;
+            ordemServicooAtualizacao.AeronaveId = ordemServicoViewModel.AeronaveId;
 
             await _ordemServicoService.Atualizar(_mapper.Map<OrdemServico>(ordemServicooAtualizacao));
 
@@ -133,7 +134,7 @@ namespace AviationManagementApi.App.Controllers
         [HttpGet("quantidade")]
         public async Task<int> ObterQuantidadeOrdensAbertas()
         {
-            return _mapper.Map<int>(await _ordemServicoRepository.ObterTotalRegistros());
+            return _mapper.Map<int>(await _ordemServicoRepository.ObterTotalOrdensAbertas());
         }
 
         [ClaimsAuthorize("OrdemServico", "Consultar")]

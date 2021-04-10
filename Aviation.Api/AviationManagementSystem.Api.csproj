@@ -10,6 +10,7 @@
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="5.0.1" />
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="dapper" Version="2.0.78" />
     <PackageReference Include="Elmah.Io.AspNetCore" Version="3.11.17" />
     <PackageReference Include="Elmah.Io.AspNetCore.HealthChecks" Version="3.11.17" />
     <PackageReference Include="Elmah.Io.Extensions.Logging" Version="3.9.12" />

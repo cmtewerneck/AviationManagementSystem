@@ -37,6 +37,7 @@ namespace AviationManagementApi.Api.V1.Controllers
 
         #region CRUD
         [ClaimsAuthorize("Manual", "Adicionar")]
+        [RequestSizeLimit(15000000)]
         [HttpPost]
         public async Task<ActionResult<ManualVooViewModel>> Adicionar(ManualVooViewModel manualVooViewModel)
         {
@@ -135,17 +136,17 @@ namespace AviationManagementApi.Api.V1.Controllers
                 return false;
             }
 
-            // var imageDataByteArray = Convert.FromBase64String(arquivo);
+            var fileDataByteArray = Convert.FromBase64String(arquivo);
 
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/files", fileName);
 
             if (System.IO.File.Exists(filePath))
             {
-                NotificarErro("Já existe um arquivo com este nome!");
+                NotificarErro("Já existe um ar  quivo com este nome!");
                 return false;
             }
 
-            // System.IO.File.WriteAllBytes(filePath, arquivo);
+            System.IO.File.WriteAllBytes(filePath, fileDataByteArray);
 
             return true;
         }

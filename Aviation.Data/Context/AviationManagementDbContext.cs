@@ -16,6 +16,7 @@ namespace AviationManagementApi.Data.Context
         public DbSet<AeronaveTarifa> AeronavesTarifas { get; set; }
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<AlunoTurma> AlunosTurmas { get; set; }
+        public DbSet<CategoriaTreinamento> CategoriasTreinamentos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Colaborador> Colaboradores { get; set; }
         public DbSet<Contas> Contas { get; set; }
@@ -24,6 +25,7 @@ namespace AviationManagementApi.Data.Context
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<DiarioBordo> DiariosBordo { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<Escala> Escalas { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<ItemOrdemServico> ItensOrdensServico { get; set; }
         public DbSet<Legislacao> Legislacoes { get; set; }
@@ -35,10 +37,12 @@ namespace AviationManagementApi.Data.Context
         public DbSet<OrdemServico> OrdensServico { get; set; }
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Rastreador> Rastreadores { get; set; }
         public DbSet<Servico> Servicos { get; set; }
         public DbSet<Suprimento> Suprimentos { get; set; }
         public DbSet<SuprimentoMovimentacao> SuprimentosMovimentacoes { get; set; }
         public DbSet<Turma> Turmas { get; set; }
+        public DbSet<Treinamento> Treinamentos { get; set; }
         public DbSet<Veiculo> Veiculos { get; set; }
         public DbSet<VeiculoGasto> VeiculoGastos { get; set; }
         public DbSet<VeiculoMulta> VeiculoMultas { get; set; }

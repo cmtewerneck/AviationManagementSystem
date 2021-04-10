@@ -68,6 +68,7 @@ namespace AviationManagementApi.App.Controllers
             aeronaveTarifaAtualizacao.Situacao = aeronaveTarifaViewModel.Situacao;
             aeronaveTarifaAtualizacao.Numeracao = aeronaveTarifaViewModel.Numeracao;
             aeronaveTarifaAtualizacao.OrgaoEmissorTarifa = aeronaveTarifaViewModel.OrgaoEmissorTarifa;
+            aeronaveTarifaAtualizacao.AeronaveId = aeronaveTarifaViewModel.AeronaveId;
 
             await _tarifaService.Atualizar(_mapper.Map<AeronaveTarifa>(aeronaveTarifaAtualizacao));
 

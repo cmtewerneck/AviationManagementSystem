@@ -84,6 +84,10 @@ namespace AviationManagementApi.Api.V1.Controllers
             diarioBordoAtualizacao.Observacoes = diarioBordoViewModel.Observacoes;
             diarioBordoAtualizacao.Discrepancias = diarioBordoViewModel.Discrepancias;
             diarioBordoAtualizacao.AcoesCorretivas = diarioBordoViewModel.AcoesCorretivas;
+            diarioBordoAtualizacao.AeronaveId = diarioBordoViewModel.AeronaveId;
+            diarioBordoAtualizacao.ComandanteId = diarioBordoViewModel.ComandanteId;
+            diarioBordoAtualizacao.CopilotoId = diarioBordoViewModel.CopilotoId;
+            diarioBordoAtualizacao.MecanicoResponsavelId = diarioBordoViewModel.MecanicoResponsavelId;
 
             await _diarioBordoService.Atualizar(_mapper.Map<DiarioBordo>(diarioBordoAtualizacao));
 

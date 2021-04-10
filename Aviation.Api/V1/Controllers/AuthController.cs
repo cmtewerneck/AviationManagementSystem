@@ -132,6 +132,8 @@ namespace AviationManagementApi.Api.V1.Controllers
                 {
                     Id = user.Id,
                     Email = user.Email,
+                    Nome = user.Nome,
+                    NomeEmpresa = user.Empresa,
                     Claims = claims.Select(c => new ClaimViewModel { Type = c.Type, Value = c.Value })
                 }
             };

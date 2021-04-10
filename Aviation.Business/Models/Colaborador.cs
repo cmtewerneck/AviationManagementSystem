@@ -27,5 +27,7 @@ namespace AviationManagementApi.Business.Models
         public IEnumerable<VeiculoGasto> VeiculosGastos { get; set; }
         public IEnumerable<VooInstrucao> VoosInstrucao { get; set; }
         public IEnumerable<LicencaHabilitacao> LicencasHabilitacoes { get; set; }
+        public IEnumerable<Treinamento> Treinamentos { get; set; }
+        public IEnumerable<Escala> Escalas { get; set; }
     }
 }

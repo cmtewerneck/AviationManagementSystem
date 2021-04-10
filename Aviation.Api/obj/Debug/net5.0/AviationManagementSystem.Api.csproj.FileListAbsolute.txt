@@ -109,13 +109,13 @@ C:\Projetos\Thiago\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\Aviati
 C:\Projetos\Thiago\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\ref\AviationManagementSystem.Api.dll
 C:\Projetos\Thiago\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.pdb
 C:\Projetos\Thiago\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.genruntimeconfig.cache
-C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.csprojAssemblyReference.cache
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.GeneratedMSBuildEditorConfig.editorconfig
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.AssemblyInfoInputs.cache
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.AssemblyInfo.cs
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.csproj.CoreCompileInputs.cache
-C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.csprojAssemblyReference.cache
+C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\appsettings.Development.json
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\appsettings.json
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\AviationManagementSystem.Api.exe
@@ -220,3 +220,4 @@ C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\Aviatio
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\ref\AviationManagementSystem.Api.dll
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.pdb
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.genruntimeconfig.cache
+C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\Dapper.dll
