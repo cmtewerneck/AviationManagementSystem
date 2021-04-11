@@ -123,6 +123,16 @@ namespace AviationManagementApi.App.Controllers
 
             await _alunoService.Remover(id);
 
+            if (!string.IsNullOrWhiteSpace(aluno.Imagem))
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", aluno.Imagem);
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+            }
+
             return CustomResponse(aluno);
         }
 

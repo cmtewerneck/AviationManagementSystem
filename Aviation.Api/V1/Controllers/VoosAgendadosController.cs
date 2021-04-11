@@ -92,8 +92,10 @@ namespace AviationManagementApi.Api.V1.Controllers
         #region METHODS
         [ClaimsAuthorize("Agendamento", "Consultar")]
         [HttpGet]
-        public async Task<IEnumerable<VooAgendadoViewModel>> ObterTodos()
+        public async Task<IEnumerable<VooAgendadoViewModel>> ObterTodos([FromQuery] DateTime start, [FromQuery] DateTime end)
         {
+            start = start.Date;
+            end = end.Date;
             return _mapper.Map<IEnumerable<VooAgendadoViewModel>>(await _vooAgendadoRepository.ObterTodos());
         }
 

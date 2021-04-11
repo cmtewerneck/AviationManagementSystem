@@ -84,7 +84,7 @@ namespace AviationManagementApi.App.Controllers
 
                 oficioEmitidoAtualizacao.Arquivo = arquivoNome;
             }
-    
+
             oficioEmitidoAtualizacao.Data = oficioEmitidoViewModel.Data;
             oficioEmitidoAtualizacao.Numeracao = oficioEmitidoViewModel.Numeracao;
             oficioEmitidoAtualizacao.Mensagem = oficioEmitidoViewModel.Mensagem;
@@ -118,9 +118,20 @@ namespace AviationManagementApi.App.Controllers
         #region METHODS
         [ClaimsAuthorize("Oficio", "Consultar")]
         [HttpGet]
-        public async Task<PagedResult<OficioEmitidoViewModel>> ObterTodos([FromQuery] int ps = 8, [FromQuery] int page = 1, [FromQuery] string q = null) 
+        public async Task<PagedResult<OficioEmitidoViewModel>> ObterTodos([FromQuery] int ps = 8, [FromQuery] int page = 1, [FromQuery] string q = null)
         {
-            return _mapper.Map<PagedResult<OficioEmitidoViewModel>>(await _oficioEmitidoRepository.ObterTodos(ps,page,q));
+            var prEntity = await _oficioEmitidoRepository.ObterTodos(ps, page, q);
+
+            return new PagedResult<OficioEmitidoViewModel>
+            {
+                List = _mapper.Map<IEnumerable<OficioEmitidoViewModel>>(prEntity.List),
+                PageIndex = prEntity.PageIndex,
+                PageSize = prEntity.PageSize,
+                Query = prEntity.Query,
+                TotalResults = prEntity.TotalResults
+            };
+
+            //return _mapper.Map<PagedResult<OficioEmitidoViewModel>>(await _oficioEmitidoRepository.ObterTodos(ps,page,q));
         }
 
         [ClaimsAuthorize("Oficio", "Consultar")]
