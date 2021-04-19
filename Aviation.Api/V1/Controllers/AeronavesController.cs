@@ -56,6 +56,8 @@ namespace AviationManagementApi.App.Controllers
                 aeronaveViewModel.Imagem = "NoImage.jpg";
             }
 
+            aeronaveViewModel.HorasRestantes = aeronaveViewModel.ProximaIntervencao - aeronaveViewModel.HorasTotais;
+
             await _aeronaveService.Adicionar(_mapper.Map<Aeronave>(aeronaveViewModel));
 
             return CustomResponse(aeronaveViewModel);
@@ -98,20 +100,14 @@ namespace AviationManagementApi.App.Controllers
             aeronaveAtualizacao.PesoVazio = aeronaveViewModel.PesoVazio;
             aeronaveAtualizacao.PesoBasico = aeronaveViewModel.PesoBasico;
             aeronaveAtualizacao.HorasTotais = aeronaveViewModel.HorasTotais;
-            aeronaveAtualizacao.HorasRestantes = aeronaveViewModel.HorasRestantes;
+            aeronaveAtualizacao.ProximaIntervencao = aeronaveViewModel.ProximaIntervencao;
             aeronaveAtualizacao.TipoAeronave = aeronaveViewModel.TipoAeronave;
-            aeronaveAtualizacao.VencimentoCA = aeronaveViewModel.VencimentoCA;
-            aeronaveAtualizacao.VencimentoCVA = aeronaveViewModel.VencimentoCVA;
-            aeronaveAtualizacao.VencimentoCM = aeronaveViewModel.VencimentoCM;
             aeronaveAtualizacao.UltimaPesagem = aeronaveViewModel.UltimaPesagem;
             aeronaveAtualizacao.ProximaPesagem = aeronaveViewModel.ProximaPesagem;
-            aeronaveAtualizacao.VencimentoReta = aeronaveViewModel.VencimentoReta;
-            aeronaveAtualizacao.VencimentoCasco = aeronaveViewModel.VencimentoCasco;
-            aeronaveAtualizacao.Motor = aeronaveViewModel.Motor;
-            aeronaveAtualizacao.ModeloMotor = aeronaveViewModel.ModeloMotor;
-            aeronaveAtualizacao.NumeroSerieMotor = aeronaveViewModel.NumeroSerieMotor;
             aeronaveAtualizacao.Situacao = aeronaveViewModel.Situacao;
             aeronaveAtualizacao.Ativo = aeronaveViewModel.Ativo;
+            
+            aeronaveAtualizacao.HorasRestantes = aeronaveViewModel.ProximaIntervencao - aeronaveViewModel.HorasTotais;
 
             await _aeronaveService.Atualizar(_mapper.Map<Aeronave>(aeronaveAtualizacao));
 
@@ -165,6 +161,46 @@ namespace AviationManagementApi.App.Controllers
             await _aeronaveService.Atualizar(_mapper.Map<Aeronave>(aeronaveAtualizacao));
 
             return CustomResponse(aeronaveAtualizacao);
+        }
+
+        // SALDO INSTRUÇÃO
+        [ClaimsAuthorize("Aeronave", "Atualizar")]
+        [HttpPut("atualizar-total/{id:guid}")]
+        public async Task<ActionResult<AeronaveViewModel>> AtualizarHora(Guid id, AeronaveHorasTotaisViewModel aeronaveHorasTotaisViewModel)
+        {
+            if (id != aeronaveHorasTotaisViewModel.Id)
+            {
+                NotificarErro("O id informado é diferente do id da requisição.");
+                return CustomResponse();
+            }
+
+            var aeronaveAtualizacao = await ObterAeronave(id);
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            // MANTÉM TUDO
+            aeronaveAtualizacao.Matricula = aeronaveAtualizacao.Matricula;
+            aeronaveAtualizacao.Fabricante = aeronaveAtualizacao.Fabricante;
+            aeronaveAtualizacao.Categoria = aeronaveAtualizacao.Categoria;
+            aeronaveAtualizacao.Modelo = aeronaveAtualizacao.Modelo;
+            aeronaveAtualizacao.NumeroSerie = aeronaveAtualizacao.NumeroSerie;
+            aeronaveAtualizacao.Ano = aeronaveAtualizacao.Ano;
+            aeronaveAtualizacao.PesoVazio = aeronaveAtualizacao.PesoVazio;
+            aeronaveAtualizacao.PesoBasico = aeronaveAtualizacao.PesoBasico;
+            aeronaveAtualizacao.ProximaIntervencao = aeronaveAtualizacao.ProximaIntervencao;
+            aeronaveAtualizacao.TipoAeronave = aeronaveAtualizacao.TipoAeronave;
+            aeronaveAtualizacao.UltimaPesagem = aeronaveAtualizacao.UltimaPesagem;
+            aeronaveAtualizacao.ProximaPesagem = aeronaveAtualizacao.ProximaPesagem;
+            aeronaveAtualizacao.Situacao = aeronaveAtualizacao.Situacao;
+            aeronaveAtualizacao.Ativo = aeronaveAtualizacao.Ativo;
+            aeronaveAtualizacao.Imagem = aeronaveAtualizacao.Imagem;
+
+            aeronaveAtualizacao.HorasTotais += aeronaveHorasTotaisViewModel.TotalDecimal;
+            aeronaveAtualizacao.HorasRestantes = aeronaveAtualizacao.ProximaIntervencao - aeronaveAtualizacao.HorasTotais;
+
+            await _aeronaveService.Atualizar(_mapper.Map<Aeronave>(aeronaveAtualizacao));
+
+            return CustomResponse(aeronaveHorasTotaisViewModel);
         }
         #endregion
 

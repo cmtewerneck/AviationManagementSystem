@@ -16,6 +16,7 @@ C:\Projetos\Thiago\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\Aviat
 C:\Projetos\Thiago\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\ref\AviationManagementSystem.Data.dll
 C:\Projetos\Thiago\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\AviationManagementSystem.Data.pdb
 C:\Projetos\Thiago\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\AviationManagementSystem.Data.genruntimeconfig.cache
+C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\AviationManagementSystem.Data.csprojAssemblyReference.cache
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\AviationManagementSystem.Data.GeneratedMSBuildEditorConfig.editorconfig
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\AviationManagementSystem.Data.AssemblyInfoInputs.cache
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\AviationManagementSystem.Data.AssemblyInfo.cs
@@ -28,7 +29,6 @@ C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\bin\Debug\net5.0\ref\Av
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\bin\Debug\net5.0\AviationManagementSystem.Data.pdb
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\bin\Debug\net5.0\AviationManagementSystem.Business.dll
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\bin\Debug\net5.0\AviationManagementSystem.Business.pdb
-C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\AviationManagementSystem.Data.csprojAssemblyReference.cache
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\AviationManagementSystem.Data.csproj.CopyComplete
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\AviationManagementSystem.Data.dll
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Data\obj\Debug\net5.0\ref\AviationManagementSystem.Data.dll

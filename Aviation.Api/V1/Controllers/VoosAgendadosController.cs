@@ -69,6 +69,7 @@ namespace AviationManagementApi.Api.V1.Controllers
             vooAgendadoAtualizacao.BackgroundColor = vooAgendadoViewModel.BackgroundColor;
             vooAgendadoAtualizacao.TextColor = vooAgendadoViewModel.TextColor;
             vooAgendadoAtualizacao.AeronaveId = vooAgendadoViewModel.AeronaveId;
+            vooAgendadoAtualizacao.CategoriaId = vooAgendadoViewModel.CategoriaId;
 
             await _vooAgendadoService.Atualizar(_mapper.Map<VooAgendado>(vooAgendadoAtualizacao));
 
@@ -96,7 +97,7 @@ namespace AviationManagementApi.Api.V1.Controllers
         {
             start = start.Date;
             end = end.Date;
-            return _mapper.Map<IEnumerable<VooAgendadoViewModel>>(await _vooAgendadoRepository.ObterTodos());
+            return _mapper.Map<IEnumerable<VooAgendadoViewModel>>(await _vooAgendadoRepository.ObterVoosAgendadosAeronavesCategorias());
         }
 
         //[ClaimsAuthorize("Agendamento", "Consultar")]

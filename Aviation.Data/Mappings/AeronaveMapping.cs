@@ -34,18 +34,6 @@ namespace AviationManagementApi.Data.Mappings
                 .HasMaxLength(20)
                 .HasColumnType("varchar(20)");
 
-            builder.Property(c => c.Motor)
-                .HasMaxLength(30)
-                .HasColumnType("varchar(30)");
-
-            builder.Property(c => c.ModeloMotor)
-                .HasMaxLength(30)
-                .HasColumnType("varchar(30)");
-
-            builder.Property(c => c.NumeroSerieMotor)
-                .HasMaxLength(30)
-                .HasColumnType("varchar(30)");
-
             builder.Property(c => c.Ativo)
                 .IsRequired();
 

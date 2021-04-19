@@ -13,16 +13,21 @@ namespace AviationManagementApi.Data.Context
 
         public DbSet<Aeronave> Aeronaves { get; set; }
         public DbSet<AeronaveAbastecimento> AeronavesAbastecimentos { get; set; }
+        public DbSet<AeronaveDocumento> AeronavesDocumentos { get; set; }
+        public DbSet<AeronaveDiretriz> AeronavesDiretrizes { get; set; }
+        public DbSet<AeronaveMotor> AeronavesMotores { get; set; }
         public DbSet<AeronaveTarifa> AeronavesTarifas { get; set; }
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<AlunoTurma> AlunosTurmas { get; set; }
         public DbSet<CategoriaTreinamento> CategoriasTreinamentos { get; set; }
+        public DbSet<CategoriaVoo> CategoriasVoos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Colaborador> Colaboradores { get; set; }
         public DbSet<Contas> Contas { get; set; }
         public DbSet<ContasPagar> ContasPagar { get; set; }
         public DbSet<ContasReceber> ContasReceber { get; set; }
         public DbSet<Curso> Cursos { get; set; }
+        public DbSet<DiariaTripulante> DiariasTripulante { get; set; }
         public DbSet<DiarioBordo> DiariosBordo { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Escala> Escalas { get; set; }
@@ -35,6 +40,7 @@ namespace AviationManagementApi.Data.Context
         public DbSet<OficioEmitido> OficiosEmitidos { get; set; }
         public DbSet<OficioRecebido> OficiosRecebidos { get; set; }
         public DbSet<OrdemServico> OrdensServico { get; set; }
+        public DbSet<PassagemAerea> PassagensAereas { get; set; }
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Rastreador> Rastreadores { get; set; }

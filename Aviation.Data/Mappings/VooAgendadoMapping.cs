@@ -30,6 +30,12 @@ namespace AviationManagementApi.Data.Mappings
                 .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();
 
+            builder.HasOne(x => x.Categoria)
+                .WithMany(x => x.VoosAgendados)
+                .HasForeignKey(x => x.CategoriaId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .IsRequired();
+
             builder.ToTable("Voos_Agendados");
         }
     }

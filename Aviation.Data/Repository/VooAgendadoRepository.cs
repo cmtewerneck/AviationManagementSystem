@@ -29,6 +29,16 @@ namespace AviationManagementApi.Data.Repository
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<VooAgendado>> ObterVoosAgendadosAeronavesCategorias()
+        {
+            return await Db.VoosAgendados
+                .AsNoTracking()
+                .Include(f => f.Aeronave)
+                .Include(f => f.Categoria)
+                .OrderBy(p => p.Start)
+                .ToListAsync();
+        }
+
         public async Task<IEnumerable<VooAgendado>> ObterVoosAgendadosPorAeronave(Guid aeronaveId)
         {
             return await Buscar(p => p.AeronaveId == aeronaveId);

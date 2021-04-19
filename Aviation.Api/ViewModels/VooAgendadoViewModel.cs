@@ -16,8 +16,12 @@ namespace AviationManagementApi.Api.ViewModels
         public string TextColor { get; set; } 
 
         public Guid AeronaveId { get; set; }
+        public Guid CategoriaId { get; set; }
 
         [ScaffoldColumn(false)]
         public string MatriculaAeronave { get; set; }
+
+        [ScaffoldColumn(false)]
+        public string DescricaoCategoria { get; set; }
     }
 } 

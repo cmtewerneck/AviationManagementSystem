@@ -130,8 +130,6 @@ namespace AviationManagementApi.App.Controllers
                 Query = prEntity.Query,
                 TotalResults = prEntity.TotalResults
             };
-
-            //return _mapper.Map<PagedResult<OficioEmitidoViewModel>>(await _oficioEmitidoRepository.ObterTodos(ps,page,q));
         }
 
         [ClaimsAuthorize("Oficio", "Consultar")]

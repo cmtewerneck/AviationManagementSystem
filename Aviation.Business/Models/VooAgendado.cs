@@ -15,5 +15,8 @@ namespace AviationManagementApi.Business.Models
 
         public Aeronave Aeronave { get; set; } 
         public Guid AeronaveId { get; set; } // OBRIGATÓRIO
+
+        public CategoriaVoo Categoria { get; set; }
+        public Guid CategoriaId { get; set; } // OBRIGATÓRIO
     }
 }

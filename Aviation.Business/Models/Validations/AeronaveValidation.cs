@@ -32,16 +32,12 @@ namespace AviationManagementApi.Business.Models.Validations
                 .GreaterThan(0).WithMessage("O campo {PropertyName} precisa ser maior que {ComparisonValue}");
 
             RuleFor(c => c.HorasTotais)
+                .NotEmpty().WithMessage("O campo {PropertyName} precisa ser fornecido")
                 .GreaterThanOrEqualTo(0).WithMessage("O campo {PropertyName} precisa ser maior ou igual a {ComparisonValue}");
 
-            RuleFor(c => c.Motor)
-                .Length(1, 30).When(c => c.Motor != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
-
-            RuleFor(c => c.ModeloMotor)
-                .Length(1, 30).When(c => c.ModeloMotor != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
-
-            RuleFor(c => c.NumeroSerieMotor)
-                .Length(1, 30).When(c => c.NumeroSerieMotor != "").WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
+            RuleFor(c => c.ProximaIntervencao)
+               .NotEmpty().WithMessage("O campo {PropertyName} precisa ser fornecido")
+               .GreaterThan(0).WithMessage("O campo {PropertyName} precisa ser maior que {ComparisonValue}");
         }
     }
 }

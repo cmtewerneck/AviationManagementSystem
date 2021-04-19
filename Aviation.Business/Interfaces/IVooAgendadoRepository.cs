@@ -10,7 +10,9 @@ namespace AviationManagementApi.Business.Interfaces
         Task<IEnumerable<VooAgendado>> ObterVoosAgendadosPorAeronave(Guid aeronaveId);
 
         Task<IEnumerable<VooAgendado>> ObterVoosAgendadosAeronaves();
-        
+
+        Task<IEnumerable<VooAgendado>> ObterVoosAgendadosAeronavesCategorias();
+
         Task<VooAgendado> ObterVooAgendadoAeronave(Guid id);
     }
 }

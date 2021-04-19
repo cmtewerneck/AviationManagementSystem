@@ -14,19 +14,12 @@ namespace AviationManagementApi.Api.ViewModels
         public int? Ano { get; set; }
         public decimal? PesoVazio { get; set; }
         public decimal? PesoBasico { get; set; }
-        public decimal? HorasTotais { get; set; }
+        public decimal HorasTotais { get; set; }
+        public decimal ProximaIntervencao { get; set; }
         public decimal? HorasRestantes { get; set; }
         public int TipoAeronave { get; set; }
-        public DateTime? VencimentoCA { get; set; }
-        public DateTime? VencimentoCVA { get; set; }
-        public DateTime? VencimentoCM { get; set; }
         public DateTime? UltimaPesagem { get; set; }
         public DateTime? ProximaPesagem { get; set; }
-        public DateTime? VencimentoReta { get; set; }
-        public DateTime? VencimentoCasco { get; set; }
-        public string Motor { get; set; }
-        public string ModeloMotor { get; set; }
-        public string NumeroSerieMotor { get; set; }
         public bool Ativo { get; set; } // OBRIGATÓRIO
         public bool Situacao { get; set; } // OBRIGATÓRIO
 
@@ -34,6 +27,9 @@ namespace AviationManagementApi.Api.ViewModels
         public string Imagem { get; set; }
 
         public IEnumerable<AeronaveAbastecimentoViewModel> AeronavesAbastecimentos { get; set; }
+        public IEnumerable<AeronaveMotorViewModel> AeronavesMotores { get; set; }
+        public IEnumerable<AeronaveDiretrizViewModel> AeronavesDiretrizes { get; set; }
+        public IEnumerable<AeronaveDocumentoViewModel> AeronavesDocumentos { get; set; }
         public IEnumerable<AeronaveTarifaViewModel> AeronavesTarifas { get; set; }
         public IEnumerable<VooAgendadoViewModel> VoosAgendados { get; set; }
         public IEnumerable<VooInstrucaoViewModel> VoosInstrucao { get; set; }
