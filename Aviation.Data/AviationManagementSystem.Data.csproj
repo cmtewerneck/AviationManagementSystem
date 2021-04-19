@@ -36,7 +36,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="PdfSharp" Version="1.50.5147" />
+    <PackageReference Include="PdfSharpCore" Version="1.2.16" />
   </ItemGroup>
 
   <ItemGroup>

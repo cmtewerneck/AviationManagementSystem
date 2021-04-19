@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pZv11IeA2eum7ZHvQkZ3iWV0D7bKubFQvBphK1DRWvYCTglojB9b2NDrMcg3BSJdTy4xkiAAriPsH+JPE4ZV+A==",
+  "dgSpecHash": "fWw49KmoejWyGOG4t52DA6A6P2hP1FOr216xr7CuhoI5zqmJET7ykm18dfAKM0Vzx+C4FJcBYOh3p5rRRw2+BA==",
   "success": true,
   "projectFilePath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Data\\AviationManagementSystem.Data.csproj",
   "expectedPackageFiles": [
@@ -104,8 +104,10 @@
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\netstandard.library\\2.0.0-preview1-25301-01\\netstandard.library.2.0.0-preview1-25301-01.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\Thiago Werneck\\.nuget\\packages\\pdfsharp\\1.50.5147\\pdfsharp.1.50.5147.nupkg.sha512",
+    "C:\\Users\\Thiago Werneck\\.nuget\\packages\\pdfsharpcore\\1.2.16\\pdfsharpcore.1.2.16.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\portable.bouncycastle\\1.8.1.3\\portable.bouncycastle.1.8.1.3.nupkg.sha512",
+    "C:\\Users\\Thiago Werneck\\.nuget\\packages\\sixlabors.fonts\\1.0.0-beta0013\\sixlabors.fonts.1.0.0-beta0013.nupkg.sha512",
+    "C:\\Users\\Thiago Werneck\\.nuget\\packages\\sixlabors.imagesharp\\1.0.0\\sixlabors.imagesharp.1.0.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
@@ -129,6 +131,7 @@
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
@@ -137,6 +140,7 @@
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.runtime.caching\\4.7.0\\system.runtime.caching.4.7.0.nupkg.sha512",
+    "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.7.0\\system.runtime.compilerservices.unsafe.4.7.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.runtime.handles\\4.3.0\\system.runtime.handles.4.3.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.runtime.interopservices\\4.3.0\\system.runtime.interopservices.4.3.0.nupkg.sha512",
@@ -158,16 +162,5 @@
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\yamldotnet\\8.1.2\\yamldotnet.8.1.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "O pacote 'PDFsharp 1.50.5147' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net5.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
-      "libraryId": "PDFsharp",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  "logs": []
 }

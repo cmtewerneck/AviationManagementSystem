@@ -220,11 +220,11 @@ C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\Aviatio
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\ref\AviationManagementSystem.Api.dll
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.pdb
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.genruntimeconfig.cache
-C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\PdfSharp.Charting.dll
-C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\PdfSharp.dll
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\System.Drawing.Common.dll
-C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\de\PdfSharp.Charting.resources.dll
-C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\de\PdfSharp.resources.dll
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\obj\Debug\net5.0\AviationManagementSystem.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\PdfSharpCore.dll
+C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\SixLabors.Fonts.dll
+C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\SixLabors.ImageSharp.dll
+C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\bin\Debug\net5.0\de\PdfSharpCore.resources.dll

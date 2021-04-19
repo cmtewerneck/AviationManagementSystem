@@ -6,8 +6,10 @@ using AviationManagementApi.Business.Interfaces;
 using AviationManagementApi.Business.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PdfSharpCore.Drawing;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace AviationManagementApi.App.Controllers
@@ -173,24 +175,60 @@ namespace AviationManagementApi.App.Controllers
 
         // TESTE DO PDF
         [ClaimsAuthorize("Turma", "Atualizar")]
-        [HttpPost("alunos/gerarCertificado/{id:guid}")]
-        public async Task<ActionResult<AlunoTurmaViewModel>> GerarCertificadoAluno (Guid id)
+        [HttpGet("alunos/gerarCertificado")]
+        public FileResult GerarCertificadoAluno ()
         {
-            var alunoTurma = await ObterAlunoTurma(id);
+            //var alunoTurma = ObterAlunoTurma(id);
 
-            using (var doc = new PdfSharp.Pdf.PdfDocument())
+            using (var doc = new PdfSharpCore.Pdf.PdfDocument())
             {
+                // PÁGINA
                 var page = doc.AddPage();
-                var graphics = PdfSharp.Drawing.XGraphics.FromPdfPage(page);
-                var textFormatter = new PdfSharp.Drawing.Layout.XTextFormatter(graphics);
-                var font = new PdfSharp.Drawing.XFont("Arial", 14);
+                page.Size = PdfSharpCore.PageSize.A4;
+                page.Orientation = PdfSharpCore.PageOrientation.Landscape;
+                page.Width = XUnit.FromMillimeter(297);
+                page.Height = XUnit.FromMillimeter(210);
+                // FIM CONFIGURAÇÃO PÁGINA
 
-                textFormatter.DrawString("Que belo texto!", font, PdfSharp.Drawing.XBrushes.Red, new PdfSharp.Drawing.XRect(0, 0, page.Width, page.Height));
+                var graphics = PdfSharpCore.Drawing.XGraphics.FromPdfPage(page);
+                var textFormatter = new PdfSharpCore.Drawing.Layout.XTextFormatter(graphics);
+                var font = new PdfSharpCore.Drawing.XFont("Arial", 14);
+                var corFontePaginacao = PdfSharpCore.Drawing.XBrushes.Black;
 
-                doc.Save(alunoTurma.NomeAluno + ".pdf");
+                textFormatter.DrawString("Que belo texto!", font, PdfSharpCore.Drawing.XBrushes.Red, new PdfSharpCore.Drawing.XRect(0, 0, page.Width, page.Height));
+
+                // PAGINADOR
+                var qntPaginas = doc.PageCount;
+                textFormatter.DrawString(qntPaginas.ToString(), new PdfSharpCore.Drawing.XFont("Arial", 10), corFontePaginacao, new PdfSharpCore.Drawing.XRect(578, 825, page.Width, page.Height));
+                // FIM PAGINADOR
+
+                // BACKGROUND
+                var imagemPath = @"C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\wwwroot\models\certificado_1.jpg";
+                XImage imagem = XImage.FromFile(imagemPath);
+                graphics.DrawImage(imagem, 0, 0, page.Width, page.Height);
+                // FIM BACKGROUND
+
+                var largura = page.Width;
+                var altura= page.Height;
+
+                textFormatter.DrawString("Certifico para os devidos fins, que FULANO DE TAL CPF 123.456.789-10, concluiu com êxito o curso de Piloto Privado de Avião nesta entidade, no período de 10/01/2021 à 12/01/2021, com carga horária de 360 horas.", font, corFontePaginacao, new PdfSharpCore.Drawing.XRect(130, 350, 570, page.Height));
+
+                graphics.DrawLine(XPens.Black, 130, 490, 330, 490);
+                textFormatter.DrawString("DIRETOR", font, corFontePaginacao, new PdfSharpCore.Drawing.XRect(200, 500, page.Width, page.Height));
+                graphics.DrawLine(XPens.Black, 510, 490, 710, 490);
+                textFormatter.DrawString("ALUNO", font, corFontePaginacao, new PdfSharpCore.Drawing.XRect(585, 500, page.Width, page.Height));
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    var contentType = "application/pdf";
+                    
+                    doc.Save(stream, false);
+
+                    var arquivoNome = "Texte.pdf";
+
+                    return File(stream.ToArray(), contentType, arquivoNome);
+                }
             }
-
-            return CustomResponse(alunoTurma);
         }
         #endregion
 

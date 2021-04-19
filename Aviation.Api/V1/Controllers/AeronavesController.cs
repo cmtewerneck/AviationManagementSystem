@@ -179,21 +179,6 @@ namespace AviationManagementApi.App.Controllers
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             // MANTÉM TUDO
-            aeronaveAtualizacao.Matricula = aeronaveAtualizacao.Matricula;
-            aeronaveAtualizacao.Fabricante = aeronaveAtualizacao.Fabricante;
-            aeronaveAtualizacao.Categoria = aeronaveAtualizacao.Categoria;
-            aeronaveAtualizacao.Modelo = aeronaveAtualizacao.Modelo;
-            aeronaveAtualizacao.NumeroSerie = aeronaveAtualizacao.NumeroSerie;
-            aeronaveAtualizacao.Ano = aeronaveAtualizacao.Ano;
-            aeronaveAtualizacao.PesoVazio = aeronaveAtualizacao.PesoVazio;
-            aeronaveAtualizacao.PesoBasico = aeronaveAtualizacao.PesoBasico;
-            aeronaveAtualizacao.ProximaIntervencao = aeronaveAtualizacao.ProximaIntervencao;
-            aeronaveAtualizacao.TipoAeronave = aeronaveAtualizacao.TipoAeronave;
-            aeronaveAtualizacao.UltimaPesagem = aeronaveAtualizacao.UltimaPesagem;
-            aeronaveAtualizacao.ProximaPesagem = aeronaveAtualizacao.ProximaPesagem;
-            aeronaveAtualizacao.Situacao = aeronaveAtualizacao.Situacao;
-            aeronaveAtualizacao.Ativo = aeronaveAtualizacao.Ativo;
-            aeronaveAtualizacao.Imagem = aeronaveAtualizacao.Imagem;
 
             aeronaveAtualizacao.HorasTotais += aeronaveHorasTotaisViewModel.TotalDecimal;
             aeronaveAtualizacao.HorasRestantes = aeronaveAtualizacao.ProximaIntervencao - aeronaveAtualizacao.HorasTotais;
