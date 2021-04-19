@@ -152,9 +152,17 @@
               "target": "Package",
               "version": "[5.0.3, )"
             },
+            "PdfSharp": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.0.7, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             },
             "dapper": {
               "target": "Package",
@@ -319,6 +327,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.3, )"
+            },
+            "PdfSharp": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
             }
           },
           "imports": [
@@ -487,6 +499,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.3, )"
+            },
+            "PdfSharp": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
             },
             "dapper": {
               "target": "Package",

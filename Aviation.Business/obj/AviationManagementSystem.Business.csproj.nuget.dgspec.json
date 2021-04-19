@@ -140,6 +140,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.3, )"
+            },
+            "PdfSharp": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
             }
           },
           "imports": [

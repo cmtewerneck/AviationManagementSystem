@@ -170,6 +170,28 @@ namespace AviationManagementApi.App.Controllers
 
             return CustomResponse(turmaAtualizacao);
         }
+
+        // TESTE DO PDF
+        [ClaimsAuthorize("Turma", "Atualizar")]
+        [HttpPost("alunos/gerarCertificado/{id:guid}")]
+        public async Task<ActionResult<AlunoTurmaViewModel>> GerarCertificadoAluno (Guid id)
+        {
+            var alunoTurma = await ObterAlunoTurma(id);
+
+            using (var doc = new PdfSharp.Pdf.PdfDocument())
+            {
+                var page = doc.AddPage();
+                var graphics = PdfSharp.Drawing.XGraphics.FromPdfPage(page);
+                var textFormatter = new PdfSharp.Drawing.Layout.XTextFormatter(graphics);
+                var font = new PdfSharp.Drawing.XFont("Arial", 14);
+
+                textFormatter.DrawString("Que belo texto!", font, PdfSharp.Drawing.XBrushes.Red, new PdfSharp.Drawing.XRect(0, 0, page.Width, page.Height));
+
+                doc.Save(alunoTurma.NomeAluno + ".pdf");
+            }
+
+            return CustomResponse(alunoTurma);
+        }
         #endregion
 
         #region METHODS

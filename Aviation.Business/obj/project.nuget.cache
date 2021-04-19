@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rFzPoyTK/zb7HhTpaO4QnfcvDeeWBzEpxBkl2YF3mJxBatU2msarR4hCQqrvOJ/iLQVoHSdWj2Ywr9G2BjetfA==",
+  "dgSpecHash": "ogI67rvMYjA2cHPBj/y0Mdlj0dftXmXI/CMigxoTSPRWANtCqx9bqx4mJYYejdMyxpeSmQRuN3Lqzp2tOFXv+w==",
   "success": true,
   "projectFilePath": "C:\\ProjetosGitHub\\AviationManagementSystem\\Aviation.Business\\AviationManagementSystem.Business.csproj",
   "expectedPackageFiles": [
@@ -103,6 +103,7 @@
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\netstandard.library\\2.0.0-preview1-25301-01\\netstandard.library.2.0.0-preview1-25301-01.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Thiago Werneck\\.nuget\\packages\\pdfsharp\\1.50.5147\\pdfsharp.1.50.5147.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\portable.bouncycastle\\1.8.1.3\\portable.bouncycastle.1.8.1.3.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
@@ -156,5 +157,16 @@
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
     "C:\\Users\\Thiago Werneck\\.nuget\\packages\\yamldotnet\\8.1.2\\yamldotnet.8.1.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'PDFsharp 1.50.5147' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net5.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "PDFsharp",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }
