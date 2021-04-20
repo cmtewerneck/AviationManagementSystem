@@ -51,6 +51,10 @@ namespace AviationManagementApi.Api.AutoMapper
             CreateMap<VeiculoMulta, VeiculoMultaViewModel>().ReverseMap();
             CreateMap<VooAgendado, VooAgendadoViewModel>().ReverseMap();
             CreateMap<VooInstrucao, VooInstrucaoViewModel>().ReverseMap();
+            
+            // MAPEAMENTO PARA O USUÁRIO
+            CreateMap<ApplicationUser, ApplicationUserViewModel>().ReverseMap();
+
 
             CreateMap<AeronaveTarifa, AeronaveTarifaViewModel>()
                 .ForMember(dest => dest.MatriculaAeronave, opt => opt.MapFrom(src => src.Aeronave.Matricula));

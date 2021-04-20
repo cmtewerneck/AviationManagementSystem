@@ -1,8 +1,8 @@
-﻿using System;
+﻿using AviationManagementApi.Business.Interfaces;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
-using AviationManagementApi.Business.Interfaces;
-using Microsoft.AspNetCore.Http;
 
 namespace AviationManagementApi.Api.Extensions
 {

@@ -1,4 +1,6 @@
-﻿using AviationManagementApi.Api.Controllers;
+﻿using AutoMapper;
+using AviationManagementApi.Api.Controllers;
+using AviationManagementApi.Api.Data;
 using AviationManagementApi.Api.Extensions;
 using AviationManagementApi.Api.ViewModels;
 using AviationManagementApi.Business.Interfaces;
@@ -26,19 +28,25 @@ namespace AviationManagementApi.Api.V1.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly AppSettings _appSettings;
         private readonly ILogger _logger;
+        private readonly IMapper _mapper;
 
+        #region CONSTRUCTOR
         public AuthController(INotificador notificador,
                               SignInManager<ApplicationUser> signInManager,
                               UserManager<ApplicationUser> userManager,
                               IOptions<AppSettings> appSettings, IUser user,
-                              ILogger<AuthController> logger) : base(notificador, user)
+                              ILogger<AuthController> logger,
+                              IMapper mapper) : base(notificador, user)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
             _logger = logger;
+            _mapper = mapper;
         }
+        #endregion
 
+        #region CRUD
         [HttpPost("nova-conta")]
         public async Task<ActionResult> Registrar(RegisterUserViewModel registerUser)
         {
@@ -92,7 +100,16 @@ namespace AviationManagementApi.Api.V1.Controllers
             NotificarErro("Usuário e/ou Senha inválidos.");
             return CustomResponse(loginUser);
         }
+   
+        [HttpGet("getAllUsers")]
+        public IEnumerable<ApplicationUserViewModel> ObterUsuarios()
+        {
+            var entidade = _userManager.Users.ToList();
+            return _mapper.Map<IEnumerable<ApplicationUserViewModel>>(entidade);
+        }
+        #endregion
 
+        #region METHODS
         private async Task<LoginResponseViewModel> GerarJwt(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
@@ -144,5 +161,7 @@ namespace AviationManagementApi.Api.V1.Controllers
 
         private static long ToUnixEpochDate(DateTime date)
             => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalSeconds);
+        #endregion
+
     }
 }
