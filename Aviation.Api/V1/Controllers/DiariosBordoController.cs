@@ -18,18 +18,24 @@ namespace AviationManagementApi.Api.V1.Controllers
     public class DiariosBordoController : MainController
     {
         private readonly IDiarioBordoRepository _diarioBordoRepository;
+        private readonly IAeronaveRepository _aeronaveRepository;
         private readonly IDiarioBordoServices _diarioBordoService;
+        private readonly IAeronaveServices _aeronaveService;
         private readonly IMapper _mapper;
 
         #region CONSTRUCTOR
         public DiariosBordoController(INotificador notificador,
-                                  IDiarioBordoRepository diarioBordoRepository,
-                                  IDiarioBordoServices diarioBordoService, 
-                                  IMapper mapper,
-                                  IUser user) : base(notificador, user)
+                                      IAeronaveRepository aeronaveRepository,
+                                      IAeronaveServices aeronaveService,
+                                      IDiarioBordoRepository diarioBordoRepository,
+                                      IDiarioBordoServices diarioBordoService,
+                                      IMapper mapper,
+                                      IUser user) : base(notificador, user)
         {
             _diarioBordoRepository = diarioBordoRepository;
             _diarioBordoService = diarioBordoService;
+            _aeronaveRepository = aeronaveRepository;
+            _aeronaveService = aeronaveService;
             _mapper = mapper;
         }
         #endregion
@@ -39,15 +45,20 @@ namespace AviationManagementApi.Api.V1.Controllers
         [HttpPost]
         public async Task<ActionResult<DiarioBordoViewModel>> Adicionar(DiarioBordoViewModel diarioBordoViewModel)
         {
-            diarioBordoViewModel.HoraAcionamento = diarioBordoViewModel.HoraAcionamento.AddHours(-3);
+            //diarioBordoViewModel.HoraAcionamento = diarioBordoViewModel.HoraAcionamento.AddHours(-3);
 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-           await _diarioBordoService.Adicionar(_mapper.Map<DiarioBordo>(diarioBordoViewModel));
+            await _diarioBordoService.Adicionar(_mapper.Map<DiarioBordo>(diarioBordoViewModel));
+
+            // PARTE DA AERONAVE
+            var aeronaveAtualizacao = await ObterAeronave(diarioBordoViewModel.AeronaveId);
+            aeronaveAtualizacao.HorasTotais += diarioBordoViewModel.TotalAcionamentoCorte;
+            await _aeronaveService.Atualizar(_mapper.Map<Aeronave>(aeronaveAtualizacao));
 
             return CustomResponse(diarioBordoViewModel);
         }
-       
+
         [ClaimsAuthorize("Diario", "Atualizar")]
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> Atualizar(Guid id, DiarioBordoViewModel diarioBordoViewModel)
@@ -133,6 +144,11 @@ namespace AviationManagementApi.Api.V1.Controllers
         private async Task<DiarioBordoViewModel> ObterDiarioBordo(Guid id)
         {
             return _mapper.Map<DiarioBordoViewModel>(await _diarioBordoRepository.ObterDiarioAeronaveColaboradores(id));
+        }
+
+        private async Task<AeronaveViewModel> ObterAeronave(Guid id)
+        {
+            return _mapper.Map<AeronaveViewModel>(await _aeronaveRepository.ObterPorId(id));
         }
         #endregion
     }

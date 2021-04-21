@@ -114,6 +114,78 @@ namespace AviationManagementApi.App.Controllers
             return CustomResponse(aeronaveViewModel);
         }
 
+        [ClaimsAuthorize("Aeronave", "Atualizar")]
+        [HttpPut("atualizar-imagem/{id:guid}")]
+        public async Task<ActionResult<AeronaveViewModel>> AtualizarImagem(Guid id, AeronaveImagemViewModel aeronaveImagemViewModel)
+        {
+            if (id != aeronaveImagemViewModel.Id)
+            {
+                NotificarErro("Os ids informados não são iguais!");
+                return CustomResponse();
+            }
+
+            var aeronaveAtualizacao = await ObterAeronave(id);
+
+            if (string.IsNullOrEmpty(aeronaveImagemViewModel.Imagem))
+            {
+                NotificarErro("Nenhuma imagem foi enviada!");
+                return CustomResponse();
+            }
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            if (aeronaveImagemViewModel.ImagemUpload != null)
+            {
+                var imagemNome = Guid.NewGuid() + "_" + aeronaveImagemViewModel.Imagem;
+                if (!UploadArquivo(aeronaveImagemViewModel.ImagemUpload, imagemNome))
+                {
+                    return CustomResponse(ModelState);
+                }
+
+                aeronaveAtualizacao.Imagem = imagemNome;
+            }
+
+            await _aeronaveService.Atualizar(_mapper.Map<Aeronave>(aeronaveAtualizacao));
+
+            return CustomResponse(aeronaveImagemViewModel);
+        }
+
+        [ClaimsAuthorize("Aeronave", "Atualizar")]
+        [HttpPut("remover-imagem/{id:guid}")]
+        public async Task<ActionResult<AeronaveViewModel>> RemoverImagem(Guid id, AeronaveImagemViewModel aeronaveImagemViewModel)
+        {
+            if (id != aeronaveImagemViewModel.Id)
+            {
+                NotificarErro("Os ids informados não são iguais!");
+                return CustomResponse();
+            }
+
+            var aeronaveAtualizacao = await ObterAeronave(id);
+
+            if (string.IsNullOrEmpty(aeronaveImagemViewModel.Imagem))
+            {
+                NotificarErro("Nenhuma imagem foi enviada!");
+                return CustomResponse();
+            }
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            if (aeronaveImagemViewModel.ImagemUpload != null)
+            {
+                var imagemNome = Guid.NewGuid() + "_" + aeronaveImagemViewModel.Imagem;
+                if (!UploadArquivo(aeronaveImagemViewModel.ImagemUpload, imagemNome))
+                {
+                    return CustomResponse(ModelState);
+                }
+
+                aeronaveAtualizacao.Imagem = imagemNome;
+            }
+
+            await _aeronaveService.Atualizar(_mapper.Map<Aeronave>(aeronaveAtualizacao));
+
+            return CustomResponse(aeronaveImagemViewModel);
+        }
+
         [ClaimsAuthorize("Aeronave", "Excluir")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<AeronaveViewModel>> Excluir(Guid id)
@@ -161,31 +233,6 @@ namespace AviationManagementApi.App.Controllers
             await _aeronaveService.Atualizar(_mapper.Map<Aeronave>(aeronaveAtualizacao));
 
             return CustomResponse(aeronaveAtualizacao);
-        }
-
-        // SALDO INSTRUÇÃO
-        [ClaimsAuthorize("Aeronave", "Atualizar")]
-        [HttpPut("atualizar-total/{id:guid}")]
-        public async Task<ActionResult<AeronaveViewModel>> AtualizarHora(Guid id, AeronaveHorasTotaisViewModel aeronaveHorasTotaisViewModel)
-        {
-            if (id != aeronaveHorasTotaisViewModel.Id)
-            {
-                NotificarErro("O id informado é diferente do id da requisição.");
-                return CustomResponse();
-            }
-
-            var aeronaveAtualizacao = await ObterAeronave(id);
-
-            if (!ModelState.IsValid) return CustomResponse(ModelState);
-
-            // MANTÉM TUDO
-
-            aeronaveAtualizacao.HorasTotais += aeronaveHorasTotaisViewModel.TotalDecimal;
-            aeronaveAtualizacao.HorasRestantes = aeronaveAtualizacao.ProximaIntervencao - aeronaveAtualizacao.HorasTotais;
-
-            await _aeronaveService.Atualizar(_mapper.Map<Aeronave>(aeronaveAtualizacao));
-
-            return CustomResponse(aeronaveHorasTotaisViewModel);
         }
         #endregion
 
