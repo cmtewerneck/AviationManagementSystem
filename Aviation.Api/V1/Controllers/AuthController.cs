@@ -1,22 +1,23 @@
-﻿using AutoMapper;
-using AviationManagementApi.Api.Controllers;
-using AviationManagementApi.Api.Data;
-using AviationManagementApi.Api.Extensions;
-using AviationManagementApi.Api.ViewModels;
-using AviationManagementApi.Business.Interfaces;
-using AviationManagementApi.Business.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using AviationManagementApi.Api.Controllers;
+using AviationManagementApi.Api.Extensions;
+using AviationManagementApi.Api.ViewModels;
+using AviationManagementApi.Business.Interfaces;
+using AviationManagementApi.Business.Models;
+using AviationManagementSystem.Api.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AviationManagementApi.Api.V1.Controllers
 {
@@ -27,6 +28,7 @@ namespace AviationManagementApi.Api.V1.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly AppSettings _appSettings;
+        private readonly IUsuarioService _usuarioService;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
 
@@ -36,14 +38,17 @@ namespace AviationManagementApi.Api.V1.Controllers
                               UserManager<ApplicationUser> userManager,
                               IOptions<AppSettings> appSettings, IUser user,
                               ILogger<AuthController> logger,
-                              IMapper mapper) : base(notificador, user)
+                              IMapper mapper,
+                              IUsuarioService usuarioService) : base(notificador, user)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
             _logger = logger;
             _mapper = mapper;
+            _usuarioService = usuarioService;
         }
+
         #endregion
 
         #region CRUD
@@ -102,11 +107,13 @@ namespace AviationManagementApi.Api.V1.Controllers
         }
    
         [HttpGet("getAllUsers")]
-        public IEnumerable<ApplicationUserViewModel> ObterUsuarios()
+        public async Task<IEnumerable<UsuarioListViewModel>> ObterUsuariosAsync()
         {
-            var entidade = _userManager.Users.ToList();
-            return _mapper.Map<IEnumerable<ApplicationUserViewModel>>(entidade);
+            var dtoList = await _usuarioService.ObterListaUsuariosAsync();
+            var viewModelList = _mapper.Map<IEnumerable<UsuarioListViewModel>>(dtoList);
+            return viewModelList;
         }
+
         #endregion
 
         #region METHODS

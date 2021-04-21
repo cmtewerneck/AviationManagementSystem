@@ -1,7 +1,9 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using AviationManagementApi.Api.ViewModels;
 using AviationManagementApi.Business.Models;
-using System.Linq;
+using AviationManagementSystem.Api.ViewModels;
+using AviationManagementSystem.Business.DTOs;
 
 namespace AviationManagementApi.Api.AutoMapper
 {
@@ -51,7 +53,7 @@ namespace AviationManagementApi.Api.AutoMapper
             CreateMap<VeiculoMulta, VeiculoMultaViewModel>().ReverseMap();
             CreateMap<VooAgendado, VooAgendadoViewModel>().ReverseMap();
             CreateMap<VooInstrucao, VooInstrucaoViewModel>().ReverseMap();
-            
+
             // MAPEAMENTO PARA O USUÁRIO
             CreateMap<ApplicationUser, ApplicationUserViewModel>().ReverseMap();
 
@@ -142,6 +144,8 @@ namespace AviationManagementApi.Api.AutoMapper
 
             CreateMap<PassagemAerea, PassagemAereaViewModel>()
                .ForMember(dest => dest.NomeColaborador, opt => opt.MapFrom(src => src.Colaborador.Nome));
+
+            CreateMap<UsuarioListDTO, UsuarioListViewModel>();
         }
     }
 }

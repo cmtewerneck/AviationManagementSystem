@@ -39,6 +39,8 @@ namespace AviationManagementApi.Api.V1.Controllers
         [HttpPost]
         public async Task<ActionResult<DiarioBordoViewModel>> Adicionar(DiarioBordoViewModel diarioBordoViewModel)
         {
+            diarioBordoViewModel.HoraAcionamento = diarioBordoViewModel.HoraAcionamento.AddHours(-3);
+
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
            await _diarioBordoService.Adicionar(_mapper.Map<DiarioBordo>(diarioBordoViewModel));

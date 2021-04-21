@@ -5,6 +5,7 @@ using AviationManagementApi.Business.Notificacoes;
 using AviationManagementApi.Business.Services;
 using AviationManagementApi.Data.Context;
 using AviationManagementApi.Data.Repository;
+using AviationManagementSystem.Business.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.Extensions.DependencyInjection;
@@ -108,6 +109,8 @@ namespace AviationManagementApi.Api.Configurations
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUser, AspNetUser>();
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+
+            services.AddScoped<IUsuarioService, UsuarioService>();
 
             return services;
         }

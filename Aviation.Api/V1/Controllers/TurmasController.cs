@@ -10,6 +10,7 @@ using PdfSharpCore.Drawing;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace AviationManagementApi.App.Controllers
@@ -148,7 +149,7 @@ namespace AviationManagementApi.App.Controllers
         public async Task<ActionResult<TurmaViewModel>> EncerrarTurma(Guid id)
         {
             var turmaAtualizacao = await ObterTurma(id);
-                
+
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             turmaAtualizacao.DataTermino = DateTime.Now;
@@ -174,9 +175,10 @@ namespace AviationManagementApi.App.Controllers
         }
 
         // TESTE DO PDF
-        [ClaimsAuthorize("Turma", "Atualizar")]
-        [HttpGet("alunos/gerarCertificado")]
-        public FileResult GerarCertificadoAluno ()
+        //[ClaimsAuthorize("Turma", "Atualizar")]
+        [AllowAnonymous]
+        [HttpGet("alunos/gerarCertificado/{alunoTurmaId:guid}")]
+        public FileResult GerarCertificadoAluno(Guid alunoTurmaId)
         {
             //var alunoTurma = ObterAlunoTurma(id);
 
@@ -203,13 +205,14 @@ namespace AviationManagementApi.App.Controllers
                 // FIM PAGINADOR
 
                 // BACKGROUND
-                var imagemPath = @"C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\wwwroot\models\certificado_1.jpg";
+                var imagemPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/models/certificado_1.jpg");
+               //@"C:\ProjetosGitHub\AviationManagementSystem\Aviation.Api\wwwroot\models\certificado_1.jpg";
                 XImage imagem = XImage.FromFile(imagemPath);
                 graphics.DrawImage(imagem, 0, 0, page.Width, page.Height);
                 // FIM BACKGROUND
 
                 var largura = page.Width;
-                var altura= page.Height;
+                var altura = page.Height;
 
                 textFormatter.DrawString("Certifico para os devidos fins, que FULANO DE TAL CPF 123.456.789-10, concluiu com êxito o curso de Piloto Privado de Avião nesta entidade, no período de 10/01/2021 à 12/01/2021, com carga horária de 360 horas.", font, corFontePaginacao, new PdfSharpCore.Drawing.XRect(130, 350, 570, page.Height));
 
@@ -221,7 +224,7 @@ namespace AviationManagementApi.App.Controllers
                 using (MemoryStream stream = new MemoryStream())
                 {
                     var contentType = "application/pdf";
-                    
+
                     doc.Save(stream, false);
 
                     var arquivoNome = "Texte.pdf";
